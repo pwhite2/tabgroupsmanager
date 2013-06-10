@@ -173,11 +173,11 @@ TabGroupsManager.utils=
   nsIIOService:Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService),
 };
 TabGroupsManager.utils.getElementByIdAndAnonids=function(id){
-  var tmp=document.getElementById(id);
+  /*modified*//*var tmp=document.getElementById(id);
   for(var i=1;i<arguments.length;i++){
     tmp=document.getAnonymousElementByAttribute(tmp,"anonid",arguments[i]);
   }
-  return tmp;
+  return tmp;*/
 };
 TabGroupsManager.utils.getElementByElementAndAnonids=function(element){
   var tmp=element;
@@ -4843,7 +4843,7 @@ TabGroupsManager.SearchPlugin=function(){
   try
   {
     this.engineIconURI=null;
-    this.searchService=Cc["@mozilla.org/browser/search-service;1"].getService(Ci.nsIBrowserSearchService);
+    /*modified*/ //this.searchService=Cc["@mozilla.org/browser/search-service;1"].getService(Ci.nsIBrowserSearchService);
     this.searchBar=document.getElementById("searchbar");
     this.searchWordTop=new RegExp(TabGroupsManager.strings.getString("SearchWordTopRegExp"));
   }

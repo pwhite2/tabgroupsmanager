@@ -122,7 +122,7 @@ TabGroupsManagerJsm.GlobalPreferences.prototype.observe=function(aSubject,aTopic
     break;
     case"openNewGroupOperation":
     case"useSearchPlugin":
-      TabGroupsManagerJsm.searchPlugins.searchPluginSettingChange(this.prefBranch.getBoolPref("useSearchPlugin")&&this.prefBranch.getBoolPref("openNewGroupOperation"));
+      /* modified */ //TabGroupsManagerJsm.searchPlugins.searchPluginSettingChange(this.prefBranch.getBoolPref("useSearchPlugin")&&this.prefBranch.getBoolPref("openNewGroupOperation"));
     break;
     case"windowCloseWhenLastGroupClose":this.windowCloseWhenLastGroupClose=this.prefBranch.getBoolPref("windowCloseWhenLastGroupClose");break;
     case"suspendWhenFirefoxClose":this.suspendWhenFirefoxClose=this.prefBranch.getBoolPref("suspendWhenFirefoxClose");break;
@@ -367,7 +367,7 @@ TabGroupsManagerJsm.ApplicationStatus.prototype.modifyGroupId=function(groupData
 TabGroupsManagerJsm.SearchPlugins=function(){
   try
   {
-    this.searchPluginHidden();
+    /*modified*///this.searchPluginHidden();
   }
   catch(e){
     alertErrorIfDebug(e);
@@ -379,7 +379,7 @@ TabGroupsManagerJsm.SearchPlugins.prototype.getSearchPlugins=function(visible){
   return visible?searchService.getVisibleEngines(count):searchService.getEngines(count);
 };
 TabGroupsManagerJsm.SearchPlugins.prototype.searchPluginHidden=function(){
-  var localeNow=this.selectLocale();
+  /*modified*//*var localeNow=this.selectLocale();
   var engines=this.getSearchPlugins(true);
   for(var i=0;i<engines.length;i++){
     if(engines[i].description&&engines[i].description.match(/\(TabGroupsManagerSearchPlugin\:default\,(.+?)\)/)){
@@ -388,17 +388,17 @@ TabGroupsManagerJsm.SearchPlugins.prototype.searchPluginHidden=function(){
         engines[i].hidden=true;
       }
     }
-  }
+  }*/
 };
 TabGroupsManagerJsm.SearchPlugins.prototype.searchPluginSettingChange=function(display){
-  var localeNow=this.selectLocale();
+  /*modified*//*var localeNow=this.selectLocale();
   var engines=this.getSearchPlugins(false);
   for(var i=0;i<engines.length;i++){
     if(engines[i].description&&engines[i].description.match(/\(TabGroupsManagerSearchPlugin\:default\,(.+?)\)/)){
       var localeOfPlugin=RegExp.$1.split(",");
       engines[i].hidden=this.checkSearchPluginLocale(localeOfPlugin,localeNow)?!display:true;
     }
-  }
+  }*/
 };
 TabGroupsManagerJsm.SearchPlugins.prototype.registRemoveInQuitApplication=function(){
   try

@@ -1,0 +1,13 @@
+#summary One-sentence summary of this page.
+
+= Frecuently Asked Questions =
+
+*Cannot find an issue:*
+<br />
+When searching for an issue, you may also select *All Issues* instead of only Open Issues. At this moment there arent many issues but we will be adding more.
+<br />
+
+
+*TabGroups Manager doesnt work:*
+<br />
+Please check that your version of TabGroups Manager is updated in Firefox Extensions.

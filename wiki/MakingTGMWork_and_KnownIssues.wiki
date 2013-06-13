@@ -1,4 +1,4 @@
-#summary Making TabGroups Manager work, and "known issues".
+#summary Making !TabGroups Manager work, and "known issues".
 #labels Phase-Support,How-To
 
 = Making TabGroups Manager work, and "known issues" =
@@ -35,7 +35,7 @@ Always use the latest TGM on the project downloads page and check the release no
 
   * The issues page lists all known issues we are aware of. You may want to select *All Issues* instead of only Open Issues when searching. At this moment there aren't many issues but we will be adding more.
 
-  * If TabGroups Manager doesnt work, please check that your version of TabGroups Manager is updated in Firefox Extensions first.
+  * If !TabGroups Manager doesnt work, please check that your version of !TabGroups Manager is updated in Firefox Extensions first.
 
   * Anything else - check existing issues and if it's not in that list, it's possible that it is something about your own setup of Firefox. Ask on the extension review thread, or Mozilla forums, or on the links provided on this project page, try usual troubleshooting steps (such as selectively disabling other extensions, or reinstalling, or a clean profile) and see if anyone can help narrow it down!
 

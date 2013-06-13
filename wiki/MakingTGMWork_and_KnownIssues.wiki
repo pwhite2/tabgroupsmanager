@@ -5,8 +5,7 @@
 
 Always use the latest TGM on the project downloads page and check the release notes (link above). There are not many issues, and you won't damage Firefox by using TGM if it doesn't work. The main risk is that tabs can be "lost" in some cases, so read the notes to find out more.
 
-=All versions / general info=
-  * You can check which version of Firefox you're using by checking "Help > About Firefox". 
+  * Check your version of Firefox at "Help > About Firefox". 
 
   * If you want to go back to Firefox 18 or 19 to make TGM work, it's easy. But you might have to check compatibility of other extensions if they were updated recently. (See below for more on reverting to older Firefox versions)
 

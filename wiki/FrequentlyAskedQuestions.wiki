@@ -55,4 +55,4 @@ _!TabGroups Manager doesnt work:_
 
 _ HELLLP!_
 
-  * Anything else - check existing issues and if it's not in that list, it's possible that it is something about your own setup of Firefox. Ask on the extension review thread, or Mozilla forums, or on the links provided on this project page, try usual troubleshooting steps (such as selectively disabling other extensions, or reinstalling, or a clean profile) and see if anyone can help narrow it down!
+  * Anything else - check existing issues and [MakingTGMWork_and_KnownIssues]. If it's not in that list, it's possible that it is something about your own setup of Firefox. Ask on the extension review thread, or Mozilla forums, or on the links provided on this project page, try usual troubleshooting steps (such as selectively disabling other extensions, or reinstalling, or a clean profile) and see if anyone can help narrow it down!

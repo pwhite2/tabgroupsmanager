@@ -1,7 +1,7 @@
 #summary Making !TabGroups Manager work, and "known issues".
 #labels Phase-Support,How-To
 
-= Making TabGroups Manager work, and "known issues" =
+= Making !TabGroups Manager work, and "known issues" =
 
 Always use the latest TGM on the project downloads page and check the release notes (link above). There are not many issues, and you won't damage Firefox by using TGM if it doesn't work. The main risk is that tabs can be "lost" in some cases, so read the notes to find out more.
 

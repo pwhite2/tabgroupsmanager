@@ -1,5 +1,5 @@
-#summary Frecuently Asked Questions.
-#labels Phase-Support,FrecuentlyAskedQuestions,FAQs
+#summary Frequently Asked Questions.
+#labels Phase-Support,FrequentlyAskedQuestions,FAQs
 
 = Frecuently Asked Questions =
 

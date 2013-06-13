@@ -3,11 +3,11 @@
 
 =Frequently Asked Questions=
 
-==About Tab Groups Manager and this project==
+==About !TabGroups Manager and this project==
 
-_What's "Tab Groups Manager"?_
+_What's "!TabGroups Manager"?_
 
-<blockquote>Tab Groups Manager (TGM) is a well known Firefox extension, originally written by *Axel Shootingstar*. It gives Firefox users a way to "group" tabs in a tab group bar (for example "Home", "Work", "Project 1", "Research", "Social media") so that different tasks can be seen and managed efficiently. 
+<blockquote>!TabGroups Manager (TGM) is a well known Firefox extension, originally written by *Axel Shootingstar*. It gives Firefox users a way to "group" tabs in a tab group bar (for example "Home", "Work", "Project 1", "Research", "Social media") so that different tasks can be seen and managed efficiently. 
 
 By default, Firefox uses a hidden graphical panel for this which isn't always the best or desired way. It's often easier to have the groups visible as you browse, and be able to style the tabs and groups according to status, easily drag/drop between them, or suspend and hibernate tab groups to save memory or speed up Firefox.
 
@@ -17,7 +17,7 @@ _What's this project for?_
 
 <blockquote>Extensions are developed by volunteers. Axel Shootingstar ceased developing TGM and closed his personal websites (including those related to TGM) a while ago. So TGM has not had a maintainer since 2011. Some features introduced in Firefox 20 or Firefox 21 (early 2013) changed how TGM worked, so TGM doesn't work as well as it should with these versions of Firefox (you can avoid these issues but they're annoying to experienced users!). Firefox 25 (October 2013) is expected to change a lot more and require more work to keep up to date.
 
-So really there are only 2 choices: other volunteers have to bring TabGroups Manager up to date ("fork" it), or it ends. This site is the answer to the question "which way did people choose for this very popular extension".</blockquote>
+So really there are only 2 choices: other volunteers have to bring !TabGroups Manager up to date ("fork" it), or it ends. This site is the answer to the question "which way did people choose for this very popular extension".</blockquote>
 
 _Who's behind this and how's it going?_
 
@@ -27,7 +27,7 @@ That said, we just started! (June 2013) So far the extension is patched to work 
 
 ==Useful links==
 
-_Mozilla page for TabGroups Manager, information, screenshots, old versions:_
+_Mozilla page for !TabGroups Manager, information, screenshots, old versions:_
 <blockquote>http://addons.mozilla.org/en-us/firefox/addon/tabgroups-manager</blockquote>
 
 _Latest info, downloads, issue/bug reports, feedback, suggestions, and support:_
@@ -35,7 +35,7 @@ _Latest info, downloads, issue/bug reports, feedback, suggestions, and support:_
 
     * http://code.google.com/p/tabgroupsmanager</blockquote>
 
-== Making TabGroups Manager work, and "known issues" ==
+== Making !TabGroups Manager work, and "known issues" ==
 
 TGM mostly works. This section lists the few issues this project aims to fix.
 
@@ -49,9 +49,9 @@ _Cannot find an issue:_
 
   * When searching for an issue, you may also select *All Issues* instead of only Open Issues. At this moment there aren't many issues but we will be adding more.
 
-_TabGroups Manager doesnt work:_
+_!TabGroups Manager doesnt work:_
 
-  * Please check that your version of TabGroups Manager is updated in Firefox Extensions.
+  * Please check that your version of !TabGroups Manager is updated in Firefox Extensions.
 
 _ HELLLP!_
 

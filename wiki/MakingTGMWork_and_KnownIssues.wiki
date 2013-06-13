@@ -52,6 +52,6 @@ To change the item in "about:config":
 =Reverting to an older version of Firefox=
 This is easy, and standard. If you need help ask, but it's all over Google. 
 
-  * Any extension at AMO (Addons.mozilla.org) will have a Previous extensions" section hidden on their page, where you can find the latest version of the extension that is compatible with any given version of Firefox. You can also override compatibility if you feel it's needed.
+  * Any extension at AMO (Addons.mozilla.org) will have a "Previous Versions" section hidden on their page, where you can find and download the latest version that's compatible with any given version of Firefox. You can also override compatibility if you feel it's needed (extensions exist for this).
 
   * Older versions of Firefox for all platforms can be obtained from Mozilla's FTP site (ftp://ftp.mozilla.org), and profile directories/folders can usually be copied unchanged.

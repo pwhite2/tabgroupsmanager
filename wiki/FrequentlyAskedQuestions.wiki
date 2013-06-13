@@ -17,7 +17,7 @@ _What's this project for?_
 
 <blockquote>Extensions are developed by volunteers. Axel Shootingstar ceased developing TGM and closed his personal websites (including those related to TGM) a while ago. So TGM has not had a maintainer since 2011. Some features introduced in Firefox 20 or Firefox 21 (early 2013) changed how TGM worked, so TGM doesn't work as well as it should with these versions of Firefox (you can avoid these issues but they're annoying to experienced users!). Firefox 25 (October 2013) is expected to change a lot more and require more work to keep up to date.
 
-So really there are only 2 choices: other volunteers have to bring !TabGroups Manager up to date ("fork" it), or it ends. This site is the answer to the question "which way did people choose for this very popular extension".</blockquote>
+So really there are only 2 choices: other volunteers have to bring !TabGroups Manager up to date ("fork" it), or it ends. This site should make clear which way people chose for this very popular extension :-)</blockquote>
 
 _Who's behind this and how's it going?_
 

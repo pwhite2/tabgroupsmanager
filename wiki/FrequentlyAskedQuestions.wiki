@@ -27,13 +27,12 @@ That said, we just started! (June 2013) So far the extension is patched to work 
 
 ==Useful links==
 
-_Mozilla page for !TabGroups Manager, information, screenshots, old versions:_
+_Mozilla Add-Ons page (information, screenshots, old versions):_
 <blockquote>http://addons.mozilla.org/en-us/firefox/addon/tabgroups-manager</blockquote>
 
-_Latest info, downloads, issue/bug reports, feedback, suggestions, and support:_
-<blockquote>We're putting this together, see project page for latest information:
+_Latest info, downloads, issues, feedback, suggestions, support:_
 
-    * http://code.google.com/p/tabgroupsmanager</blockquote>
+<blockquote>http://code.google.com/p/tabgroupsmanager</blockquote>
 
 == Making !TabGroups Manager work, and "known issues" ==
 

@@ -9,9 +9,9 @@ _What's "Tab Groups Manager"?_
 
 <blockquote>Tab Groups Manager (TGM) is a well known Firefox extension, originally written by *Axel Shootingstar*. It gives Firefox users a way to "group" tabs in a tab group bar (for example "Home", "Work", "Project 1", "Research", "Social media") so that different tasks can be seen and managed efficiently. 
 
-Firefox provides this but it's done by a hidden graphical panel which isn't always the best or desired way to do it, and for busy users and people who use a lot of tabs, it's often easier to have the groups visible while you browse, and be able to style the tabs and groups according to status, easily drag/drop between them, or suspend and hibernate some groups to save memory or speed up Firefox.
+By default, Firefox uses a hidden graphical panel for this which isn't always the best or desired way. It's often easier to have the groups visible as you browse, and be able to style the tabs and groups according to status, easily drag/drop between them, or suspend and hibernate tab groups to save memory or speed up Firefox.
 
-A lot of this group handling functionality is missing from Firefox. Experienced and heavy users (people using Firefox for work, people sharing browsers, enthusiasts, users with "lots of tabs") often find this to be extremely helpful. TGM adds it.</blockquote>
+A lot of this functionality is missing in Firefox. Experienced and heavy users (people using Firefox for work, people sharing browsers, enthusiasts, users with "lots of tabs") often find it extremely helpful. TGM adds it.</blockquote>
 
 _What's this project for?_
 
@@ -41,7 +41,7 @@ TGM mostly works. This section lists the few issues this project aims to fix.
 
 Always use the latest TGM on the project downloads page and check the release notes (link above). There are not many issues, and you won't damage Firefox by using TGM if it doesn't work. The main risk is that tabs can be "lost" in some cases, so read the notes to find out more.
 
-  * Detailed info - see *[MakingTGMWork_and_KnownIssues]*
+  * Detailed info - see [MakingTGMWork_and_KnownIssues]
 
 =New issues, issue reporting, and troubleshooting=
 

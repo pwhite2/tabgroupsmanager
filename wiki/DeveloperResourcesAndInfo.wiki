@@ -9,9 +9,14 @@
 = Other useful info (extensions and links relevant to tabs and tab grouping)=
 
 =Firefox 25 info=
+General background: http://www.ghacks.net/2013/05/28/mozilla-outlines-firefox-25-compatibility-changes (TGM is on the list of affected extensions)
+
 See bug 874381 (above) and any updates announced to developers:
   _"Session Restore is getting the asynchronous treatment to improve its performance. If you look at bug 874381 and its dependencies, there are several changes to this module that will affect add-ons. Particularly, there are many add-ons that rely on private variables (starting with __SS) that will no longer exist."_
-  Also toolbars and tab layout is changing, apparently.
+
+Also toolbars and tab layout is changing, apparently. However, _"the Jetpack team is landing a series of UI integration modules in Firefox 25 that will make it very easy to create toolbar buttons and additional toolbars. While these will be implemented as CommonJS modules, developers not using the SDK’s toolchain will still be able to use them by creating an instance of the SDK’s module loader."_
+  source: http://blog.mozilla.org/addons/2013/05/27/major-compatibility-changes-coming-for-firefox-25/comment-page-1/#comment-164502
+  link: https://github.com/mozilla/addon-sdk/wiki/JEP-Add-on-UI-Integration
 
 = General "How To" for extension development and FF25 =
 
@@ -27,4 +32,6 @@ See bug 874381 (above) and any updates announced to developers:
   * http://www.ibm.com/developerworks/library/os-extendfirefox/ Create your own browser extensions, Part 2: Extend your reach into Firefox
   * http://www.ibm.com/developerworks/library/os-extendagnostic/index.html Create your own browser extensions, Part 4: Move toward browser-agnostic extensions
   
- 
+*Misc tools and tricks*
+http://www.firebreath.org/display/documentation/FireBreath+Home
+http://stackoverflow.com/questions/4913123/cross-browser-extensions-api

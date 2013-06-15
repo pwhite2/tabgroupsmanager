@@ -17,7 +17,19 @@ Also toolbars and tab layout is changing, apparently. However, _"the Jetpack tea
   link: https://github.com/mozilla/addon-sdk/wiki/JEP-Add-on-UI-Integration
 
 = Other useful info, extensions, and links relevant to tabs and tab grouping=
+A few extensions that are of possible prominence in the areas we're looking at, to be aware of (they either work with tabs or their UI, or else give indications of tab features users might value)
 
+  * Tab Mix Plus
+  * Tab Utilities - two popular tab customisers
+  * Vertical Tabs - power users often report vertical tabs are good use screenwise and this has come up in FF25 discussion
+  * Unload Tabs
+  * Suspend background tabs - self evident
+  * Session manager - session handling should be compatible and save TGM2 session correctly
+  * TreeStyle Tabs
+  * Colorful tabs - tab tree, tab indenting and tab styling
+  * All-in-one sidebar - allows cross-window tab filtering and manipulation in the side panel
+  * Pano - extra interface to Panorama/tab groups (floating or in the sidebar)
+  * Multiple Tab Handler - essential we're compatible and fit in with this
 
 = General "How To" for extension development and FF25 =
 

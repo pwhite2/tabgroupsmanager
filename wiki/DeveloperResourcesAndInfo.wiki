@@ -1,14 +1,12 @@
 #summary Useful resources, links and info for development
 
-=TGM, Panorama, and FF25 specific=
+=TGM, Panorama, and FF25 codebase specific=
 
   * https://bugzilla.mozilla.org/show_bug.cgi?id=836758 - the bugzilla item for removing Panorama into an extension, patches, dev notes,  links to replacement code, etc
   * https://github.com/ttaubert/firefox-tabgroups - the replacement Panorama code (which we ought to fit in with, if we can, or liaise with)
   * https://bugzilla.mozilla.org/show_bug.cgi?id=874381 - the tracking bug for the big changes in FF25. 
 
-= Other useful info (extensions and links relevant to tabs and tab grouping)=
-
-=Firefox 25 info=
+=Firefox 25 changes=
 General background: http://www.ghacks.net/2013/05/28/mozilla-outlines-firefox-25-compatibility-changes (TGM is on the list of affected extensions)
 
 See bug 874381 (above) and any updates announced to developers:
@@ -17,6 +15,9 @@ See bug 874381 (above) and any updates announced to developers:
 Also toolbars and tab layout is changing, apparently. However, _"the Jetpack team is landing a series of UI integration modules in Firefox 25 that will make it very easy to create toolbar buttons and additional toolbars. While these will be implemented as CommonJS modules, developers not using the SDK’s toolchain will still be able to use them by creating an instance of the SDK’s module loader."_
   source: http://blog.mozilla.org/addons/2013/05/27/major-compatibility-changes-coming-for-firefox-25/comment-page-1/#comment-164502
   link: https://github.com/mozilla/addon-sdk/wiki/JEP-Add-on-UI-Integration
+
+= Other useful info, extensions, and links relevant to tabs and tab grouping=
+
 
 = General "How To" for extension development and FF25 =
 
@@ -33,5 +34,5 @@ Also toolbars and tab layout is changing, apparently. However, _"the Jetpack tea
   * http://www.ibm.com/developerworks/library/os-extendagnostic/index.html Create your own browser extensions, Part 4: Move toward browser-agnostic extensions
   
 *Misc tools and tricks*
-http://www.firebreath.org/display/documentation/FireBreath+Home
-http://stackoverflow.com/questions/4913123/cross-browser-extensions-api
+  * http://www.firebreath.org/display/documentation/FireBreath+Home
+  * http://stackoverflow.com/questions/4913123/cross-browser-extensions-api

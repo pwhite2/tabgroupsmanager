@@ -1,13 +1,14 @@
 #summary Useful resources, links and info for development
 
-=TGM, Panorama, and FF25 codebase specific=
+=TGM, Panorama, and FF25=
+
+General background: http://www.ghacks.net/2013/05/28/mozilla-outlines-firefox-25-compatibility-changes (TGM is on the list of affected extensions)
 
   * https://bugzilla.mozilla.org/show_bug.cgi?id=836758 - the bugzilla item for removing Panorama into an extension, patches, dev notes,  links to replacement code, etc
   * https://github.com/ttaubert/firefox-tabgroups - the replacement Panorama code (which we ought to fit in with, if we can, or liaise with)
   * https://bugzilla.mozilla.org/show_bug.cgi?id=874381 - the tracking bug for the big changes in FF25. 
 
-=Firefox 25 changes=
-General background: http://www.ghacks.net/2013/05/28/mozilla-outlines-firefox-25-compatibility-changes (TGM is on the list of affected extensions)
+*Impact:*
 
 See bug 874381 (above) and any updates announced to developers:
   _"Session Restore is getting the asynchronous treatment to improve its performance. If you look at bug 874381 and its dependencies, there are several changes to this module that will affect add-ons. Particularly, there are many add-ons that rely on private variables (starting with __SS) that will no longer exist."_

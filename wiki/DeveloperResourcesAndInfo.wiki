@@ -13,7 +13,7 @@ Also toolbars and tab layout is changing, apparently. However, _"the Jetpack tea
   source: http://blog.mozilla.org/addons/2013/05/27/major-compatibility-changes-coming-for-firefox-25/comment-page-1/#comment-164502
   link: https://github.com/mozilla/addon-sdk/wiki/JEP-Add-on-UI-Integration
 
-*More info*
+*Important links*
 
   * https://bugzilla.mozilla.org/show_bug.cgi?id=836758 - the bugzilla item for removing Panorama into an extension, patches, dev notes,  links to replacement code, etc
   * https://github.com/ttaubert/firefox-tabgroups - the replacement Panorama code (which we ought to fit in with, if we can, or liaise with)

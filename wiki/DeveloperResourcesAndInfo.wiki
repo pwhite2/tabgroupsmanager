@@ -25,7 +25,7 @@ A few extensions that are of possible prominence in the areas we're looking at, 
   * Unload Tabs
   * Suspend background tabs - self evident
   * Session manager - session handling should be compatible and save TGM2 session correctly
-  * TreeStyle Tabs
+  * !TreeStyle Tabs
   * Colorful tabs - tab tree, tab indenting and tab styling
   * All-in-one sidebar - allows cross-window tab filtering and manipulation in the side panel
   * Pano - extra interface to Panorama/tab groups (floating or in the sidebar)

@@ -1,0 +1,30 @@
+#summary Useful resources, links and info for development
+
+=TGM, Panorama, and FF25 specific=
+
+  * https://bugzilla.mozilla.org/show_bug.cgi?id=836758 - the bugzilla item for removing Panorama into an extension, patches, dev notes,  links to replacement code, etc
+  * https://github.com/ttaubert/firefox-tabgroups - the replacement Panorama code (which we ought to fit in with, if we can, or liaise with)
+  * https://bugzilla.mozilla.org/show_bug.cgi?id=874381 - the tracking bug for the big changes in FF25. 
+
+= Other useful info (extensions and links relevant to tabs and tab grouping)=
+
+=Firefox 25 info=
+See bug 874381 (above) and any updates announced to developers:
+  _"Session Restore is getting the asynchronous treatment to improve its performance. If you look at bug 874381 and its dependencies, there are several changes to this module that will affect add-ons. Particularly, there are many add-ons that rely on private variables (starting with __SS) that will no longer exist."_
+  Also toolbars and tab layout is changing, apparently.
+
+= General "How To" for extension development and FF25 =
+
+*MDN/Mozilla*
+  * https://developer.mozilla.org/en-US/docs/XUL/School_tutorial/Getting_Started_with_Firefox_Extensions MDN: Getting Started with Firefox Extensions/XUL
+  * https://developer.mozilla.org/en-US/docs/Extensions/Bootstrapped_extensions MDN: Bootstrapped extensions - Extensions
+  * https://developer.mozilla.org/en-US/docs/XUL/School_tutorial/The_Essentials_of_an_Extension MDN: The Essentials of an Extension/XUL
+  * https://developer.mozilla.org/en-US/docs/Extensions MDN: Extensions
+  * https://addons.mozilla.org/en-US/developers/tools/builder Developer Hub: Extension Builder and SDK
+
+*Other*
+  * http://firefoxdev.blogspot.co.uk/ Firefox extension development tips & tricks
+  * http://www.ibm.com/developerworks/library/os-extendfirefox/ Create your own browser extensions, Part 2: Extend your reach into Firefox
+  * http://www.ibm.com/developerworks/library/os-extendagnostic/index.html Create your own browser extensions, Part 4: Move toward browser-agnostic extensions
+  
+ 

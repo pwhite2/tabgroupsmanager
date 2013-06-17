@@ -20,6 +20,13 @@ Also toolbars and tab layout is changing, apparently. However, _"the Jetpack tea
   * https://github.com/ttaubert/firefox-tabgroups - the replacement Panorama code (which we ought to fit in with, if we can, or liaise with)
   * https://bugzilla.mozilla.org/show_bug.cgi?id=874381 - the tracking bug for the big changes in FF25. 
 
+*TGM thread on mailing list (2013): worth reading in full*
+  * https://mail.mozilla.org/pipermail/firefox-dev/2013-April/000251.html
+  * https://mail.mozilla.org/pipermail/firefox-dev/2013-April/000252.html
+  * https://mail.mozilla.org/pipermail/firefox-dev/2013-April/000256.html
+  * https://mail.mozilla.org/pipermail/firefox-dev/2013-April/000258.html
+  * https://mail.mozilla.org/pipermail/firefox-dev/2013-April/000270.html
+
 = Other useful info, extensions, and links relevant to tabs and tab grouping=
 A few extensions that are of possible prominence in the areas we're looking at, to be aware of (they either work with tabs or their UI, or else give indications of tab features users might value)
 

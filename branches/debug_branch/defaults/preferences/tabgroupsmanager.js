@@ -92,4 +92,4 @@ pref("extensions.tabgroupsmanager.groupNameHistory","[]");
 pref("extensions.tabgroupsmanager.groupNameRegistered","[]");
 pref("extensions.tabgroupsmanager.localIconFilders",'["resource://tabgroupsmanager/icons/"]');
 pref("extensions.tabgroupsmanager.localeBak","");
-pref("extensions.tabgroupsmanager.debug",false);
+pref("extensions.tabgroupsmanager.debug",true);

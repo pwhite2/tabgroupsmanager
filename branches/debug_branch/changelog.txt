@@ -1,0 +1,16 @@
+TabGroups Manager Changelog
+---------------------------
+
+
+[2013.04.10]:
+- Name: Lastest stable version.
+- Version: 2013.04.10.001
+- File: addon-2013.04.10.001-fx.xpi
+- Changes:
+Fixes compatibility issues with Firefox +20 and up. TabGroups Manager was throwing some exceptions at start up.
+
+
+[2011.11.28]:
+- Name: Original Axel Shootingstar version.
+- Version: 2011.11.28.1
+- File: addon-2011.11.28.1-fx.xpi

@@ -2722,28 +2722,28 @@ TabGroupsManager.GroupClass=function(id,name,image){ /*#logini#*/TabGroupsManage
     this.autoRenameBak=null;
     this.autoRenameIndex=-1;
     this.autoRenameDisableTimer=null;
-    this.__defineGetter__("selected",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('selected',function(){ ');/*#logend#*/return this.groupTab.selected;});
-    this.__defineGetter__("selectedTab",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('selectedTab',function(){ ');/*#logend#*/return this._selectedTab;});
+    this.__defineGetter__("selected",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(selected,function(){ ');/*#logend#*/return this.groupTab.selected;});
+    this.__defineGetter__("selectedTab",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(selectedTab,function(){ ');/*#logend#*/return this._selectedTab;});
     this.__defineSetter__("selectedTab",this.setSelectedTab);
-    this.__defineGetter__("id",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('id',function(){ ');/*#logend#*/return this._id;});
+    this.__defineGetter__("id",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(id,function(){ ');/*#logend#*/return this._id;});
     this.__defineSetter__("id",this.setID);
-    this.__defineGetter__("name",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('name',function(){ ');/*#logend#*/return this._name;});
+    this.__defineGetter__("name",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(name,function(){ ');/*#logend#*/return this._name;});
     this.__defineSetter__("name",this.setName);
-    this.__defineGetter__("image",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('image',function(){ ');/*#logend#*/return this._image;});
+    this.__defineGetter__("image",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(image,function(){ ');/*#logend#*/return this._image;});
     this.__defineSetter__("image",this.setImage);
-    this.__defineGetter__("disableAutoRename",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('disableAutoRename',function(){ ');/*#logend#*/return this._disableAutoRename;});
+    this.__defineGetter__("disableAutoRename",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(disableAutoRename,function(){ ');/*#logend#*/return this._disableAutoRename;});
     this.__defineSetter__("disableAutoRename",this.setDisableAutoRename);
     this.__defineGetter__("firstTab",this.getFirstTabInGroup);
     this.__defineGetter__("lastTab",this.getLastTabInGroup);
     this.__defineGetter__("last2Tab",this.getLast2TabInGroup);
-    this.__defineGetter__("suspended",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('suspended',function(){ ');/*#logend#*/return this._suspended;});
+    this.__defineGetter__("suspended",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(suspended,function(){ ');/*#logend#*/return this._suspended;});
     this.__defineSetter__("suspended",this.setSuspended);
-    this.__defineGetter__("displayTabCount",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('displayTabCount',function(){ ');/*#logend#*/return this.suspended?this.suspendArray.length:this.tabArray.length;});
-    this.__defineGetter__("busy",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('busy',function(){ ');/*#logend#*/return this._busy;});
+    this.__defineGetter__("displayTabCount",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(displayTabCount,function(){ ');/*#logend#*/return this.suspended?this.suspendArray.length:this.tabArray.length;});
+    this.__defineGetter__("busy",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(busy,function(){ ');/*#logend#*/return this._busy;});
     this.__defineSetter__("busy",this.setBusy);
-    this.__defineGetter__("unread",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('unread',function(){ ');/*#logend#*/return this._unread;});
+    this.__defineGetter__("unread",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(unread,function(){ ');/*#logend#*/return this._unread;});
     this.__defineSetter__("unread",this.setUnread);
-    this.__defineGetter__("busyTabCount",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('busyTabCount',function(){ ');/*#logend#*/return this._busyTabCount;});
+    this.__defineGetter__("busyTabCount",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(busyTabCount,function(){ ');/*#logend#*/return this._busyTabCount;});
     this.__defineSetter__("busyTabCount",this.setBusyTabCount);
     this.progressListener=new TabGroupsManager.progressListenerForGroup(this);
     this.groupTab=this.makeGroupTab();
@@ -3753,10 +3753,10 @@ TabGroupsManager.AllGroups=function(){ /*#logini#*/TabGroupsManager.fileAppendFu
     this.updating=false;
     this.saveAllGroupsDataTimer=null;
     this.saveAllGroupsDataTimeout=100;
-    this.__defineGetter__("groupbar",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('groupbar',function(){ ');/*#logend#*/return document.getElementById("TabGroupsManagerGroupbar");});
-    this.__defineGetter__("childNodes",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('childNodes',function(){ ');/*#logend#*/return this.groupbar.childNodes;});
-    this.__defineGetter__("firstChild",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('firstChild',function(){ ');/*#logend#*/return this.groupbar.firstChild;});
-    this.__defineGetter__("lastChild",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('lastChild',function(){ ');/*#logend#*/return this.groupbar.lastChild;});
+    this.__defineGetter__("groupbar",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(groupbar,function(){ ');/*#logend#*/return document.getElementById("TabGroupsManagerGroupbar");});
+    this.__defineGetter__("childNodes",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(childNodes,function(){ ');/*#logend#*/return this.groupbar.childNodes;});
+    this.__defineGetter__("firstChild",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(firstChild,function(){ ');/*#logend#*/return this.groupbar.firstChild;});
+    this.__defineGetter__("lastChild",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(lastChild,function(){ ');/*#logend#*/return this.groupbar.lastChild;});
     this.__defineGetter__("selectedGroup",this.getSelectedGroup);
     this.__defineSetter__("selectedGroup",this.setSelectedGroup);
   }
@@ -4357,7 +4357,7 @@ TabGroupsManager.AllGroups.prototype.dummyBlankPageForTmpProgress=function(progr
 TabGroupsManager.GroupBarDispHide=function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.GroupBarDispHide=function(){ ');/*#logend#*/
   try
   {
-    this.__defineGetter__("dispGroupBar",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__('dispGroupBar',function(){ ');/*#logend#*/return this.fDispGroupBar;});
+    this.__defineGetter__("dispGroupBar",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(dispGroupBar,function(){ ');/*#logend#*/return this.fDispGroupBar;});
     this.__defineSetter__("dispGroupBar",this.setDispGroupBar);
     this.fDispGroupBar=true;
     this.hideBarTimer=null;
@@ -5806,8 +5806,8 @@ window.addEventListener("load",TabGroupsManager.onLoad,false);
 /*
 This code will work only in Mozilla for extensions.
 */
-TabGroupsManager.fileAppendFunction=function(var scontent){
-  alert("TabGroupsManager.fileAppend");
+TabGroupsManager.fileAppendFunction=function(scontent){
+  //alert("TabGroupsManager.fileAppend");
   //var sfunc = arguments.callee.toString(); //works // http://www.jquery4u.com/snippets/jquery-console-log-current-function/
   //var sfunc = arguments.callee.toString().match(/function ([^\(]+)/)[1];
   //var sfunc = arguments.callee.caller.name;
@@ -5844,7 +5844,7 @@ TabGroupsManager.fileAppendFunction=function(var scontent){
 			if (scontent != "") {
 				converter.writeString(scontent); converter.writeString("\r\n");
 			}
-			converter.writeString(sfunc); converter.writeString("\r\n");
+			//converter.writeString(sfunc); converter.writeString("\r\n");
 			converter.writeString("### ################ ###\r\n");
 			converter.writeString("\r\n");
 			converter.close(); // this closes foStream

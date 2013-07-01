@@ -137,9 +137,9 @@ Settings debug parameters in Firefox will break Firebug, but dont worry, we wont
     * http://www.ibm.com/developerworks/library/os-extendfirefox
 
   * VenkMan Javascript Debugger:
-  * Although at first glance it might seem that Venkman cannot debug extensions, doing so is in fact fully supported; it's just disabled by default. To debug your extension with Venkman (XUL files and their attached JS files), you'll have to load browser and extension files into Venkman by unchecking Debug > Exclude Browser Files.
-https://addons.mozilla.org/en-US/firefox/addon/javascript-debugger/
-https://developer.mozilla.org/en-US/docs/Venkman_Introduction#Loading_Scripts_into_the_Debugger
+    * Although at first glance it might seem that Venkman cannot debug extensions, doing so is in fact fully supported; it's just disabled by default. To debug your extension with Venkman (XUL files and their attached JS files), you'll have to load browser and extension files into Venkman by unchecking Debug > Exclude Browser Files.
+    * https://addons.mozilla.org/en-US/firefox/addon/javascript-debugger
+    * https://developer.mozilla.org/en-US/docs/Venkman_Introduction#Loading_Scripts_into_the_Debugger
 
   * NetBeans Debugger for Firefox Extensions:
     * https://secure.teesoft.info/hg/FoxbeansSuite/summary
@@ -151,7 +151,7 @@ https://developer.mozilla.org/en-US/docs/Venkman_Introduction#Loading_Scripts_in
     * http://www.firebreath.org/display/documentation/KDevelop4
 
   * Chromebug:
-I have not been able to debug javascript with Chromebug. Seems it worked with old versions of Firefox.
+    * I have not been able to debug javascript with Chromebug. Seems it worked with old versions of Firefox.
 
   * Other Tools for Debugging:
     * http://fireunit.org

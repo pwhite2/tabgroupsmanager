@@ -1,0 +1,164 @@
+#labels Phase-Implementation,Phase-Requirements,Phase-Deploy
+= Developers Guide For Debugging = 
+
+
+*Recommended Computer Hardware and Software*
+  * Windows or Linux 64 bits.
+  * 8GB or 16GB of DDR3 RAM.
+
+
+*Overview*
+
+  #. Install VmWare with Windows or Linux and install Firefox.
+  #. Setup TabGroups Manager Source Code.
+  #. Configure Firefox parameters in VmWare for Developing Extensions.
+  #. Install TabGroupsManager Debug version.
+  #. Editing TabGroupsManager Source Code.
+  #. Debugging TabGroupsManager Source Code.
+  #. Other Firefox Javascript Debuggers for Extensions.
+  #. Similar Addons.
+<br />
+*DETAILED SETUP*
+
+  * This guide will detail all the necessary steps to debug any Firefox extension, mainly written for TabGroupsManager. It could take about one hour so far to set a developer enviroment and begin to debug the code, a lot of steps are really easy to understand and some of them are optional, so dont worry if you see too much reading. Its worth reading but feel free to directly jump to the step 6 if you already know how to modify the source code of the extension.
+<br />
+*1. Setup a VmWare Image, Install Updates and Needed Software*
+
+  * Disable sound and disk A: in your VmWare, and set it to use 2-3GB of RAM. Its an optional step but better for testing and debugging purposes since your main Firefox wont be changed.
+  * Update your System with lastest updates and lastest Firefox version. Dont let worms enter your VmWare, update it. Install an Antivirus, AntiMalware and Improvements: [Eset Nod32, Kaspersky, Avira, Avast, Bitdefender, Dr Web..] | [Malwarebytes, Spybot SD, Sandboxie] | [XpAntiSpy, use classic Windows theme..]
+  * Optional step, install other Internet web explorers: Opera and Chrome, so you can still search or download something if you are debugging in Firefox.
+  * I would highly recommend to install lastest updates to Firefox: Flash, Shockwave Flash, Adobe, Firebug, Java, Memory Fox. Installing the lastest version of software is a good way of testing that everything will be fine in other computers with the lastest software.
+  * Install lastest stable version of TabGroups Manager.
+  * Install Subversion or Git for managing the source code changes. TabGroups Manager Google Project is managed through Subversion (SVN) and there is a nice version for Windows: TortoiseSVN. 
+  * With TortoiseSVN you will never need to write batch command line commands. (Just create a folder, and Check In or CheckOut any files with right click). TortoiseSVN comes with a merge and check for differences tool, however I have found out that Beyond Compare or WinMerge are a lot better and nicer. (Use the one you are used to). In Linux there are probably good alternatives to TortoiseSVN.
+<br />
+*2. Setup TabGroups Manager Source Code*
+
+  * Two versions of the project can be usually found in the source code repository folder:
+    # One main branch (trunk) with the lastest stable version source code.
+    # A second branch with the debug version of the source code for developers, which usually includes a lot of logs, warning, alerts, exceptions, comments, additional debug windows..
+  * In a Team project there could be more branchs of source code, like a branch for new functionalities, but I wont extend much more into it.
+
+  * Lets look how TabGroups Manager Google Project folder with source code is divided to understand it better.
+http://code.google.com/p/tabgroupsmanager/source/browse/
+  * In TabGroups Manager we will find two branchs: 
+    # The main branch, the trunk with the lastest stable code, is located here: http://code.google.com/p/tabgroupsmanager/source/browse/trunk
+    # The debug branch for developers: http://code.google.com/p/tabgroupsmanager/source/browse/branches/debug_branch
+
+  * Generate password to Commit changes (Check out). If you are part of the developers group of the project, you may submit code changes at a later time, and your information access can be localted here:
+    * http://code.google.com/p/tabgroupsmanager/source/checkout
+    * https://code.google.com/hosting/settings
+    * http://devwatch.wordpress.com/2008/10/25/how-to-access-google-code-svn/
+
+  * You can download those branches individually, but the best way is to download the full svn repository, which contains both branches, wikipedia changes, and other usefull files. Check out the entire "TabGroups Manager svn google project" to one of our folders into our VmWare:
+    # Create the folder c:\TabGroupsManager. Right Click into the folder and select "SVN Checkout..."
+    # When asked, input the following address:     
+        * https://tabgroupsmanager.googlecode.com/svn/trunk/
+    # If it asks for a name and password, input your gmail address associated with the project and the password generated in the step above.
+
+  * We have already downloaded the source code into our folder, and we will be able to submit any changes we made to any files of the project. Right clicking in the folder and clicking in SVN Commit or CheckIn option, will automatically open the Tortoise SVN commit dialog, and we will be able to review and send the changed files to the google project. (Submitting file changes will be only allowed for developers of the project).
+<br />
+*3. Configure Firefox parameters in VmWare for Developing Extensions*
+
+  * In the address bar of Firefox, type about:config and click enter. Search for the following parameters and set the following values:
+`devtools.chrome.enabled` to true
+`devtools.debugger.remote-enabled` to true
+
+  * Install the extension for Firefox which automatically sets most parameters for developing:
+    * https://addons.mozilla.org/es/firefox/addon/developer-profile
+
+  * Usefull Resources:
+    * https://developer.mozilla.org/en-US/docs/Debugging_JavaScript
+    * https://developer.mozilla.org/en-US/docs/Setting_up_extension_development_environment
+    * https://addons.mozilla.org/en-US/firefox/addon/developer-profile
+    * https://developer.mozilla.org/en-US/docs/Building_an_Extension#Debugging_Extensions
+    * http://www.brianbondy.com/mozilla/cheatsheet/
+    * http://campd.wordpress.com/2012/11/12/firefox-and-addon-developers-should-set-devtools-chrome-enabled/
+    * http://davidthomasbernal.com/blog/2011/04/09/debugging-firefox-extensions-the-easy-way/
+    * http://www.timrosenblatt.com/blog/2008/07/23/firefox-extension-debugging/
+    * http://stackoverflow.com/questions/1077719/fastest-way-to-debug-firefox-addons-during-development
+    * http://stackoverflow.com/questions/6855359/how-to-debug-firefox-extension
+<br />
+*4. Install TabGroupsManager Debug version*
+
+  * Now that we have checked out the entire TabGroupsManager source code in a folder and setup Firefox for Developing, we should install/copy the Debug version of TabGroupsManager in the firefox extension folder of TabGroupsManager.
+Close all Firefox windows and make sure its not opened. Since we are using a VmWare, we dont have to worry about loosing any file.
+Go to the svn folder we have downloaded before and copy all the files inside debug_branch: c:\TabGroupsManager\tabgroupsmanager\branches\debug_branch
+  * All those files must be copied into the TabGroupsManager Firefox extension folder, overwritting any existing file. Go to the Mozilla Firefox extension folder, locate TabGroupsManager subfolder, and paste there all files overwritting all files:
+`C:\Documents and Settings\AdminName\Datos de programa\Mozilla\Firefox\Profiles\co1toabd.default\extensions\{ca111111-9e0a-4756-9077-19d6f3e64ea8}`
+
+  * Important information:
+    * AdminName is the name of your current user administrator, the installation folder could change if you are using other windows version.
+    * co1toabd.default is the name of your firefox profile, which will be different.
+    * {ca111111-9e0a-4756-9077-19d6f3e64ea8} is the name of the extension of TabGroupsManager, and it will be probably different in your computer.
+    * If you dont have any subfolder inside the \extension\ folder, you must uncompress all .xpi files with Winrar, and search for the right TabGroupsManager subfolder.
+<br />
+*5. Editing TabGroupsManager Source Code*
+
+  * Now that we have overwritten all TabGroupsManager files with the debug version, we can start editing the code. Please pay attention to the compressed file: 
+`{ca111111-9e0a-4756-9077-19d6f3e64ea8}\chrome\tabgroupsmanager.jar`
+  * That file is also compressed and has been already uncompressed in the same folder into the following folders:
+`content`, `local`, `skin`
+  * Firefox will not read those subfolders for new changes, it will only read the file tabgroupsmanager.jar, that means each time we change any file inside those folders, we must copy/drag and drop those files again inside \chrome\tabgroupsmanager.jar file with WinRar and reload Firefox or even restart Firefox. Since _chrome\tabgroupsmanager.jar_ can be sometimes locked by Firefox, I would recommend to close Firefox, open _chrome\tabgroupsmanager.jar_ with Winrar, drag and drop the changed files in the right folders and reopen Firefox.
+
+  * In TabGroupsManager we will have to repeat step 5. a lot of times in order to make changes to javascript core files of TabGroups Manager.
+<br />
+*6. Debugging TabGroupsManager Source Code* 
+
+  * TabGroupsManager debug version, has a default value already set to true in order to debug the code and get more warning and error messages.
+This value will help to debug the code and output a lot more information that is not available in the normal non debug version.
+`\defaults\preferences\tabgroupsmanager.js -- pref("extensions.tabgroupsmanager.debug",true);`
+
+  * If we have successfully completed the above steps, we can start Firefox and make a simple test creating 2 TabGroupsManager groups.
+Settings debug parameters in Firefox will break Firebug, but dont worry, we wont need it for debugging our javascript.
+
+  * To debug TabGroupsManager javascript extension, go to Firefox Tools, Web Developers, open Browser Debugger. A new window will ask to accept incoming remote connection to Firefox, click on Yes. For more information about Debugging with Firefox Browser Debugger, please check the following links:
+    * http://paulrouget.com/e/devtoolsnext
+    * https://hacks.mozilla.org/2013/07/new-features-in-firefox-developer-tools-episode-24/
+
+  * At the left you will see the list of files that belongs to Firefox and to Firefox extensions (.xml, .jsm, .js...). In the middle you will see the source code of the selected file. Click in the right small button [<>] with says Collapse Panels and a new panel will appear where you can see and add new variables to watch its value.
+  * Select TabGroupsManager.js and set a breakpoint in the code clicking in the left blank space (in the line number). Set it in the line 5814:
+`Breakpoint -- var sfunc = arguments.callee.caller.toString(); //works`
+  * Now Firefox will stop in that breakpoint and you will be able to debug the code and variable values with F6 (Run), F7(Go Next Line) and F8(Go Inside).
+
+  * Things to know:
+    # TabGroupsManager will save a log file with the callstack in c:\tabsgm.txt. Delete that file when you need. Change the log if you are under Linux or it will not work.
+    # Adding the following code in a line will stop the execution, like if we set a breakpoint in that line:
+        * `debugger;`
+    # Could not test it, but adding console.log(variable); will output the value of the variable in the debugger. 
+        * `console.log(variable);`
+        * `console.log("variable %o", variable);`
+        * `Firefox.console.log(); //test` with this option if the above doesnt work.
+    # Dont forget to remove or comment those lines with debugger or console.log when adding the new code to the main /trunk stable version. Its only for debugging purposes and should never be in the final release.
+<br />
+
+*7. Other Firefox Javascript Debuggers for Extensions*
+  * Mozilla Firefox Addon Builder:
+    * http://www.ibm.com/developerworks/library/os-extendfirefox
+
+  * VenkMan Javascript Debugger:
+  * Although at first glance it might seem that Venkman cannot debug extensions, doing so is in fact fully supported; it's just disabled by default. To debug your extension with Venkman (XUL files and their attached JS files), you'll have to load browser and extension files into Venkman by unchecking Debug > Exclude Browser Files.
+https://addons.mozilla.org/en-US/firefox/addon/javascript-debugger/
+https://developer.mozilla.org/en-US/docs/Venkman_Introduction#Loading_Scripts_into_the_Debugger
+
+  * NetBeans Debugger for Firefox Extensions:
+    * https://secure.teesoft.info/hg/FoxbeansSuite/summary
+
+  * Eclipse Debugger for Firefox Extensions:
+    * http://fireclipse.svn.sourceforge.net/viewvc/fireclipse/trunk/FireclipseDocumentation/
+
+  * KDevelop Debugger for Firefox Extensions:
+    * http://www.firebreath.org/display/documentation/KDevelop4
+
+  * Chromebug:
+I have not been able to debug javascript with Chromebug. Seems it worked with old versions of Firefox.
+
+  * Other Tools for Debugging:
+    * http://fireunit.org
+    * http://www.sitepoint.com/debug-php-firebug-firephp
+<br />
+*8. Similar Addons*
+
+    * http://code.google.com/p/tabgroupsmanager/wiki/DeveloperResourcesAndInfo
+    * The following addons could help to understand and develop some functionalities.
+        * https://addons.mozilla.org/es/firefox/addon/tab-mix-plus

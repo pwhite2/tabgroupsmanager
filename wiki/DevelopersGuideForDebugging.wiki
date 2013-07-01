@@ -9,9 +9,9 @@
 
 *Overview*
 
-  #. Install VmWare with Windows or Linux and install Firefox.
+  #. Install VMware with Windows or Linux and install Firefox.
   #. Setup TabGroups Manager Source Code.
-  #. Configure Firefox parameters in VmWare for Developing Extensions.
+  #. Configure Firefox parameters in VMware for Developing Extensions.
   #. Install TabGroupsManager Debug version.
   #. Editing TabGroupsManager Source Code.
   #. Debugging TabGroupsManager Source Code.
@@ -22,10 +22,10 @@
 
   * This guide will detail all the necessary steps to debug any Firefox extension, mainly written for TabGroupsManager. It could take about one hour so far to set a developer enviroment and begin to debug the code, a lot of steps are really easy to understand and some of them are optional, so dont worry if you see too much reading. Its worth reading but feel free to directly jump to the step 6 if you already know how to modify the source code of the extension.
 <br />
-*1. Setup a VmWare Image, Install Updates and Needed Software*
+*1. Setup a VMware Image, Install Updates and Needed Software*
 
-  * Disable sound and disk A: in your VmWare, and set it to use 2-3GB of RAM. Its an optional step but better for testing and debugging purposes since your main Firefox wont be changed.
-  * Update your System with lastest updates and lastest Firefox version. Dont let worms enter your VmWare, update it. Install an Antivirus, AntiMalware and Improvements: [Eset Nod32, Kaspersky, Avira, Avast, Bitdefender, Dr Web..] | [Malwarebytes, Spybot SD, Sandboxie] | [XpAntiSpy, use classic Windows theme..]
+  * Disable sound and disk A: in your VMware, and set it to use 2-3GB of RAM. Its an optional step but better for testing and debugging purposes since your main Firefox wont be changed.
+  * Update your System with lastest updates and lastest Firefox version. Dont let worms enter your VMware, update it. Install an Antivirus, AntiMalware and Improvements: [Eset Nod32, Kaspersky, Avira, Avast, Bitdefender, Dr Web..] | [Malwarebytes, Spybot SD, Sandboxie] | [XpAntiSpy, use classic Windows theme..]
   * Optional step, install other Internet web explorers: Opera and Chrome, so you can still search or download something if you are debugging in Firefox.
   * I would highly recommend to install lastest updates to Firefox: Flash, Shockwave Flash, Adobe, Firebug, Java, Memory Fox. Installing the lastest version of software is a good way of testing that everything will be fine in other computers with the lastest software.
   * Install lastest stable version of TabGroups Manager.
@@ -50,7 +50,7 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
     * https://code.google.com/hosting/settings
     * http://devwatch.wordpress.com/2008/10/25/how-to-access-google-code-svn/
 
-  * You can download those branches individually, but the best way is to download the full svn repository, which contains both branches, wikipedia changes, and other usefull files. Check out the entire "TabGroups Manager svn google project" to one of our folders into our VmWare:
+  * You can download those branches individually, but the best way is to download the full svn repository, which contains both branches, wikipedia changes, and other usefull files. Check out the entire "TabGroups Manager svn google project" to one of our folders into our VMware:
     # Create the folder c:\TabGroupsManager. Right Click into the folder and select "SVN Checkout..."
     # When asked, input the following address:     
         * https://tabgroupsmanager.googlecode.com/svn/trunk/
@@ -58,7 +58,7 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
 
   * We have already downloaded the source code into our folder, and we will be able to submit any changes we made to any files of the project. Right clicking in the folder and clicking in SVN Commit or CheckIn option, will automatically open the Tortoise SVN commit dialog, and we will be able to review and send the changed files to the google project. (Submitting file changes will be only allowed for developers of the project).
 <br />
-*3. Configure Firefox parameters in VmWare for Developing Extensions*
+*3. Configure Firefox parameters in VMware for Developing Extensions*
 
   * In the address bar of Firefox, type about:config and click enter. Search for the following parameters and set the following values:
 `devtools.chrome.enabled` to true
@@ -82,7 +82,7 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
 *4. Install TabGroupsManager Debug version*
 
   * Now that we have checked out the entire TabGroupsManager source code in a folder and setup Firefox for Developing, we should install/copy the Debug version of TabGroupsManager in the firefox extension folder of TabGroupsManager.
-Close all Firefox windows and make sure its not opened. Since we are using a VmWare, we dont have to worry about loosing any file.
+Close all Firefox windows and make sure its not opened. Since we are using a VMware, we dont have to worry about loosing any file.
 Go to the svn folder we have downloaded before and copy all the files inside debug_branch: c:\TabGroupsManager\tabgroupsmanager\branches\debug_branch
   * All those files must be copied into the TabGroupsManager Firefox extension folder, overwritting any existing file. Go to the Mozilla Firefox extension folder, locate TabGroupsManager subfolder, and paste there all files overwritting all files:
 `C:\Documents and Settings\AdminName\Datos de programa\Mozilla\Firefox\Profiles\co1toabd.default\extensions\{ca111111-9e0a-4756-9077-19d6f3e64ea8}`

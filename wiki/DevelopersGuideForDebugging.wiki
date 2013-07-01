@@ -56,7 +56,7 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
         * https://tabgroupsmanager.googlecode.com/svn
     # If it asks for a name and password, input your gmail address associated with the project and the password generated in the step above.
 
-  * We have already downloaded the source code into our folder, and we will be able to submit any changes we made to any files of the project. Right clicking in the folder and clicking in SVN Commit or CheckIn option, will automatically open the Tortoise SVN commit dialog, and we will be able to review and send the changed files to the google project. (Submitting file changes will be only allowed for developers of the project).
+  * We have already downloaded the source code into our folder, and we will be able to update and submit any changes we made to any files of the project. Right clicking in the folder `c:\TabGroupsManager\tabgroupsmanager\` and clicking in `SVN Commit` or `CheckIn` option, will automatically open the `Tortoise SVN commit` dialog, and we will be able to review and send the changed files to the google project. (Submitting file changes will be only allowed for developers of the project). Clicking in `SVN Update` will update the project folder tree to the lastest version (`HEAD`) from the Google project folder (made by you or made by other project member).
 <br />
 *3. Configure Firefox parameters in VMware for Developing Extensions*
 

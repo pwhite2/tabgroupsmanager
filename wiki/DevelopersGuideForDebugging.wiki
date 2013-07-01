@@ -53,7 +53,7 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
   * You can download those branches individually, but the best way is to download the full svn repository, which contains both branches, wikipedia changes, and other usefull files. Check out the entire "TabGroups Manager svn google project" to one of our folders into our VMware:
     # Create the folder c:\TabGroupsManager. Right Click into the folder and select "SVN Checkout..."
     # When asked, input the following address:     
-        * https://tabgroupsmanager.googlecode.com/svn/trunk/
+        * https://tabgroupsmanager.googlecode.com/svn
     # If it asks for a name and password, input your gmail address associated with the project and the password generated in the step above.
 
   * We have already downloaded the source code into our folder, and we will be able to submit any changes we made to any files of the project. Right clicking in the folder and clicking in SVN Commit or CheckIn option, will automatically open the Tortoise SVN commit dialog, and we will be able to review and send the changed files to the google project. (Submitting file changes will be only allowed for developers of the project).

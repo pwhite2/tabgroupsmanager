@@ -93,10 +93,10 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
   * Go to the svn folder we have downloaded before and copy all the files inside debug_branch: _c:\TabGroupsManager\tabgroupsmanager\branches\debug_branch_ to our last created folder: _`C:\Documents and Settings\AdminName\Datos de programa\Mozilla\Firefox\Profiles\co1toabd.default\extensions\{ca111111-9e0a-4756-9077-19d6f3e64ea8}`_ . Now Firefox will read and start with all the files inside that folder and we can make changes to those files to see if it fixes something.
 
   * Important information:
-    * AdminName is the name of your current user administrator, the installation folder could change if you are using other windows version.
-    * co1toabd.default is the name of your firefox profile, which will be different.
-    * {ca111111-9e0a-4756-9077-19d6f3e64ea8} is the name of the extension of TabGroupsManager, and it will be probably different in your computer.
-    * If you dont have any subfolder inside the \extension\ folder, you must uncompress all .xpi files with Winrar, and search for the right TabGroupsManager subfolder.
+    * _AdminName_ is the name of your current user administrator, the installation folder could change if you are using other windows version.
+    * _co1toabd.default_ is the name of your firefox profile, which will be different.
+    * _{ca111111-9e0a-4756-9077-19d6f3e64ea8}_ is the name of the extension of TabGroupsManager, and it will be probably different in your computer.
+    * If you dont have any subfolder inside the _\extension\_ folder, you must uncompress all .xpi files with Winrar, and search for the right TabGroupsManager subfolder.
 <br />
 *5. Editing TabGroupsManager Source Code*
 

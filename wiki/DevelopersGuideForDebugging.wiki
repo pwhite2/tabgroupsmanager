@@ -19,6 +19,10 @@
   #. Debugging TabGroupsManager Source Code.
   #. Other Firefox Javascript Debuggers for Extensions.
   #. Similar Addons.
+  #. Usefull Resources Firefox Developing and parameters settings
+
+  * Steps (7.) and up adds extended information for advanced development and are not necessary to read.
+
 <br />
 *DETAILED SETUP*
 

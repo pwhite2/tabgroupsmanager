@@ -78,11 +78,19 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
 <br />
 *4. Install TabGroupsManager Debug version*
 
-  * Now that we have checked out the entire TabGroupsManager source code in a folder and setup Firefox for Developing, we should install/copy the Debug version of TabGroupsManager in the firefox extension folder of TabGroupsManager.
-Close all Firefox windows and make sure its not opened. Since we are using a VMware, we dont have to worry about loosing any file.
-Go to the svn folder we have downloaded before and copy all the files inside debug_branch: c:\TabGroupsManager\tabgroupsmanager\branches\debug_branch
-  * All those files must be copied into the TabGroupsManager Firefox extension folder, overwritting any existing file. Go to the Mozilla Firefox extension folder, locate TabGroupsManager subfolder, and paste there all files overwritting all files:
-`C:\Documents and Settings\AdminName\Datos de programa\Mozilla\Firefox\Profiles\co1toabd.default\extensions\{ca111111-9e0a-4756-9077-19d6f3e64ea8}`
+  * Now that we have checked out the entire TabGroupsManager source code in a folder and setup Firefox for Developing, we should install/copy the Debug version of TabGroupsManager in the firefox extension folder of TabGroupsManager. Close all Firefox windows and make sure its not opened. Since we are using a VMware, we dont have to worry about loosing any file.
+  
+  * First we must go to the Firefox extension folder: 
+    * _C:\Documents and Settings\AdminName\Datos de programa\Mozilla\Firefox\Profiles\co1toabd.default\extensions\_
+
+  * Next step is to locate our TabGroupsManager extension which will be a .xpi file, in example: _{ca111111-9e0a-4756-9077-19d6f3e64ea8}.xpi_. XPI files are .zip compressed files, open each .xpi file with WinRAR until you guess which is the right one for TabGroupsManager. You will see some tabgroupsmanager names inside those folders, for example in folder: _default\preferences_ you will find the file _tabgroupsmanager.js_
+
+  * Now that you have located the .xpi name of TabGroupsManager, rename that file to an useless file: _.xpi_ to _.xpiBAK_
+
+  * Create a folder with the same name than the original file you have renamed, without the extension. Example, create folder: 
+    * _{ca111111-9e0a-4756-9077-19d6f3e64ea8}_
+
+  * Go to the svn folder we have downloaded before and copy all the files inside debug_branch: _c:\TabGroupsManager\tabgroupsmanager\branches\debug_branch_ to our last created folder: _`C:\Documents and Settings\AdminName\Datos de programa\Mozilla\Firefox\Profiles\co1toabd.default\extensions\{ca111111-9e0a-4756-9077-19d6f3e64ea8}`_ . Now Firefox will read and start with all the files inside that folder and we can make changes to those files to see if it fixes something.
 
   * Important information:
     * AdminName is the name of your current user administrator, the installation folder could change if you are using other windows version.

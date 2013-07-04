@@ -107,14 +107,17 @@ Go to the svn folder we have downloaded before and copy all the files inside deb
 <br />
 *6. Debugging TabGroupsManager Source Code* 
 
-  * TabGroupsManager debug version, has a default value already set to true in order to debug the code and get more warning and error messages.
+  * Its recommended to debug the source code of TabGroupsManager using the *Debug branch*. You can perfectly use and debug the non debug branch of TabGroupsManager.
+
+  * *TabGroupsManager debug version*, has a default value already set to true in order to debug the code and get more warning and error messages. 
 This value will help to debug the code and output a lot more information that is not available in the normal non debug version.
 `\defaults\preferences\tabgroupsmanager.js -- pref("extensions.tabgroupsmanager.debug",true);`
 
   * If we have successfully completed the above steps, we can start Firefox and make a simple test creating 2 TabGroupsManager groups.
 Settings debug parameters in Firefox will break Firebug, but dont worry, we wont need it for debugging our javascript.
 
-  * To debug TabGroupsManager the best option is to use *VenkMan Javascript Debugger*. _"Although at first glance it might seem that Venkman cannot debug extensions, doing so is in fact fully supported; it's just disabled by default. To debug your extension with Venkman (XUL files and their attached JS files), you'll have to load browser and extension files into Venkman by unchecking Debug > Exclude Browser Files."_
+  * To debug TabGroupsManager the best option is to use *VenkMan Javascript Debugger*. _"Although at first glance it might seem that Venkman cannot debug extensions, doing so is in fact fully supported; it's just disabled by default. To debug your extension with Venkman (XUL files and their attached JS files), you'll have to load browser and extension files into Venkman by unchecking the option in the toolbar: Debug > Exclude Browser Files."_ Now close all Firefoxs and Venkman. Reopen them again and begging setting breakpoints.
+    * https://developer.mozilla.org/en-US/docs/Extension_Frequently_Asked_Questions
     * https://addons.mozilla.org/en-US/firefox/addon/javascript-debugger
 
   * At the left you will see the list of files and scripts (.xml, .jsm, .js...), variables and breakpoints.  (.xml, .jsm, .js...). Select TabGroupsManager.js file and set a breakpoint in the code by double clicking in the left blank space, near the the line number. For testing, set it in the line 5814:

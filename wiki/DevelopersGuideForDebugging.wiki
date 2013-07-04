@@ -112,8 +112,10 @@ This value will help to debug the code and output a lot more information that is
 Settings debug parameters in Firefox will break Firebug, but dont worry, we wont need it for debugging our javascript.
 
   * To debug TabGroupsManager the best option is to use *VenkMan Javascript Debugger*. Please download and install the extension and restart Firefox: https://addons.mozilla.org/en-US/firefox/addon/javascript-debugger
-  * Configuring VenkMan: Add the Menu Bar to Firefox. Now open VenkMan: Tools, Javascript Debugger. In VenkMan, uncheck the option in the toolbar: Debug > Exclude Browser Files."_ Now close all Firefoxs and Venkman. Reopen them again and begging setting breakpoints. 
-  * Remember that you can Import breakpoints in Venkman. We have already set some breakpoints and saved them to a file to try to fix some issues, import them if you want. Check the debug version folder for breakpoints for each issue: _\tabgroupsmanager\branches\debug_branch\breakpoints_venkman_
+
+  * Configuring VenkMan: Add the Menu Bar to Firefox. Now open VenkMan: Tools, Javascript Debugger. In VenkMan, uncheck the option in the toolbar: Debug > Exclude Browser Files." Now close all Firefoxs and Venkman. Reopen them again and begging setting breakpoints. 
+
+  * Remember that you can Import breakpoints in Venkman. We have already set some breakpoints and saved them to a file to try to fix some issues, import them if you want. Check the debug version folder for those breakpoints saved for each issue: _\tabgroupsmanager\branches\debug_branch\breakpoints_venkman_
     * https://developer.mozilla.org/en-US/docs/Extension_Frequently_Asked_Questions
 
 

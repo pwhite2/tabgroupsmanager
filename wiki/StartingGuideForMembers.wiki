@@ -1,6 +1,5 @@
+#summary Starting Guide for Members
 #labels Phase-Requirements
-#Starting Guide for Members
-
 *Introduction*
 
   * Welcome to Tab Groups Manager project! This document is an introduction to help you with the first steps in Tab Groups Manager Project.

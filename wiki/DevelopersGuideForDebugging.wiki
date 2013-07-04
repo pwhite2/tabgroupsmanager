@@ -107,7 +107,7 @@ Go to the svn folder we have downloaded before and copy all the files inside deb
 <br />
 *6. Debugging TabGroupsManager Source Code* 
 
-  * Its recommended to debug the source code of TabGroupsManager using the *Debug branch*. You can perfectly use and debug the non debug branch of TabGroupsManager.
+  * Its recommended to debug the source code of TabGroupsManager using the *Debug branch*. You can perfectly use and debug the non debug branch of TabGroupsManager. Please refer to point (2.), (3.) and (4.) in order to download and install the debug branch of TabGroupsManager.
 
   * *TabGroupsManager debug version*, has a default value already set to true in order to debug the code and get more warning and error messages. 
 This value will help to debug the code and output a lot more information that is not available in the normal non debug version.

@@ -1,0 +1,23 @@
+#labels Phase-Requirements
+#Starting Guide for Members
+
+*Introduction*
+
+  * Welcome to Tab Groups Manager project! This document is an introduction to help you with the first steps in Tab Groups Manager Project.
+
+
+*TabGroupsManager Google Group:*
+
+  https://groups.google.com/forum/#!forum/tabgroupsmanager
+
+*TabGroupsManager IRC for members:*
+
+Main channel focused in discussing development of TGM.
+  * irc.mozilla.org
+  * port: 6667
+  * /join #tabgroupsmanager
+
+*Other IRC Firefox Extension Developing Channels:*
+
+  * /join #extdev
+  * /join #introduction

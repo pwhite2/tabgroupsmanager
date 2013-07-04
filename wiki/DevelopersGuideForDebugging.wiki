@@ -100,11 +100,12 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
 <br />
 *5. Editing TabGroupsManager Source Code*
 
-  * Now that we have overwritten all TabGroupsManager files with the debug version, we can start editing the code. Please pay attention to the compressed file: 
-`{ca111111-9e0a-4756-9077-19d6f3e64ea8}\chrome\tabgroupsmanager.jar`
-  * That file is also compressed and has been already uncompressed in the same folder into the following folders:
+  * Now that we have overwritten all TabGroupsManager files with the debug version, we can start editing the code having in mind the following information. 
+
+  * The following .jar file: `{ca111111-9e0a-4756-9077-19d6f3e64ea8}\chrome\tabgroupsmanager.jar` is another compressed file, and has been uncompressed in the same folder, generating the following folders:
 `content`, `local`, `skin`
-  * Firefox will not read those subfolders for new changes, it will only read the file tabgroupsmanager.jar, that means each time we change any file inside those folders, we must copy/drag and drop those files again inside \chrome\tabgroupsmanager.jar file with WinRar and reload Firefox or even restart Firefox. Since _chrome\tabgroupsmanager.jar_ can be sometimes locked by Firefox, I would recommend to close Firefox, open _chrome\tabgroupsmanager.jar_ with Winrar, drag and drop the changed files in the right folders and reopen Firefox.
+
+  * *Firefox will not read those subfolders for new changes, it will only read the file tabgroupsmanager.jar, that means each time we change any file inside those folders, we must copy/drag and drop those files again inside \chrome\tabgroupsmanager.jar file with WinRar and reload Firefox or even restart Firefox. Since _chrome\tabgroupsmanager.jar_ can be sometimes locked by Firefox, I would recommend to close Firefox, open _chrome\tabgroupsmanager.jar_ with Winrar, drag and drop the changed files in the right folders and reopen Firefox.*
 
   * In TabGroupsManager we will have to repeat step 5. a lot of times in order to make changes to javascript core files of TabGroups Manager.
 <br />

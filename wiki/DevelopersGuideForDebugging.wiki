@@ -68,18 +68,9 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
 
   * Install the extension for Firefox which automatically sets most parameters for developing:
     * https://addons.mozilla.org/es/firefox/addon/developer-profile
+ 
+  * For an extended information about Firefox Developing and setting parameters please refer to the point (9.) below for a list of links with detailed information.
 
-  * Usefull Resources:
-    * https://developer.mozilla.org/en-US/docs/Debugging_JavaScript
-    * https://developer.mozilla.org/en-US/docs/Setting_up_extension_development_environment
-    * https://addons.mozilla.org/en-US/firefox/addon/developer-profile
-    * https://developer.mozilla.org/en-US/docs/Building_an_Extension#Debugging_Extensions
-    * http://www.brianbondy.com/mozilla/cheatsheet/
-    * http://campd.wordpress.com/2012/11/12/firefox-and-addon-developers-should-set-devtools-chrome-enabled/
-    * http://davidthomasbernal.com/blog/2011/04/09/debugging-firefox-extensions-the-easy-way/
-    * http://www.timrosenblatt.com/blog/2008/07/23/firefox-extension-debugging/
-    * http://stackoverflow.com/questions/1077719/fastest-way-to-debug-firefox-addons-during-development
-    * http://stackoverflow.com/questions/6855359/how-to-debug-firefox-extension
 <br />
 *4. Install TabGroupsManager Debug version*
 
@@ -170,3 +161,16 @@ Settings debug parameters in Firefox will break Firebug, but dont worry, we wont
     * http://code.google.com/p/tabgroupsmanager/wiki/DeveloperResourcesAndInfo
     * The following addons could help to understand and develop some functionalities.
         * https://addons.mozilla.org/es/firefox/addon/tab-mix-plus
+<br />
+*9. Usefull Resources Firefox Developing and parameters settings*
+
+    * https://developer.mozilla.org/en-US/docs/Debugging_JavaScript
+    * https://developer.mozilla.org/en-US/docs/Setting_up_extension_development_environment
+    * https://addons.mozilla.org/en-US/firefox/addon/developer-profile
+    * https://developer.mozilla.org/en-US/docs/Building_an_Extension#Debugging_Extensions
+    * http://www.brianbondy.com/mozilla/cheatsheet/
+    * http://campd.wordpress.com/2012/11/12/firefox-and-addon-developers-should-set-devtools-chrome-enabled/
+    * http://davidthomasbernal.com/blog/2011/04/09/debugging-firefox-extensions-the-easy-way/
+    * http://www.timrosenblatt.com/blog/2008/07/23/firefox-extension-debugging/
+    * http://stackoverflow.com/questions/1077719/fastest-way-to-debug-firefox-addons-during-development
+    * http://stackoverflow.com/questions/6855359/how-to-debug-firefox-extension

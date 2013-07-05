@@ -13,7 +13,34 @@ var TabGroupsManager=
   initialized:false,
   apiEnabled:false,
 };
-TabGroupsManager.onLoad=function(event){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.onLoad=function(event){ ');/*#logend#*/
+
+var theFile;
+var file;
+var foStream;
+var converter;
+
+TabGroupsManager.onLoad=function(event){ /*#logini#*//*TabGroupsManager.fileAppendFunction('TabGroupsManager.onLoad=function(event){ ');*//*#logend#*/
+	//-- Global LOG Initialization Start --
+	//alert("not ''");
+	//alert("call to fileAppend, scontent: " + scontent);
+	//create proper path for file //http://stackoverflow.com/questions/4983175/how-to-read-write-file-from-hard-disk-using-firefox-addon
+	theFile = 'C:\\tabsgm.txt';
+	//create component for file writing
+	file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+	file.initWithPath( theFile );
+	if(file.exists() == false) //check to see if file exists
+	{
+		file.create( Components.interfaces.nsIFile.NORMAL_FILE_TYPE, 420);
+	}
+	foStream = Components.classes["@mozilla.org/network/file-output-stream;1"].createInstance(Components.interfaces.nsIFileOutputStream);
+	// use 0x02 | 0x10 to open file for appending.
+	foStream.init(file, 0x02 | 0x10, 0666, 0); //append
+	//foStream.init(file, 0x02 | 0x08 | 0x20, 0666, 0); //write
+	// if you are sure there will never ever be any non-ascii text in data you can also call foStream.write(data, data.length) directly
+	converter = Components.classes["@mozilla.org/intl/converter-output-stream;1"].createInstance(Components.interfaces.nsIConverterOutputStream);
+	converter.init(foStream, "UTF-8", 0, 0);
+	//-- Log Initialization End --
+			
   window.removeEventListener("load",arguments.callee,false);
   if(document.getElementById("TabGroupsManagerToolbar")){
     window.addEventListener("unload",TabGroupsManager.onUnload,false);
@@ -21,10 +48,11 @@ TabGroupsManager.onLoad=function(event){ /*#logini#*/TabGroupsManager.fileAppend
   }
 };
 TabGroupsManager.onUnload=function(event){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.onUnload=function(event){ ');/*#logend#*/
+  converter.close(); // this closes foStream
   window.removeEventListener("unload",arguments.callee,false);
   TabGroupsManager.finalize();
 };
-TabGroupsManager.initialize=function(event){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.initialize=function(event){ ');/*#logend#*/
+TabGroupsManager.initialize=function(event){ /*#logini#*//*TabGroupsManager.fileAppendFunction('TabGroupsManager.initialize=function(event){ ');*//*#logend#*/
   try
   {
     this.lastId=1;
@@ -5811,6 +5839,7 @@ TabGroupsManager.fileAppendFunction=function(scontent){
   //var sfunc = arguments.callee.toString(); //works // http://www.jquery4u.com/snippets/jquery-console-log-current-function/
   //var sfunc = arguments.callee.toString().match(/function ([^\(]+)/)[1];
   //var sfunc = arguments.callee.caller.name;
+  
   var sfunc = arguments.callee.caller.toString(); //works
   //var sfunc = arguments.callee.caller.toString().match(/function ([^\(]+)/)[1];
   //var sfunc = (arguments.callee.caller.toString().match(/function ([^\(]+)/) === null) ? 'Document Object Model': arguments.callee.caller.toString().match(/function ([^\(]+)/)[1], arguments.callee.toString().match(/function ([^\(]+)/)[1]);
@@ -5821,33 +5850,13 @@ TabGroupsManager.fileAppendFunction=function(scontent){
 		//alert("notnull");
 		if (sfunc != "")
 		{
-			//alert("not ''");
-			//alert("call to fileAppend, scontent: " + scontent);
-			//create proper path for file //http://stackoverflow.com/questions/4983175/how-to-read-write-file-from-hard-disk-using-firefox-addon
-			var theFile = 'C:\\tabsgm.txt';
-			//create component for file writing
-			var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-			file.initWithPath( theFile );
-			if(file.exists() == false) //check to see if file exists
-			{
-				file.create( Components.interfaces.nsIFile.NORMAL_FILE_TYPE, 420);
-			}
-			var foStream = Components.classes["@mozilla.org/network/file-output-stream;1"].createInstance(Components.interfaces.nsIFileOutputStream);
-			// use 0x02 | 0x10 to open file for appending.
-			foStream.init(file, 0x02 | 0x10, 0666, 0); //append
-			//foStream.init(file, 0x02 | 0x08 | 0x20, 0666, 0); //write
-
-			// if you are sure there will never ever be any non-ascii text in data you can also call foStream.write(data, data.length) directly
-			var converter = Components.classes["@mozilla.org/intl/converter-output-stream;1"].createInstance(Components.interfaces.nsIConverterOutputStream);
-			converter.init(foStream, "UTF-8", 0, 0);
-			converter.writeString("### CALL to Function ###\r\n");
+			//converter.writeString("### CALL to Function ###\r\n");
 			if (scontent != "") {
 				converter.writeString(scontent); converter.writeString("\r\n");
 			}
 			//converter.writeString(sfunc); converter.writeString("\r\n");
-			converter.writeString("### ################ ###\r\n");
+			//converter.writeString("### ################ ###\r\n");
 			converter.writeString("\r\n");
-			converter.close(); // this closes foStream
 		}
 	}
 };

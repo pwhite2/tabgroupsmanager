@@ -190,3 +190,4 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
     * http://www.timrosenblatt.com/blog/2008/07/23/firefox-extension-debugging/
     * http://stackoverflow.com/questions/1077719/fastest-way-to-debug-firefox-addons-during-development
     * http://stackoverflow.com/questions/6855359/how-to-debug-firefox-extension
+    * http://stackoverflow.com/questions/4392/best-debugging-tools-for-javascript-xulrunner-development

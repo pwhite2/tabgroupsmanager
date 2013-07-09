@@ -30,13 +30,13 @@
 <br />
 *1. Setup a VMware Image, Install Updates and Needed Software*
 
-  * Disable sound and disk A: in your VMware, and set it to use 2-3GB of RAM. Its an optional step but better for testing and debugging purposes since your main Firefox wont be changed.
+  * Disable sound and disk A: in your VMware, and set it to 2-3GB of RAM. However its an optional step its but better for perfomance and testing purposes since your main Firefox wont be changed.
   * Update your System with lastest updates and lastest Firefox version. Dont let worms enter your VMware, update it. Install an Antivirus, AntiMalware and Improvements: [Eset Nod32, Kaspersky, Avira, Avast, Bitdefender, Dr Web..] | [Malwarebytes, Spybot SD, Sandboxie] | [XpAntiSpy, use classic Windows theme..]
   * Optional step, install other Internet web explorers: Opera and Chrome, so you can still search or download something if you are debugging in Firefox.
-  * I would highly recommend to install lastest updates to Firefox: Flash, Shockwave Flash, Adobe, Firebug, Java, Memory Fox. Installing the lastest version of software is a good way of testing that everything will be fine in other computers with the lastest software.
+  * I would highly recommend to install lastest updates to Firefox: Flash, Shockwave Flash, Adobe, Java, Memory Fox. Installing the lastest version of software is a good way of testing that everything will be fine in other computers with the lastest software.
   * Install lastest stable version of TabGroups Manager.
-  * Install Subversion or Git for managing the source code changes. TabGroups Manager Google Project is managed through Subversion (SVN) and there is a nice version for Windows: TortoiseSVN. 
-  * With TortoiseSVN you will never need to write batch command line commands. (Just create a folder, and Check In or CheckOut any files with right click). TortoiseSVN comes with a merge and check for differences tool, however I have found out that Beyond Compare or WinMerge are a lot better and nicer. (Use the one you are used to). In Linux there are probably good alternatives to TortoiseSVN.
+  * Install Subversion or Git for managing the source code changes. TabGroups Manager Google Project is managed through Subversion (SVN) and there is a version for Windows which works great: TortoiseSVN. 
+  * With TortoiseSVN you will never need to write any batch line commands. You will only manage folders, create a folder and Check In or CheckOut any files with mouse right click. TortoiseSVN also comes with a merge and check for differences tools. Instead of the default ones I have found "Beyond Compare" or "WinMerge" to be better and easier, but use the one you like most. In Linux there are probably good alternatives to TortoiseSVN.
 <br />
 *2. Setup TabGroups Manager Source Code*
 
@@ -45,10 +45,10 @@
     # A second branch with the debug version of the source code for developers, which usually includes a lot of logs, warning, alerts, exceptions, comments, additional debug windows..
   * In a Team project there could be more branchs of source code, like a branch for new functionalities, but I wont extend much more into it.
 
-  * Lets look how TabGroups Manager Google Project folder with source code is divided to understand it better.
+  * Lets look how the source code of TabGroups Manager Project is divided in the tree folder:
 http://code.google.com/p/tabgroupsmanager/source/browse/
   * In TabGroups Manager we will find two branchs: 
-    # The main branch, the trunk with the lastest stable code, is located here: http://code.google.com/p/tabgroupsmanager/source/browse/trunk
+    # The main branch, the trunk with the lastest stable code, located here: http://code.google.com/p/tabgroupsmanager/source/browse/trunk
     # The debug branch for developers: http://code.google.com/p/tabgroupsmanager/source/browse/branches/debug_branch
 
   * Generate password to Commit changes (Check out). If you are part of the developers group of the project, you may submit code changes at a later time, and your information access can be localted here:
@@ -70,7 +70,7 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
 `devtools.chrome.enabled` to true
 `devtools.debugger.remote-enabled` to true
 
-  * Install the extension for Firefox which automatically sets most parameters for developing:
+  * Install the extension for Firefox which automatically sets most parameters for developing and debugging:
     * https://addons.mozilla.org/es/firefox/addon/developer-profile
  
   * For an extended information about Firefox Developing and setting parameters please refer to the point (9.) below for a list of links with detailed information.
@@ -82,6 +82,7 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
   
   * First we must go to the Firefox extension folder: 
     * _C:\Documents and Settings\AdminName\Datos de programa\Mozilla\Firefox\Profiles\co1toabd.default\extensions\_
+    * _/home/YOUR_USER/.mozilla/firefox/co1toabd.default/extensions_     (LINUX)
 
   * Next step is to locate our TabGroupsManager extension which will be a .xpi file, in example: _{ca111111-9e0a-4756-9077-19d6f3e64ea8}.xpi_. XPI files are .zip compressed files, open each .xpi file with WinRAR until you guess which is the right one for TabGroupsManager. You will see some tabgroupsmanager names inside those folders, for example in folder: _default\preferences_ you will find the file _tabgroupsmanager.js_
 
@@ -116,21 +117,23 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
   * *TabGroupsManager debug version*, has a default value already set to true in order to debug the code and get more warning and error messages. This value will help to debug the code and output a lot more information that is not available in the normal non debug version.
     * `\defaults\preferences\tabgroupsmanager.js -- pref("extensions.tabgroupsmanager.debug",true);`
 
-  * If we have successfully completed the above steps, we can start Firefox and make a simple test creating 2 TabGroupsManager groups.
+  * If we have successfully completed the above steps, we can start Firefox and create 2 TabGroupsManager groups for testing.
 
-  * To debug TabGroupsManager the best option is to use *VenkMan Javascript Debugger*. Please download and install the extension and restart Firefox: https://addons.mozilla.org/en-US/firefox/addon/javascript-debugger
+  * One of the best debuggers is *VenkMan Javascript Debugger*. A bit hard at the beggining but easier at the end. Please download and install the extension and restart Firefox: https://addons.mozilla.org/en-US/firefox/addon/javascript-debugger
 
-  * Configuring VenkMan: Add the Menu Bar to Firefox. Now open VenkMan: _Tools, Javascript Debugger_. In VenkMan, uncheck the option in the toolbar: Debug > Exclude Browser Files." Now close all Firefoxs and Venkman. Reopen them again and begging setting breakpoints. 
+  * Configuring VenkMan: Add the Menu Bar to Firefox. Now open VenkMan: _Tools, Javascript Debugger_. In VenkMan, uncheck the option in the toolbar: Debug > Exclude Browser Files." Now close all Firefoxs and Venkman. Reopen them again and begin setting some breakpoints. 
 
-  * Remember that you can Import breakpoints in Venkman. We have already set some breakpoints and saved them to a file to try to fix some issues, import them if you want. Check the debug version folder for those breakpoints saved for each issue: _\tabgroupsmanager\branches\debug_branch\breakpoints_venkman_
+  * Remember that you can Import/Export breakpoints in Venkman. We have already set some breakpoints for TabGroups Manager for you, and saved them to a file. Check the debug version folder for those breakpoints files saved for each issue: _\tabgroupsmanager\branches\debug_branch\breakpoints_venkman_
     * https://developer.mozilla.org/en-US/docs/Extension_Frequently_Asked_Questions
 
   * At the left you will see the list of files and scripts (.xml, .jsm, .js...), variables and breakpoints.  (.xml, .jsm, .js...). Select TabGroupsManager.js file and set a breakpoint in the code by double clicking in the left blank space, near the the line number. For testing, set it in the line 5814:
     * `Breakpoint -- var sfunc = arguments.callee.caller.toString(); //works`
   * Now Firefox will stop in that breakpoint and you will be able to debug the code and variable values with F5(Run), F12(Go Next Line) and F11(Go Inside).
 
+  * While debugging with Venkman you will notice some issues. You will need to press F12 two times to jump from one line to the next line, and it will not stop in the next line, instead it will run till the end of the code. The solution is to set a Breakpoint in all lines of the function you are debugging. If Venkman seems to be hanged, press the keys to continue with debugging: F12 two times or F5, the debugger is not hanged and its still running.
+
   * Things to know:
-    # Remember to export save your breakpoints, so you dont loose your work!!
+    # Remember to export and save your breakpoints, so you dont loose all your work!!
     # You need to set all developer parameters in Firefox to debug scripts. Also you need to uncheck: Debug > Exclude Browser Files in VenkMan.
     # TabGroupsManager will save a log file with the callstack in c:\tabsgm.txt. Delete that file when you need. Change the log if you are under Linux or it will not work.
     # Adding the following code in a line will stop the execution, like if we set a breakpoint in that line:

@@ -1,4 +1,4 @@
-#summary Starting Guide for Members
+#summary About the team and improving TGM: A Starting Guide
 #labels Phase-Requirements
 *Introduction*
 

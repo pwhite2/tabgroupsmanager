@@ -1,4 +1,4 @@
-#summary Frequently Asked Questions.
+#summary New? Start here! Frequently Asked Questions.
 #labels Phase-Support,FrequentlyAskedQuestions,FAQs
 
 =Frequently Asked Questions=

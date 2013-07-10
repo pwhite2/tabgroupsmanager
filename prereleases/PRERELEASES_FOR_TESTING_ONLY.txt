@@ -1,0 +1,4 @@
+The files contained in this folder are non intented for daily use and may contain bugs and new issues.
+These files contained in this folder are Prerelease versions of TabGroups Manager which may contain new issues.
+Download and install them only under your own responsability, for testing purposes.
+**MAKE A COMPLETE BACKUP OF FIREFOX PROFILE, HISTORY, TABS AND TABGROUPS MANAGER SESSION MANUAL BACKUP before installing any version of this folder **.

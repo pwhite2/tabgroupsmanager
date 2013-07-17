@@ -841,7 +841,7 @@ TabGroupsManager.KeyboardState=function(){ /*#logini#*/TabGroupsManager.fileAppe
     TabGroupsManagerJsm.displayError.alertErrorIfDebug(e);
   }
 };
-TabGroupsManager.KeyboardState.prototype.createEventListener=function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.KeyboardState.prototype.createEventListener=function(){ ');/*#logend#*/
+TabGroupsManager.KeyboardState.prototype.createEventListener=function(){ /*#logini#*//*TabGroupsManager.fileAppendFunction('TabGroupsManager.KeyboardState.prototype.createEventListener=function(){ ');*//*#logend#*/
   window.addEventListener("click",this,true);
   window.addEventListener("mousedown",this,true);
   window.addEventListener("mouseup",this,true);
@@ -849,7 +849,7 @@ TabGroupsManager.KeyboardState.prototype.createEventListener=function(){ /*#logi
   window.addEventListener("keyup",this,true);
   window.addEventListener("keypress",this,true);
 };
-TabGroupsManager.KeyboardState.prototype.destroyEventListener=function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.KeyboardState.prototype.destroyEventListener=function(){ ');/*#logend#*/
+TabGroupsManager.KeyboardState.prototype.destroyEventListener=function(){ /*#logini#*//*TabGroupsManager.fileAppendFunction('TabGroupsManager.KeyboardState.prototype.destroyEventListener=function(){ ');*//*#logend#*/
   window.removeEventListener("click",this,true);
   window.removeEventListener("mousedown",this,true);
   window.removeEventListener("mouseup",this,true);
@@ -857,7 +857,7 @@ TabGroupsManager.KeyboardState.prototype.destroyEventListener=function(){ /*#log
   window.removeEventListener("keyup",this,true);
   window.removeEventListener("keypress",this,true);
 };
-TabGroupsManager.KeyboardState.prototype.handleEvent=function(event){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.KeyboardState.prototype.handleEvent=function(event){ ');/*#logend#*/
+TabGroupsManager.KeyboardState.prototype.handleEvent=function(event){ /*#logini#*//*TabGroupsManager.fileAppendFunction('TabGroupsManager.KeyboardState.prototype.handleEvent=function(event){ ');*//*#logend#*/
   switch(event.type){
     case"click":
     case"mousedown":
@@ -867,7 +867,7 @@ TabGroupsManager.KeyboardState.prototype.handleEvent=function(event){ /*#logini#
     case"keypress":this.onKeyPress(event);break;
   }
 };
-TabGroupsManager.KeyboardState.prototype.onKeyPress=function(event){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.KeyboardState.prototype.onKeyPress=function(event){ ');/*#logend#*/
+TabGroupsManager.KeyboardState.prototype.onKeyPress=function(event){ /*#logini#*//*TabGroupsManager.fileAppendFunction('TabGroupsManager.KeyboardState.prototype.onKeyPress=function(event){ ');*//*#logend#*/
   if(event.keyCode==event.DOM_VK_TAB&&!event.altKey&&this.isAccelKeyDown(event)){
     if(event.shiftKey){
       switch(TabGroupsManager.preferences.ctrlTab){
@@ -886,7 +886,7 @@ TabGroupsManager.KeyboardState.prototype.onKeyPress=function(event){ /*#logini#*
     event.stopPropagation();
   }
 };
-TabGroupsManager.KeyboardState.prototype.selectObject=function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.KeyboardState.prototype.selectObject=function(){ ');/*#logend#*/
+TabGroupsManager.KeyboardState.prototype.selectObject=function(){ /*#logini#*//*TabGroupsManager.fileAppendFunction('TabGroupsManager.KeyboardState.prototype.selectObject=function(){ ');*//*#logend#*/
   if(this.eventObject){
     return this.eventObject;
   }else if(("easyDragToGo" in window)&&window.easyDragToGo.onDropEvent){
@@ -910,14 +910,14 @@ TabGroupsManager.KeyboardState.prototype.getMetaKey=function(){ /*#logini#*/TabG
   var object=this.selectObject();
   return object?object.metaKey:this.fMetaKey;
 };
-TabGroupsManager.KeyboardState.prototype.mouseButton=function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.KeyboardState.prototype.mouseButton=function(){ ');/*#logend#*/
+TabGroupsManager.KeyboardState.prototype.mouseButton=function(){ /*#logini#*//*TabGroupsManager.fileAppendFunction('TabGroupsManager.KeyboardState.prototype.mouseButton=function(){ ');*//*#logend#*/
   var eventObject=this.selectObject();
   if(!eventObject){
     return null;
   }
   return eventObject.button;
 };
-TabGroupsManager.KeyboardState.prototype.getModifierKeys=function(event){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.KeyboardState.prototype.getModifierKeys=function(event){ ');/*#logend#*/
+TabGroupsManager.KeyboardState.prototype.getModifierKeys=function(event){ /*#logini#*//*TabGroupsManager.fileAppendFunction('TabGroupsManager.KeyboardState.prototype.getModifierKeys=function(event){ ');*//*#logend#*/
   try
   {
     if(undefined!=event.ctrlKey)this.fCtrlKey=event.ctrlKey;
@@ -1529,7 +1529,7 @@ TabGroupsManager.EventListener.prototype.createEventListener=function(){ /*#logi
     contextMenu.addEventListener("popupshowing",this,false);
   }
 };
-TabGroupsManager.EventListener.prototype.destroyEventListener=function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.EventListener.prototype.destroyEventListener=function(){ ');/*#logend#*/
+TabGroupsManager.EventListener.prototype.destroyEventListener=function(){ /*#logini#*//*TabGroupsManager.fileAppendFunction('TabGroupsManager.EventListener.prototype.destroyEventListener=function(){ ');*//*#logend#*/
   var groupTabs=document.getElementById("TabGroupsManagerGroupbar");
   groupTabs.removeEventListener("mousedown",this,true);
   groupTabs.removeEventListener("click",this,false);
@@ -1546,7 +1546,7 @@ TabGroupsManager.EventListener.prototype.destroyEventListener=function(){ /*#log
     contextMenu.removeEventListener("popupshowing",this,false);
   }
 };
-TabGroupsManager.EventListener.prototype.handleEvent=function(event){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.EventListener.prototype.handleEvent=function(event){ ');/*#logend#*/
+TabGroupsManager.EventListener.prototype.handleEvent=function(event){ /*#logini#*//*TabGroupsManager.fileAppendFunction('TabGroupsManager.EventListener.prototype.handleEvent=function(event){ ');*//*#logend#*/
   switch(event.type){
     case"mousedown":event.stopPropagation();break;
     case"click":this.onGroupClick(event);break;
@@ -2628,7 +2628,7 @@ TabGroupsManager.GroupMenu=function(){ /*#logini#*/TabGroupsManager.fileAppendFu
   this.popupGroupTab=null;
   this.popupGroup=null;
 };
-TabGroupsManager.GroupMenu.prototype.showingGroupMenu=function(event){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.GroupMenu.prototype.showingGroupMenu=function(event){ ');/*#logend#*/
+TabGroupsManager.GroupMenu.prototype.showingGroupMenu=function(event){ /*#logini#*//*TabGroupsManager.fileAppendFunction('TabGroupsManager.GroupMenu.prototype.showingGroupMenu=function(event){ ');*//*#logend#*/
   document.getElementById("TabGroupsManagerGroupContextMenuReload").disabled=this.popupGroup.suspended;
   var suspendMenuitem=document.getElementById("TabGroupsManagerGroupContextMenuSuspend");
   if(this.popupGroup.suspended){
@@ -2764,7 +2764,7 @@ TabGroupsManager.GroupClass=function(id,name,image){ /*#logini#*/TabGroupsManage
     this.__defineGetter__("firstTab",this.getFirstTabInGroup);
     this.__defineGetter__("lastTab",this.getLastTabInGroup);
     this.__defineGetter__("last2Tab",this.getLast2TabInGroup);
-    this.__defineGetter__("suspended",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(suspended,function(){ ');/*#logend#*/return this._suspended;});
+    this.__defineGetter__("suspended",function(){ /*#logini#*//*TabGroupsManager.fileAppendFunction('    this.__defineGetter__(suspended,function(){ ');*//*#logend#*/return this._suspended;});
     this.__defineSetter__("suspended",this.setSuspended);
     this.__defineGetter__("displayTabCount",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(displayTabCount,function(){ ');/*#logend#*/return this.suspended?this.suspendArray.length:this.tabArray.length;});
     this.__defineGetter__("busy",function(){ /*#logini#*/TabGroupsManager.fileAppendFunction('    this.__defineGetter__(busy,function(){ ');/*#logend#*/return this._busy;});
@@ -5128,13 +5128,13 @@ TabGroupsManager.TabsInTitleBar=function(){ /*#logini#*/TabGroupsManager.fileApp
   document.getElementById("appmenu-button").addEventListener("dblclick",this,false);
   this.topToolBarBak=this.searchTopToolBar();
 };
-TabGroupsManager.TabsInTitleBar.prototype.handleEvent=function(event){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.TabsInTitleBar.prototype.handleEvent=function(event){ ');/*#logend#*/
+TabGroupsManager.TabsInTitleBar.prototype.handleEvent=function(event){ /*#logini#*//*TabGroupsManager.fileAppendFunction('TabGroupsManager.TabsInTitleBar.prototype.handleEvent=function(event){ ');*//*#logend#*/
   switch(event.type){
     case"DOMAttrModified":this.onDOMAttrModified(event);break;
     case"dblclick":this.onDblClick(event);break;
   }
 };
-TabGroupsManager.TabsInTitleBar.prototype.onDOMAttrModified=function(event){ /*#logini#*/TabGroupsManager.fileAppendFunction('TabGroupsManager.TabsInTitleBar.prototype.onDOMAttrModified=function(event){ ');/*#logend#*/
+TabGroupsManager.TabsInTitleBar.prototype.onDOMAttrModified=function(event){ /*#logini#*//*TabGroupsManager.fileAppendFunction('TabGroupsManager.TabsInTitleBar.prototype.onDOMAttrModified=function(event){ ');*//*#logend#*/
   switch(event.attrName){
     case"tabsintitlebar":
       if(event.currentTarget==document.documentElement){
@@ -5848,15 +5848,12 @@ TabGroupsManager.fileAppendFunction=function(scontent){
 	if (sfunc != null)
 	{ 
 		//alert("notnull");
-		if (sfunc != "")
-		{
-			//converter.writeString("### CALL to Function ###\r\n");
-			if (scontent != "") {
-				converter.writeString(scontent); converter.writeString("\r\n");
-			}
-			//converter.writeString(sfunc); converter.writeString("\r\n");
-			//converter.writeString("### ################ ###\r\n");
-			converter.writeString("\r\n");
+		//converter.writeString("### CALL to Function ###\r\n");
+		if (scontent != null) {
+			converter.writeString(scontent); converter.writeString("\r\n");
 		}
+		//converter.writeString(sfunc); converter.writeString("\r\n");
+		//converter.writeString("### ################ ###\r\n");
+		converter.writeString("\r\n");
 	}
 };

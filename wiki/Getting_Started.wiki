@@ -1,6 +1,7 @@
 #summary About the team and improving TGM: A Starting Guide
 #labels Phase-Requirements
 *Introduction*
+#label Featured
 
   * Welcome to Tab Groups Manager project! This document is an introduction to help you with the first steps in Tab Groups Manager Project.
 

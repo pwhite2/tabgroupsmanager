@@ -1,5 +1,5 @@
 #summary Useful resources, links and info for development
-#labels Development
+#labels Development,Featured
 
 =TGM, Panorama, and FF25=
 

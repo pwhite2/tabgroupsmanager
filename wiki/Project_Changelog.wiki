@@ -1,5 +1,5 @@
 #summary ChangeLog and code notes
-#labels Development,Changelog
+#labels Development,Changelog,Featured
 
 = Changelog =
 

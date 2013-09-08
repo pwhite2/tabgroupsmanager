@@ -1,5 +1,5 @@
 #summary Developers Guide For Debugging
-#labels Phase-Implementation,Phase-Requirements,Phase-Deploy
+#labels Phase-Implementation,Phase-Requirements,Phase-Deploy,Featured
 
 = Developers Guide For Debugging = 
 

@@ -48,8 +48,8 @@
   * Lets look how the source code of TabGroups Manager Project is divided in the tree folder:
 http://code.google.com/p/tabgroupsmanager/source/browse/
   * In TabGroups Manager we will find two branchs: 
-    # The main branch, the trunk with the lastest stable code, located here: http://code.google.com/p/tabgroupsmanager/source/browse/trunk
-    # The debug branch for developers: http://code.google.com/p/tabgroupsmanager/source/browse/branches/debug_branch
+    # The main branch, the trunk with the lastest stable code, located here: http://code.google.com/p/tabgroupsmanager/source/browse/product/trunk
+    # The debug branch for developers: http://code.google.com/p/tabgroupsmanager/source/browse/product/branch/debug
 
   * Generate password to Commit changes (Check out). If you are part of the developers group of the project, you may submit code changes at a later time, and your information access can be localted here:
     * http://code.google.com/p/tabgroupsmanager/source/checkout
@@ -91,7 +91,7 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
   * Create a folder with the same name than the original file you have renamed, without the extension. Example, create folder: 
     * _{ca111111-9e0a-4756-9077-19d6f3e64ea8}_
 
-  * Go to the svn folder we have downloaded before and copy all the files inside debug_branch: _c:\TabGroupsManager\tabgroupsmanager\branches\debug_branch_ to our last created folder: _`C:\Documents and Settings\AdminName\Datos de programa\Mozilla\Firefox\Profiles\co1toabd.default\extensions\{ca111111-9e0a-4756-9077-19d6f3e64ea8}`_ . Now Firefox will read and start with all the files inside that folder and we can make changes to those files to see if it fixes something.
+  * Go to the svn folder we have downloaded before and copy all the files inside debug: _c:\TabGroupsManager\tabgroupsmanager\branches\debug_ to our last created folder: _`C:\Documents and Settings\AdminName\Datos de programa\Mozilla\Firefox\Profiles\co1toabd.default\extensions\{ca111111-9e0a-4756-9077-19d6f3e64ea8}`_ . Now Firefox will read and start with all the files inside that folder and we can make changes to those files to see if it fixes something.
 
   * Important information:
     * _AdminName_ is the name of your current user administrator, the installation folder could change if you are using other windows version.
@@ -123,7 +123,7 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
 
   * Configuring VenkMan: Add the Menu Bar to Firefox. Now open VenkMan: _Tools, Javascript Debugger_. In VenkMan, uncheck the option in the toolbar: Debug > Exclude Browser Files." Now close all Firefoxs and Venkman. Reopen them again and begin setting some breakpoints. 
 
-  * Remember that you can Import/Export breakpoints in Venkman. We have already set some breakpoints for TabGroups Manager for you, and saved them to a file. Check the debug version folder for those breakpoints files saved for each issue: _\tabgroupsmanager\branches\debug_branch\breakpoints_venkman_
+  * Remember that you can Import/Export breakpoints in Venkman. We have already set some breakpoints for TabGroups Manager for you, and saved them to a file. Check the debug version folder for those breakpoints files saved for each issue: _\tabgroupsmanager\product\branch\debug\breakpoints_venkman_
     * https://developer.mozilla.org/en-US/docs/Extension_Frequently_Asked_Questions
 
   * At the left you will see the list of files and scripts (.xml, .jsm, .js...), variables and breakpoints.  (.xml, .jsm, .js...). Select TabGroupsManager.js file and set a breakpoint in the code by double clicking in the left blank space, near the the line number. For testing, set it in the line 5814:

@@ -1,6 +1,1 @@
-#summary ChangeLog and code notes
-#labels Development,Changelog
-
-= Changelog =
-
-Changes and releases from the date this site was set up (June 2013)
+#labels Blank

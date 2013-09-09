@@ -46,7 +46,7 @@
   * In a Team project there could be more branchs of source code, like a branch for new functionalities, but I wont extend much more into it.
 
   * Lets look how the source code of TabGroups Manager Project is divided in the tree folder:
-http://code.google.com/p/tabgroupsmanager/source/browse/
+http://code.google.com/p/tabgroupsmanager/source/browse/product
   * In TabGroups Manager we will find two branchs: 
     # The main branch, the trunk with the lastest stable code, located here: http://code.google.com/p/tabgroupsmanager/source/browse/product/trunk
     # The debug branch for developers: http://code.google.com/p/tabgroupsmanager/source/browse/product/branch/debug
@@ -177,7 +177,7 @@ http://code.google.com/p/tabgroupsmanager/source/browse/
 <br />
 *8. Similar Addons*
 
-    * http://code.google.com/p/tabgroupsmanager/wiki/DeveloperResourcesAndInfo
+    * http://code.google.com/p/tabgroupsmanager/wiki/Developer_Resources
     * The following addons could help to understand and develop some functionalities.
         * https://addons.mozilla.org/es/firefox/addon/tab-mix-plus
 <br />

@@ -1,0 +1,11 @@
+This add-on has no guarantee.
+Whether this add-on is for profit or not for profit, it can be used for free.
+As long as this content is not altered in any way, redistribution is completely free.
+Altering or leaking the source is forbidden at this time.
+However, when it is over-ridden by other add-ons, use of a portion of the code is unlimited.
+In this case, users must be prepared to deactivate the over-ride.
+---
+This is the end of the license clauses.
+I made the license quickly since it has become impossible to upload Firefox add-ons without a license.
+Regarding modification to the code, I might either establish sound rules for changing the code when I have the time, or choose another license.
+However, the original license is in English, and the court with jurisdiction cannot choose a non-Japanese license. Therefore, as it stands, there is no eligible license.

@@ -73,13 +73,22 @@ var EXPORTED_SYMBOLS =
     'TabGroupsManagerFuture.Test'
 ];
 /**
- * @namespace HookProvider
- * @namespace Test
- * @namespace Util
+ * @namespace TabGroupsManagerFuture
+ * @namespace TabGroupsManagerFuture.HookProvider
+ * @namespace TabGroupsManagerFuture.HookProvider.Case
+ * @namespace TabGroupsManagerFuture.Test
+ * @namespace TabGroupsManagerFuture.Test.Debug
+ * @namespace TabGroupsManagerFuture.Test.Unit
+ * @namespace TabGroupsManagerFuture.Test.Fake
+ * @namespace TabGroupsManagerFuture.Util
  */
 var TabGroupsManagerFuture = {};
-var F = TabGroupsManagerFuture;
-var F.HookProvider = {};
+var F.HookProvider =
+{
+    PrefControllerFactory = {};
+    PrefController = {};
+    BrowserStoreHandler = {};
+};
 var F.HookProvider.Case =
 {
     // Milestone 103.0
@@ -95,7 +104,7 @@ var F.HookProvider.Case =
     C_0009:{},
     C_0011:{},
     C_0013:{},
-    C_0014:{},
+    C_0014:{}
 };
 var F.Test = {};
 var F.Test.Debug = {};
@@ -105,12 +114,78 @@ var F.Util =
 {
     // ...
 };
+// For the purpose of readability within this module
+var F = TabGroupsManagerFuture;
 /**
- * @class HookProvider.Controller
+ * Base class with an interface for providing hooks
+ * <p>USAGE:  new hController = F.HookProvider.Controller();</p>
+ * @class Controller
+ * @namespace HookProvider
+ * @constructor
  */
-F.HookProvider.Controller =
+var HookProvider.Controller = function()
 {
+    this.init();
+}
+// Static identifier
+HookProvider.Controller.NAME = 'Controller';
+F.HookProvider.Controller.prototype =
+{
+    /**
+     * State for the object instance
+     * @property state
+     * @type Object
+     */
+    state:
+    {
+        // ...
+    };
+    // Internal cache for performance
+    cache:
+    {
+        // ...
+    },
+    /**
+     * Constructor for Controller instance
+     *
+     * @method init
+     */
+    init:function()
+    {
+        // ...
+    },
+    /**
+     * Wrapper for invoking methods
+     *
+     * @method invoke
+     * @sMethodName {String} The method to invoke
+     */
+    invoke:function(sMethodName)
+    {
+        var sM = '_' + sMethodName;
+        if(typeof(this.sM === 'undefined')
+        {
+            throw this.toString + ':  Invalid method name';
+        }
+        // ...
+    },
+    __caseFactory:function(sCaseName)
+    {
+        // ...
+    }
+    __whichFirefox:function()
+    {
+        // ...
+    },
+    _getCaseInstance:function(sCaseName)
+    {
+        this.__caseFactory(sCaseName);
+        // ...
+    }
     // ...
+    // Slowly getting this together, John 201309131815 -4
+    // Will look something like F.HookProvider.Controller.invoke('getCaseInstance','C_0016');
+    // And then we can inject our hooks
 };
 /**
  * @class Case.C_0016
@@ -118,11 +193,9 @@ F.HookProvider.Controller =
  */
 F.HookProvider.Case.C_0016 =
 {
-    PrefControllerFactory = {};
-    PrefController = {};
-    BrowserStoreHandler = {};
     // ...
 };
+
 /**
  * @class PrefControllerFactory
  */

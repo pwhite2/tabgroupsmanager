@@ -97,11 +97,10 @@ var F.HookProvider.Case =
     C_0013:{},
     C_0014:{},
 };
-var F.Test =
-{
-    Debug:{},
-    Unit:{}
-};
+var F.Test = {};
+var F.Test.Debug = {};
+var F.Test.Unit = {};
+var F.Test.Fake = {};
 var F.Util =
 {
     // ...
@@ -119,6 +118,9 @@ F.HookProvider.Controller =
  */
 F.HookProvider.Case.C_0016 =
 {
+    PrefControllerFactory = {};
+    PrefController = {};
+    BrowserStoreHandler = {};
     // ...
 };
 /**

@@ -142,15 +142,15 @@ F.Util.PrefControllerFactory = function()
 };
 F.Util.PrefControllerFactory.prototype =
 {
-    var oP; // The prefs handler object
-    var aT; // The types of handlers
     getProviderHandler:function(sHandlerType)
     {
-        if(this.state.aT.indexOf(sHandlerType) == -1)
+        var oP; // The prefs handler object
+        var sT = sHandlerType.toUpperCase(); // The prefs handler type
+        if(this.state.aT.indexOf(sT) == -1)
         {
             throw this.toString + ':  Invalid handler type';
         }
-        switch(sHandlerType.toUpperCase())
+        switch(sT)
         {
             case 'BROWSER_STORE':
                 oP = F.Util.BrowserStoreHandler

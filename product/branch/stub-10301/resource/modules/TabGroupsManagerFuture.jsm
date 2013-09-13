@@ -122,13 +122,6 @@ F.HookProvider.Case.C_0016 =
     // ...
 };
 /**
- * @class Test
- */
-F.Test =
-{
-    // ...
-};
-/**
  * @class PrefControllerFactory
  */
 F.Util.PrefControllerFactory = function()

@@ -117,7 +117,7 @@ var F.Util =
 // For the purpose of readability within this module
 var F = TabGroupsManagerFuture;
 /**
- * Base class with an interface for providing hooks
+ * Controller class with an interface for providing hooks
  * <p>USAGE:  new hController = F.HookProvider.Controller();</p>
  * @class Controller
  * @namespace HookProvider
@@ -125,42 +125,42 @@ var F = TabGroupsManagerFuture;
  */
 var HookProvider.Controller = function()
 {
-    this.init();
+    this.__init();
 }
 // Static identifier
 HookProvider.Controller.NAME = 'Controller';
+// The prototype
 F.HookProvider.Controller.prototype =
 {
-    /**
-     * State for the object instance
-     * @property state
-     * @type Object
-     */
-    state:
-    {
-        // ...
-    };
-    // Internal cache for performance
-    cache:
-    {
-        // ...
-    },
     /**
      * Constructor for Controller instance
      *
      * @method init
      */
-    init:function()
+    __init:function()
+    {
+    /**
+     * State for the object instance
+     * @property state
+     * @type Object
+     */
+    var state =
+    {
+        BROWSER_VERSION = this.__whichBrowser()
+        // ...
+    };
+    // Internal cache for performance
+    var cache =
     {
         // ...
-    },
+    };
     /**
      * Wrapper for invoking methods
      *
      * @method invoke
-     * @sMethodName {String} The method to invoke
+     * @param sMethodName {String} The method to invoke
      */
-    invoke:function(sMethodName)
+    this.invoke = function(sMethodName)
     {
         var sM = '_' + sMethodName;
         if(typeof(this.sM === 'undefined')
@@ -168,18 +168,56 @@ F.HookProvider.Controller.prototype =
             throw this.toString + ':  Invalid method name';
         }
         // ...
-    },
-    __caseFactory:function(sCaseName)
+    };
+    /**
+     * Determine the browser version
+     *
+     * @method __whichBrowser
+     * @return {String} The browser version string
+     */
+    var __whichBrowser = function()
     {
         // ...
-    }
-    __whichFirefox:function()
+    };
+    /**
+     * Prepare and create the case
+     *
+     * @method __caseFactory
+     * @return {Object} The configured case instance
+     */
+    var __caseFactory = function(sCaseName)
     {
+        switch(this.state.BROWSER_VERSION)
+        {
+            case 18:
+                // ...
+                break;
+            case 19:
+                // ...
+                break;
+            case 20:
+                // ...
+                break;
+            case 21:
+                // ...
+                break;
+            case 22:
+                // ...
+                break;
+            case 23:
+                // ...
+                break;
+            case 25:
+                // ...
+                break;
+            case 24:
+                // ...
+        }
         // ...
-    },
-    _getCaseInstance:function(sCaseName)
+    };
+    var _getCaseInstance = function(sCaseName)
     {
-        this.__caseFactory(sCaseName);
+        __caseFactory(sCaseName);
         // ...
     }
     // ...
@@ -187,6 +225,23 @@ F.HookProvider.Controller.prototype =
     // Will look something like F.HookProvider.Controller.invoke('getCaseInstance','C_0016');
     // And then we can inject our hooks
 };
+/**
+ * Base class with an interface for standardized cases
+ *
+ * @class Case.C
+ * @namespace Case
+ * @constructor
+ */
+var F.HookProvider.Class.C = function(sBrowserVersion)
+{
+}
+// Static identifier
+F.HookProvider.Class.C.NAME = 'C';
+// The prototype
+F.HookProvider.Class.C.prototype =
+{
+    this.init(
+}
 /**
  * @class Case.C_0016
  * @see https://code.google.com/p/tabgroupsmanager/issues/detail?id=16

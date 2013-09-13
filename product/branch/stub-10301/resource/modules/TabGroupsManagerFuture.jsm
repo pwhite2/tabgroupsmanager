@@ -189,28 +189,28 @@ F.HookProvider.Controller.prototype =
     {
         switch(this.state.BROWSER_VERSION)
         {
-            case 18:
+            case 'FIREFOX_18':
                 // ...
                 break;
-            case 19:
+            case 'FIREFOX_19':
                 // ...
                 break;
-            case 20:
+            case 'FIREFOX_20':
                 // ...
                 break;
-            case 21:
+            case 'FIREFOX_21':
                 // ...
                 break;
-            case 22:
+            case 'FIREFOX_22':
                 // ...
                 break;
-            case 23:
+            case 'FIREFOX_23':
                 // ...
                 break;
-            case 25:
+            case 'FIREFOX_24':
                 // ...
                 break;
-            case 24:
+            case 'FIREFOX_25':
                 // ...
         }
         // ...

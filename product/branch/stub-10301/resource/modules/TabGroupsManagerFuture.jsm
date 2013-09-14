@@ -136,7 +136,7 @@ F.HookProvider.Controller.prototype =
     cache:
     {
         // ...
-    };
+    },
     /**
      * State for the object instance
      * @property state

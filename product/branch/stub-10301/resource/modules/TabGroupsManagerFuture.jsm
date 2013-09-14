@@ -133,7 +133,7 @@ HookProvider.Controller.NAME = 'Controller';
 F.HookProvider.Controller.prototype =
 {
     // Internal cache for performance
-    this.cache:
+    cache:
     {
         // ...
     };
@@ -143,9 +143,10 @@ F.HookProvider.Controller.prototype =
      * @private
      * @type Object
      */
-    var state:
+    state:
     {
-        BROWSER_VERSION = this.__registerBrowserVersion()
+        BROWSER_VERSION = '',
+        BROWSER_PREFSTORE = ''
         // ...
     },
     /**
@@ -156,15 +157,28 @@ F.HookProvider.Controller.prototype =
     __init:function()
     {
         /**
-         * Determine the browser version
+         * Register the browser version
          *
          * @method __registerBrowserVersion
          * @private
-         * @return {String} The browser version string
          */
         var __registerBrowserVersion = function()
         {
+            // Call some Util method
             // ...
+            this.state.BROWSER_VERSION = //...
+        };
+        /**
+         * Register the pref store
+         *
+         * @method __registerPrefStore
+         * @private
+         */
+        var __registerPrefStore = function()
+        {
+            // Call some Util method
+            // ...
+            this.state.BROWSER_PREFSTORE = //...
         };
         /**
          * Prepare and create the case
@@ -174,54 +188,39 @@ F.HookProvider.Controller.prototype =
          */
         var __caseFactory = function(sCaseName)
         {
-            switch(this.state.BROWSER_VERSION)
-            {
-                case 'FIREFOX_18':
-                    // ...
-                    break;
-                case 'FIREFOX_19':
-                    // ...
-                    break;
-                case 'FIREFOX_20':
-                    // ...
-                    break;
-                case 'FIREFOX_21':
-                    // ...
-                    break;
-                case 'FIREFOX_22':
-                    // ...
-                    break;
-                case 'FIREFOX_23':
-                    // ...
-                    break;
-                case 'FIREFOX_24':
-                    // ...
-                    break;
-                case 'FIREFOX_25':
-                    // ...
-            }
-        // ...
+            return this.sCaseName(this.state.BROWSER_VERSION);
+            // ...
         };
         var _getCaseInstance = function(sCaseName)
         {
             __caseFactory(sCaseName);
             // ...
-        }
+        };
     },
     /**
      * Wrapper for invoking methods
      *
      * @method invoke
-     * @param sMethodName {String} The method to invoke
+     * @param sMethodName {String} The name of the method to invoke
+     * @param oMethodArgs {String} The method arguments as an object
      */
-    this.invoke:function(sMethodName)
+    this.invoke:function(sMethodName,oMethodArgs)
     {
         var sM = '_' + sMethodName;
+        var sS = this.toString();
         if(typeof(this.sM === 'undefined' || this.sM.indexOf('_') == 0)
         {
-            throw this.toString + ':  Invalid method name';
+            throw sS + ':  Invalid method name';
         }
-        // ...
+        try
+        {
+            return sM.apply(this,oMethodArgs);
+        }
+        catch(e)
+        {
+            e.message = sS + ': ' + e.message;
+            TabGroupsManagerJsm.displayError.alertErrorIfDebug(e);
+        }
     }
     // ...
     // Slowly getting this together, John 201309131815 -4

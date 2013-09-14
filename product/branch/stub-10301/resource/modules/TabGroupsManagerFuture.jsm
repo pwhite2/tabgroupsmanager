@@ -132,6 +132,22 @@ HookProvider.Controller.NAME = 'Controller';
 // The prototype
 F.HookProvider.Controller.prototype =
 {
+    // Internal cache for performance
+    this.cache:
+    {
+        // ...
+    };
+    /**
+     * State for the object instance
+     * @property state
+     * @private
+     * @type Object
+     */
+    var state:
+    {
+        BROWSER_VERSION = this.__registerBrowserVersion()
+        // ...
+    },
     /**
      * Constructor for Controller instance
      *
@@ -139,85 +155,72 @@ F.HookProvider.Controller.prototype =
      */
     __init:function()
     {
-    /**
-     * State for the object instance
-     * @property state
-     * @type Object
-     */
-    var state =
-    {
-        BROWSER_VERSION = this.__whichBrowser()
+        /**
+         * Determine the browser version
+         *
+         * @method __registerBrowserVersion
+         * @private
+         * @return {String} The browser version string
+         */
+        var __registerBrowserVersion = function()
+        {
+            // ...
+        };
+        /**
+         * Prepare and create the case
+         *
+         * @method __caseFactory
+         * @return {Object} The configured case instance
+         */
+        var __caseFactory = function(sCaseName)
+        {
+            switch(this.state.BROWSER_VERSION)
+            {
+                case 'FIREFOX_18':
+                    // ...
+                    break;
+                case 'FIREFOX_19':
+                    // ...
+                    break;
+                case 'FIREFOX_20':
+                    // ...
+                    break;
+                case 'FIREFOX_21':
+                    // ...
+                    break;
+                case 'FIREFOX_22':
+                    // ...
+                    break;
+                case 'FIREFOX_23':
+                    // ...
+                    break;
+                case 'FIREFOX_24':
+                    // ...
+                    break;
+                case 'FIREFOX_25':
+                    // ...
+            }
         // ...
-    };
-    // Internal cache for performance
-    var cache =
-    {
-        // ...
-    };
+        };
+        var _getCaseInstance = function(sCaseName)
+        {
+            __caseFactory(sCaseName);
+            // ...
+        }
+    },
     /**
      * Wrapper for invoking methods
      *
      * @method invoke
      * @param sMethodName {String} The method to invoke
      */
-    this.invoke = function(sMethodName)
+    this.invoke:function(sMethodName)
     {
         var sM = '_' + sMethodName;
-        if(typeof(this.sM === 'undefined')
+        if(typeof(this.sM === 'undefined' || this.sM.indexOf('_') == 0)
         {
             throw this.toString + ':  Invalid method name';
         }
-        // ...
-    };
-    /**
-     * Determine the browser version
-     *
-     * @method __whichBrowser
-     * @return {String} The browser version string
-     */
-    var __whichBrowser = function()
-    {
-        // ...
-    };
-    /**
-     * Prepare and create the case
-     *
-     * @method __caseFactory
-     * @return {Object} The configured case instance
-     */
-    var __caseFactory = function(sCaseName)
-    {
-        switch(this.state.BROWSER_VERSION)
-        {
-            case 'FIREFOX_18':
-                // ...
-                break;
-            case 'FIREFOX_19':
-                // ...
-                break;
-            case 'FIREFOX_20':
-                // ...
-                break;
-            case 'FIREFOX_21':
-                // ...
-                break;
-            case 'FIREFOX_22':
-                // ...
-                break;
-            case 'FIREFOX_23':
-                // ...
-                break;
-            case 'FIREFOX_24':
-                // ...
-                break;
-            case 'FIREFOX_25':
-                // ...
-        }
-        // ...
-    };
-    var _getCaseInstance = function(sCaseName)
-    {
-        __caseFactory(sCaseName);
         // ...
     }
     // ...

@@ -218,7 +218,7 @@ F.HookProvider.Controller.prototype =
      * @param sMethodName {String} The name of the method to invoke
      * @param oMethodArgs {String} The method arguments as an object
      */
-    this.invoke:function(sMethodName,oMethodArgs)
+    invoke:function(sMethodName,oMethodArgs)
     {
         var sM = '_' + sMethodName;
         var sS = this.toString();

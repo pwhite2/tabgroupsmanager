@@ -225,7 +225,8 @@ F.HookProvider.Controller.prototype =
     // ...
     // Slowly getting this together, John 201309131815 -4
     // Will look something like F.HookProvider.Controller.invoke('getCaseInstance','C_0016');
-    // And then we can inject our hooks
+    // From here we get a standardized case instance which can take over procedures
+    // Note:  pass this.toString() for method overload via this provider?
 };
 /**
  * Base class with an interface for standardized cases
@@ -252,21 +253,40 @@ F.HookProvider.Case.C_0016 =
 {
     // ...
 };
-
 /**
  * @class PrefControllerFactory
  */
 F.Util.PrefControllerFactory = function()
 {
-    this.state = {};
-    this.state.aT =
-    [
-        'BROWSER_STORE'
-        // And so on with the types of handlers
-    ];
+    this.__init();
 };
 F.Util.PrefControllerFactory.prototype =
 {
+    // Internal cache for performance
+    cache:
+    {
+        // ...
+    },
+    /**
+     * State for the object instance
+     * @property state
+     * @private
+     * @type Object
+     */
+    state:
+    {
+        STORE_TYPE = {}
+        // ...
+    },
+    /**
+     * Constructor for Controller instance
+     *
+     * @method init
+     */
+    __init:function()
+    {
+        // ...
+    },
     getProviderHandler:function(sHandlerType)
     {
         var oP; // The prefs handler object
@@ -309,6 +329,12 @@ F.Util.PrefController.prototype =
 // Coherent code stops somewhere around here!  :D
 
 
+
+
+
+
+
+
 var oP = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService);
 var oB = oP.getBranch("extensions.tabgroupsmanager.");
 oB.QueryInterface(Ci.nsIPrefBranch2);
@@ -318,26 +344,24 @@ this.prefBranch.setIntPref("groupBarPosition",2);
 }
 
 
+/**
+* @method getCallerAlert
+* @return {Object} The alert object with caller name
+*/
+getCallerAlert:function(sCallerName)
+{
+    TabGroupsManagerJsm.displayError.alert(sCallerName);
+}
+/**
+* @method _whoCalled
+* @return {String} The caller name
+*/
+var _whocalled = function ()
+{
+    var s = "Call from " + arguments.callee.caller.name;
+    if(s) return s;
 
-
-    /**
-    * @method getCallerAlert
-    * @return {Object} The alert object with caller name
-    */
-    getCallerAlert:function(sCallerName)
-    {
-        TabGroupsManagerJsm.displayError.alert(sCallerName);
-    }
-    /**
-    * @method _whoCalled
-    * @return {String} The caller name
-    */
-    var _whocalled = function ()
-    {
-        var s = "Call from " + arguments.callee.caller.name;
-        if(s) return s;
-
-    }
+}
 
 
 

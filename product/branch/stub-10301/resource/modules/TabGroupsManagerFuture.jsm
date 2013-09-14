@@ -74,21 +74,20 @@ var EXPORTED_SYMBOLS =
 ];
 /**
  * @namespace TabGroupsManagerFuture
- * @namespace TabGroupsManagerFuture.HookProvider
- * @namespace TabGroupsManagerFuture.HookProvider.Case
- * @namespace TabGroupsManagerFuture.Test
- * @namespace TabGroupsManagerFuture.Test.Debug
- * @namespace TabGroupsManagerFuture.Test.Unit
- * @namespace TabGroupsManagerFuture.Test.Fake
- * @namespace TabGroupsManagerFuture.Util
  */
 var TabGroupsManagerFuture = {};
+/*
+ * @namespace TabGroupsManagerFuture.HookProvider
+ */
 var F.HookProvider =
 {
     PrefControllerFactory = {};
     PrefController = {};
     BrowserStoreHandler = {};
 };
+/*
+ * @namespace TabGroupsManagerFuture.HookProvider.Case
+ */
 var F.HookProvider.Case =
 {
     // Milestone 103.0
@@ -106,10 +105,25 @@ var F.HookProvider.Case =
     C_0013:{},
     C_0014:{}
 };
+/*
+ * @namespace TabGroupsManagerFuture.Test
+ */
 var F.Test = {};
+/*
+ * @namespace TabGroupsManagerFuture.Test.Debug
+ */
 var F.Test.Debug = {};
+/*
+ * @namespace TabGroupsManagerFuture.Test.Unit
+ */
 var F.Test.Unit = {};
+/*
+ * @namespace TabGroupsManagerFuture.Test.Fake
+ */
 var F.Test.Fake = {};
+/*
+ * @namespace TabGroupsManagerFuture.Util
+ */
 var F.Util =
 {
     // ...
@@ -229,9 +243,9 @@ F.HookProvider.Controller.prototype =
     // Note:  pass this.toString() for method overload via this provider?
 };
 /**
- * Base class with an interface for standardized cases
+ * Abstract class with standardized signature and some core implementations
  *
- * @class Case.C
+ * @class C
  * @namespace Case
  * @constructor
  */

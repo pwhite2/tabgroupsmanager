@@ -476,3 +476,5 @@ function log(msg) {
 
 obj.someFunc();
 ###
+
+/* vim: set noai ts=4 sw=4 cc=80 tw=80: */

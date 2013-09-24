@@ -1,25 +1,3 @@
-#labels Test
-#Test foo
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 =test1=
 <br>
 <br>

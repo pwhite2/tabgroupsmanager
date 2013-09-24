@@ -5,13 +5,33 @@
     Heh, neat timestamp!
     John 201309240924 -4
 </wiki:comment>
-<ul>
-    <li><a href="index">Wiki</a></li>
-    <li><a href="Developer_Guide?tm=6">Developer Guide</a></li>
-    <li><a href="test?tm=6">Test</a></li>
-    <ul>
-        <li><a href="test?tm=6#test1">Test 1</a></li>
-        <li><a href="test?tm=6#test2">Test 2</a></li>
-        <li><a href="test?tm=6#test3">Test 3</a></li>
-    </ul>
-</ul>
+  <ul>
+    <li><a href="/p/support/wiki/WhatsNew">Whats New?</a></li>
+
+    <li><a href="/p/support/wiki/GettingStarted">Getting Started</a></li>
+
+    <li><a href="/p/support/wiki/HowToJoinAProject">Join a project</a></li>
+
+    <li><a href="/p/support/wiki/FAQ">Project Hosting FAQ</a></li>
+
+    <li><a href="/p/support/wiki/MakingHostingBetter">Making hosting better</a></li>
+
+    <li>Wiki</li>
+
+    <li style="list-style: none; display: inline">
+      <ul>
+        <li><a href="/p/support/wiki/WikiFAQ">Wiki FAQ</a></li>
+
+        <li><a href="/p/support/wiki/WikiSyntax">Wiki Syntax</a></li>
+
+        <li><a href="/p/support/wiki/WorkingWithGoogleGadgets">Google Gadgets</a></li>
+
+        <li style="list-style: none; display: inline">
+          <ul>
+            <li><a href="/p/support/wiki/InterestingDeveloperGadgets">Interesting
+            Gadgets</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>

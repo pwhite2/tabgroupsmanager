@@ -1,6 +1,5 @@
 #labels Test
 <font face="Helvetica" color="#44444">
-<table align="left" width="872"><tr><td>
 <h1>Overview</h1>
 <table>
     <tr>
@@ -14,7 +13,6 @@
 </font>
         </td>
     </tr>
-</table>
 </table>
 <br>
 <br>

@@ -6,8 +6,8 @@
     John 201309240924 -4
 </wiki:comment>
 * [index Wiki]
-* [Test Test]
-  * [Test#test1 Test 1]
-  * [Test#test2 Test 2]
-  * [Test#test3 Test 2]
-* [Developer_Guide Developer Guide]
+* Test
+  * [Test#test1 !Test 1]
+  * [Test#test2 !Test 2]
+  * [Test#test3 !Test 2]
+* Developer Guide

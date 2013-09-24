@@ -5,7 +5,7 @@
     Heh, neat timestamp!
     John 201309240924 -4
 </wiki:comment>
-<hr>
+<h1>Documentation</h1>
   * [https://code.google.com/p/tabgroupsmanager/wiki/index?tm=6 Overview]
   * [https://code.google.com/p/tabgroupsmanager/wiki/test?tm=6 Test]
     * [https://code.google.com/p/tabgroupsmanager/wiki/test?tm=6#test1 Test One]

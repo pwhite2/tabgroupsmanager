@@ -8,6 +8,6 @@
   * [index Index]
   * [test Test]
     * [test#test1 Test One]
-    * [test#test1 Test One]
-    * [test#test1 Test One]
+    * [test#test2 Test Two]
+    * [test#test3 Test Three]
   * [Developer_Guide Developer Guide]

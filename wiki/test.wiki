@@ -20,7 +20,7 @@
 <br>
 <br>
 <br>
-<a name="test1">test1</a>
+<a name="test1"></a>
 <br>
 <br>
 <br>
@@ -41,7 +41,7 @@
 <br>
 <br>
 <br>
-<a name="test2">test2</a>
+<a name="test2"></a>
 <br>
 <br>
 <br>
@@ -62,7 +62,7 @@
 <br>
 <br>
 <br>
-<a name="test3">test3</a>
+<a name="test3"></a>
 <br>
 <br>
 <br>

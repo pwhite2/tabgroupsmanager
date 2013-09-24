@@ -1,3 +1,3 @@
 #labels Test
 <p><em>We're currently testing the side-bar and this index page, so please use the wiki list for now.</em></p>
-<a href="https://code.google.com/p/tabgroupsmanager/w/list"><h1>Continue</h1></a>
+<a href="https://code.google.com/p/tabgroupsmanager/w/listt?q=label:Prod"><h1>Continue</h1></a>

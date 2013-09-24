@@ -7,25 +7,16 @@
 </wiki:comment>
   <ul>
     <li><a href="/p/support/wiki/WhatsNew">Whats New?</a></li>
-
     <li><a href="/p/support/wiki/GettingStarted">Getting Started</a></li>
-
     <li><a href="/p/support/wiki/HowToJoinAProject">Join a project</a></li>
-
     <li><a href="/p/support/wiki/FAQ">Project Hosting FAQ</a></li>
-
     <li><a href="/p/support/wiki/MakingHostingBetter">Making hosting better</a></li>
-
     <li>Wiki</li>
-
-    <li style="list-style: none; display: inline">
+    <li>
       <ul>
         <li><a href="/p/support/wiki/WikiFAQ">Wiki FAQ</a></li>
-
         <li><a href="/p/support/wiki/WikiSyntax">Wiki Syntax</a></li>
-
         <li><a href="/p/support/wiki/WorkingWithGoogleGadgets">Google Gadgets</a></li>
-
         <li style="list-style: none; display: inline">
           <ul>
             <li><a href="/p/support/wiki/InterestingDeveloperGadgets">Interesting

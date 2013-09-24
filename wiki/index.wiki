@@ -1,8 +1,8 @@
 #labels Test
 <h1>Overview</h1>
 <p>We're currently developing this documentation.</p>
-<p>Please start with the navigation.</p>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Aiga_leftarrow_inv.svg/50px-Aiga_leftarrow_inv.svg.png">
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Aiga_leftarrow_inv.svg/50px-Aiga_leftarrow_inv.svg.png" valign="middle">
+Please start with the navigation.</p>
 <br>
 <br>
 <br>

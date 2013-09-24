@@ -8,7 +8,10 @@
             https://tabgroupsmanager.googlecode.com/svn/__static/web/100/media/information_32.png
         </td>
         <td>
-<p><font color="7D7D7D" size="1">Please use the navigation on your left.</font></p>
+<font color="7D7D7D" size="1">
+<p>We're currently developing this documentation.</p>
+<p>Please get started with the <strong>side panel</strong>.</p>
+</font>
         </td>
     </tr>
 </table>

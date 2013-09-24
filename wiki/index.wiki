@@ -1,5 +1,5 @@
 #labels Test
-<font face="Helvetica" color="#44444">
+<font color="#44444">
 <h1>Overview</h1>
 <table>
     <tr>

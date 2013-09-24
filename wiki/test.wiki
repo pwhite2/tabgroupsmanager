@@ -20,7 +20,7 @@
 <br>
 <br>
 <br>
-<a name="test1"></a>
+=test1=
 <br>
 <br>
 <br>
@@ -41,7 +41,7 @@
 <br>
 <br>
 <br>
-<a name="test2"></a>
+=test2=
 <br>
 <br>
 <br>
@@ -62,7 +62,7 @@
 <br>
 <br>
 <br>
-<a name="test3"></a>
+=test3=
 <br>
 <br>
 <br>

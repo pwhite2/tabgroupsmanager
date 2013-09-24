@@ -4,4 +4,3 @@
 <p><em>We're currently developing this documentation, so please see the wiki list for now.</em></p>
 <a href="https://code.google.com/p/tabgroupsmanager/w/list?tm=6&q=label:Prod"><h1>Continue</h1></a>
 <br>
-<br>

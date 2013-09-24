@@ -6,7 +6,7 @@
         <td valign="middle">
             https://tabgroupsmanager.googlecode.com/svn/__static/web/100/media/information_32.png
         </td>
-        <td>
+        <td valign="middle">
 <font color="7D7D7D" size="1">
 <p>We're currently developing this documentation.</p>
 <p>Please get started with the <strong>side panel</strong>.</p>

@@ -1,1 +1,2 @@
 #labels Blank
+<p><em>We're currently testing the side-bar and this index page, so please use the <a href="https://code.google.com/p/tabgroupsmanager/w/list">wiki list</a> for now.</em></p>

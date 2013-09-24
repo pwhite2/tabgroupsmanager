@@ -1,8 +1,7 @@
 #labels Test
-<p><em>We're just testing this side bar, so please use the wiki list for now.</em></p>
 * [index Wiki]
 * [Developer_Guide Developer Guide]
-* [test/test Test]
-    * [test/test#test1 Test 1]
-    * [test/test#test2 Test 2] 
-    * [test/test#test3 Test 3]
+* [test Test]
+  * [test#test1 Test 1]
+  * [test#test2 Test 2] 
+  * [test#test3 Test 3]

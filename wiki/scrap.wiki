@@ -1,2 +1,4 @@
 #labels Test
 <wiki:gadget url="http://google-code-project-hosting-gadgets.googlecode.com/svn/trunk/examples/issueupdates_example.xml" up_projectName="tabgroupsmanager" />
+<hr>
+<wiki:gadget url="http://google-code-feed-gadget.googlecode.com/svn/trunk/gadget.xml" up_feeds="https://code.google.com/feeds/p/tabgroupsmanager/issueupdates/basic" width="500" height="340" border="0"/>

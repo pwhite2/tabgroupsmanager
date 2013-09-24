@@ -5,9 +5,9 @@
     Heh, neat timestamp!
     John 201309240924 -4
 </wiki:comment>
-  * <a href="/p/tabgroupsmanager/wiki/index?tm=6">Index</a>
-  * <a href="/p/tabgroupsmanager/wiki/test?tm=6">Test</a>
-    * <a href="/p/tabgroupsmanager/wiki/test?tm=6#test1">Test One</a>
-    * <a href="/p/tabgroupsmanager/wiki/test?tm=6#test2">Test Two</a>
-    * <a href="/p/tabgroupsmanager/wiki/test?tm=6#test3">Test Three</a>
-  * <a href="/p/tabgroupsmanager/wiki/Developer_Guide?tm=6"> Developer Guide</a>
+  * [https://code.google.com/p/tabgroupsmanager/wiki/index?tm=6 Index]
+  * [https://code.google.com/p/tabgroupsmanager/wiki/test?tm=6 Test]
+    * [https://code.google.com/p/tabgroupsmanager/wiki/test?tm=6#test1 Test One]
+    * [https://code.google.com/p/tabgroupsmanager/wiki/test?tm=6#test2 Test Two]
+    * [https://code.google.com/p/tabgroupsmanager/wiki/test?tm=6#test3 Test Three]
+  * [https://code.google.com/p/tabgroupsmanager/wiki/Developer_Guide?tm=6 Developer Guide]

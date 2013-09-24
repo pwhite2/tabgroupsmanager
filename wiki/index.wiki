@@ -1,13 +1,14 @@
 #labels Test
+<font face="Helvetica" color="#44444">
+<table align="left" width="872"><tr><td>
 <h1>Overview</h1>
 <table>
     <tr>
         <td valign="middle">
-              http://www.aiga.org/uploadedImages/AIGA/Content/Tools_and_Resources/55_leftarrow_thumb.gif
+            https://tabgroupsmanager.googlecode.com/svn/__static/web/100/media/information_32.png
         </td>
-        <td valign="middle">
-            <p>We're currently developing this documentation.</p>
-            <p>Please start with the <strong>side bar</strong> to your left.</p>
+        <td>
+<p><font color="7D7D7D" size="1">Please use the navigation on your left.</font></p>
         </td>
     </tr>
 </table>

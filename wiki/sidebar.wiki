@@ -1,3 +1,4 @@
+#labels Test
 <p><em>We're just testing this side bar, so please use the wiki list for now.</em></p>
 * [index Wiki]
 * [Developer_Guide Developer Guide]

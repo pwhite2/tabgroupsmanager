@@ -1,7 +1,7 @@
 #labels Test
 * [index Wiki]
-* [Developer_Guide Developer Guide]
-* [test Test]
-  * [test#test1 Test 1]
-  * [test#test2 Test 2] 
-  * [test#test3 Test 3]
+* [Developer_Guide?tm=6 Developer Guide]
+* [test?tm=6 Test]
+  * [test?tm=6#test1 Test 1]
+  * [test?tm=6#test2 Test 2] 
+  * [test?tm=6#test3 Test 3]

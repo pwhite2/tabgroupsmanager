@@ -1,7 +1,17 @@
 #labels Test
-* [index Wiki]
-* [Developer_Guide?tm=6 Developer Guide]
-* [test?tm=6 Test]
-  * [test?tm=6#test1 Test 1]
-  * [test?tm=6#test2 Test 2] 
-  * [test?tm=6#test3 Test 3]
+<wiki:comment>
+    Does sidebar get localized?
+    I'm just pushing these tests directly; eventually we'll push to mainline.
+    Heh, neat timestamp!
+    John 201309240924 -4
+</wiki:comment>
+<ul>
+    <li><a href="index">Wiki</a></li>
+    <li><a href="Developer_Guide?tm=6">Developer Guide</a></li>
+    <li><a href="test?tm=6">Test</a></li>
+    <ul>
+        <li><a href="test?tm=6#test1">Test 1</a></li>
+        <li><a href="test?tm=6#test2">Test 2</a></li>
+        <li><a href="test?tm=6#test3">Test 3</a></li>
+    </ul>
+</ul>

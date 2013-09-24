@@ -4,7 +4,7 @@
 <table>
     <tr>
         <td valign="middle">
-            https://tabgroupsmanager.googlecode.com/svn/__static/web/100/media/information_32.png
+            https://tabgroupsmanager.googlecode.com/svn/__static/web/100/media/information_64.png
         </td>
         <td valign="middle">
 <font color="7D7D7D" size="1">

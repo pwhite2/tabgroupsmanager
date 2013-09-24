@@ -1,0 +1,2 @@
+#labels Test
+<wiki:gadget url="http://google-code-project-hosting-gadgets.googlecode.com/svn/trunk/examples/issueupdates_example.xml" up_projectName="tabgroupsmanager" />

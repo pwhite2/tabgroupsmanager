@@ -3,7 +3,7 @@
 <table>
     <tr>
         <td valign="middle">
-            http://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/AIGA_information.svg/49px-AIGA_information.svg.png
+            http://www.aiga.org/uploadedImages/AIGA/Content/Tools_and_Resources/55_leftarrow_thumb.gif
         </td>
         <td valign="middle">
             <p>We're currently developing this documentation.</p>

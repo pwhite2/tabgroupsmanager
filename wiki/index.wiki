@@ -3,11 +3,11 @@
 <table>
     <tr>
         <td valign="middle">
-            http://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Aiga_leftarrow_inv.svg/50px-Aiga_leftarrow_inv.svg.png
+            http://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/AIGA_information.svg/49px-AIGA_information.svg.png
         </td>
         <td valign="middle">
             <p>We're currently developing this documentation.</p>
-            <p>Please start with the <strong>side bar</strong>.</p>
+            <p>Please start with the <strong>side bar</strong> to your left.</p>
         </td>
     </tr>
 </table>

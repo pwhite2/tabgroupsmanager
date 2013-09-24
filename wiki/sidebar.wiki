@@ -5,9 +5,9 @@
     Heh, neat timestamp!
     John 201309240924 -4
 </wiki:comment>
-  * [index?tm=6 Index]
-  * [test?tm=6 Test]
-    * [test?tm=6#test1 Test One]
-    * [test?tm=6#test2 Test Two]
-    * [test?tm=6#test3 Test Three]
-  * [Developer_Guide?tm=6 Developer Guide]
+  * [/p/tabgroupsmanager/wiki/index?tm=6 Index]
+  * [/p/tabgroupsmanager/wiki/test?tm=6 Test]
+    * [/p/tabgroupsmanager/wiki/test?tm=6#test1 Test One]
+    * [/p/tabgroupsmanager/wiki/test?tm=6#test2 Test Two]
+    * [/p/tabgroupsmanager/wiki/test?tm=6#test3 Test Three]
+  * [/p/tabgroupsmanager/wiki/Developer_Guide?tm=6 Developer Guide]

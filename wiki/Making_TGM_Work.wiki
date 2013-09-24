@@ -1,5 +1,5 @@
 #summary Making TabGroups Manager work, and "known issues".
-#labels Phase-Support,How-To
+#labels Phase-Support,How-To,Prod
 
 = Making !TabGroups Manager work, and "known issues" =
 

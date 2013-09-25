@@ -1,14 +1,17 @@
+<!--
+    TabGroups Manager
+    Gadget test, 100 series
+-->
 <?xml version = "1.0" encoding = "UTF-8"?>
 <Module>
     <ModulePrefs
-        author          = "TGM Compatibility Team"
-        author_email    = "tabgroupsmanager@gmail.com"
         title           = "Test Module"
-        description     = "Testing the Gadgets!">
-    </ModulePrefs>
+        description     = "Testing the module!"
+        author          = "TGM Compatibility Team"
+        author_email    = "tabgroupsmanager@gmail.com"/>
     <Content type = "html">
         <![CDATA[ 
-            Hello, world!
+            <h1>It works!</h1>
         ]]>
     </Content>
 </Module>

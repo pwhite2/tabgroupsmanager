@@ -1,2 +1,2 @@
 #labels Test
-<wiki:gadget url="//https://tabgroupsmanager.googlecode.com/svn/web/branch/stub-100_dynamic/module/TestModule.xml" width="640" height="240"/>
+<wiki:gadget url="//tabgroupsmanager.googlecode.com/svn/web/branch/stub-100_dynamic/module/TestModule.xml" width="640" height="240"/>

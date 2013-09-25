@@ -1,1 +1,2 @@
-#labels Test,Blank
+#labels Test
+<wiki:gadget url="//https://tabgroupsmanager.googlecode.com/svn/web/branch/stub-100_dynamic/module/TestModule.xml" width="640" height="240"/>

@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<Module>
+    <ModulePrefs
+        author          = "TGM Compatibility Team"
+        author_email    = "tabgroupsmanager@gmail.com"
+        title           = "Test Module"
+        description     = "Testing the Gadgets!">
+    </ModulePrefs>
+    <Content type = "html">
+        <![CDATA[ 
+            Hello, world!
+        ]]>
+    </Content>
+</Module>

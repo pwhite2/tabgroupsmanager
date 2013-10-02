@@ -7,11 +7,13 @@
     <ModulePrefs>
         <Require feature="dynamic-height"/>
     </ModulePrefs>
+    <UserPref name="sValue" default_value="#"/>
     <UserPref name="sBackgroundColor" default_value="#CCCCCC"/>
     <UserPref name="sColor" default_value="#FFFFFF"/>
     <UserPref name="sBackgroundColorHover" default_value="__UP_sBackgroundColor"/>
     <UserPref name="sColorHover" default_value="__UP_sColor"/>
     <UserPref name="sCallbackOrLocation" default_value="#"/>
+    <UserPref name="sNoscriptLocation" default_value="#"/>
     <Content type="html">
         <![CDATA[
             <style type="text/css">
@@ -43,7 +45,11 @@
                 }
             </style>
             <div id="a">
-                <noscript>Please enable JavaScript</noscript>
+                <noscript>
+                    <form method="GET" action="__UP_sNoscriptLocation">
+                        <input type="submit" value="__UP_sValue" id="b">
+                    </form>
+                </noscript>
             </div>
             <script type="text/javascript">
                 gadgets.util.registerOnLoadHandler(function()

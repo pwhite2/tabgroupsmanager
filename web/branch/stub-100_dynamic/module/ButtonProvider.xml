@@ -58,7 +58,7 @@
                         _ = new gadgets.prefs(),
                         a = $('a'),
                         b = document.createElement('button'),
-                        c = document.createTextNode('Add to Firefox'),
+                        c = document.createTextNode(_.getString('sValue'),
                         d = _.getString('sCallbackOrLocation');
                     try
                     {

@@ -1,7 +1,2 @@
 #labels Test
-<wiki:gadget
-    url="//tabgroupsmanager.googlecode.com/svn/web/branch/stub-100_dynamic/module/TestModule.xml"
-    sBackgroundColor="#66AE28"
-    sColor="#FFFFFF"
-    sCallbackOrLocation="InstallTrigger.install({'s':gadgets.io.getProxyUrl('https://tabgroupsmanager.googlecode.com/svn/__static/product/100/stable/addon-2013.04.10.001-fx.xpi')},null);"
-/>
+<wiki:gadget url="//tabgroupsmanager.googlecode.com/svn/web/branch/stub-100_dynamic/module/TestModule.xml" sBackgroundColor="#66AE28" sColor="#FFFFFF" sCallbackOrLocation="InstallTrigger.install({'s':gadgets.io.getProxyUrl('https://tabgroupsmanager.googlecode.com/svn/__static/product/100/stable/addon-2013.04.10.001-fx.xpi')},null);"/>

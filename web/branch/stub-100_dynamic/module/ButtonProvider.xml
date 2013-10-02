@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    TabGroups Manager
+    ButtonProvider, 100 series
+-->
+<Module>
+    <ModulePrefs>
+        <Require feature="dynamic-height"/>
+        <UserPref name="sBackgroundColor" default_value="#CCCCCC"/>
+        <UserPref name="sColor" default_value="#FFFFFF"/>
+        <UserPref name="sBackgroundColorHover" default_value="#CCCCCC"/>
+        <UserPref name="sColorHover" default_value="#FFFFFF"/>
+        <UserPref name="sCallbackOrLocation" default_value="#"/>
+    </ModulePrefs>
+    <Content type="html">
+        <![CDATA[ 
+            <style type="text/css">
+                *
+                {
+                    margin:0;
+                    padding:0;
+                }
+                #a
+                {
+                    text-align:center;
+                }
+                #b
+                {
+                    margin:0 auto;
+                    margin-top:200px;
+                    background:#66AE28;
+                    color:#FFFFFF;
+                    font:bold 1em sans-serif;
+                    border: 0;
+                    padding:1em 2em 1em 2em;
+                    text-decoration:none;
+                    cursor:pointer;
+                    border-radius:.5em;
+                }
+            </style>
+            <div id="a">
+                <noscript>Please enable JavaScript</noscript>
+            </div>
+            <script type="text/javascript">
+                gadgets.util.registerOnLoadHandler(function()
+                {
+                    var $ = function(s){return document.getElementById(s);},
+                        _ = new gadgets.prefs(),    
+                        a = $('a'),
+                        b = document.createElement('button'),
+                        c = document.createTextNode('Add to Firefox'),
+                        d = _.getString('sCallbackOrLocation');
+                    try
+                    {
+                        f = true;
+                        var e = eval(d),
+                    }
+                    catch(e)
+                    {
+                        f = false;
+                        console.log('ButtonProviderException:  ' + e.message);
+                    }
+                    b.setAttribute('id','b');
+                    b.style.backgroundColor = _.getString('sBackgroundColor');
+                    b.style.color = _.getString('sColor');
+                    b.appendChild(c);
+                    a.appendChild(b);
+                    gadgets.window.adjustHeight
+                    f && a.addEventListener('click',function()
+                    {
+                        (typeof e === 'object') ? window.open(e[0],'_top') : e;
+                    },false);
+                });
+            </script>
+        ]]>
+    </Content>
+</Module>

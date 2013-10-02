@@ -1,15 +1,10 @@
-<?xml version = "1.0" encoding = "UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
     TabGroups Manager
     Gadget test, 100 series
 -->
 <Module>
-    <ModulePrefs
-        title           = "Test Module"
-        description     = "Testing the module!"
-        author          = "TGM Compatibility Team"
-        author_email    = "tabgroupsmanager@gmail.com"/>
-    <Content type = "html">
+    <Content type="html">
         <![CDATA[ 
             <h1>It works!</h1>
         ]]>

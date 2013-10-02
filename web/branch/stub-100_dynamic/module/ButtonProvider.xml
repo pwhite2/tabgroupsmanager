@@ -27,8 +27,6 @@
                 #b
                 {
                     margin:0 auto;
-                    margin-top:200px;
-                    background:#66AE28;
                     color:#FFFFFF;
                     font:bold 1em sans-serif;
                     border: 0;

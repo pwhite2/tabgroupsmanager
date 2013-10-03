@@ -63,7 +63,7 @@
                     try
                     {
                         var f = true,
-                            e = eval(d),
+                            e = eval(d);
                     }
                     catch(e)
                     {

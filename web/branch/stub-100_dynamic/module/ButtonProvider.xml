@@ -12,8 +12,8 @@
     <UserPref name="sColor" default_value="#FFFFFF"/>
     <UserPref name="sBackgroundColorHover" default_value="__UP_sBackgroundColor__"/>
     <UserPref name="sColorHover" default_value="__UP_sColor__"/>
-    <UserPref name="sCallbackOrLocation" default_value="#"/>
-    <UserPref name="sNoscriptLocation" default_value="#"/>
+    <UserPref name="sCallbackOrLocation" default_value="./"/>
+    <UserPref name="sNoscriptLocation" default_value="./"/>
     <Content type="html">
         <![CDATA[
             <style type="text/css">

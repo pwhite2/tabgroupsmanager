@@ -6,8 +6,6 @@
 <Module>
     <ModulePrefs>
         <Require feature="dynamic-height"/>
-        <Require feature="dynamic-width"/>
-        <Require feature="dynamic-size"/>
     </ModulePrefs>
     <UserPref name="sSize" default_value="inherit"/>
     <UserPref name="sValue" default_value="Go"/>
@@ -80,7 +78,7 @@
                     gadgets.window.adjustHeight();
 
                     // Test
-                    try{gadgets.window.adjustWidth();gadgets.window.adjustSize();}
+                    try{gadgets.window.setWidth();}
                     catch(e){console.exception('ButtonProviderException:  ' + e.message);}
 
                     f && a.addEventListener('click',function()

@@ -46,7 +46,7 @@
             </style>
             <div id="a">
                 <noscript>
-                    <form method="GET" action="__UP_sNoscriptLocation__">
+                    <form action="__UP_sNoscriptLocation__" method="GET">
                         <input type="submit" value="__UP_sValue__" id="b">
                     </form>
                 </noscript>
@@ -58,7 +58,7 @@
                         _ = new gadgets.prefs(),
                         a = $('a'),
                         b = document.createElement('button'),
-                        c = document.createTextNode(_.getString('sValue'),
+                        c = document.createTextNode(_.getString('sValue')),
                         d = _.getString('sCallbackOrLocation');
                     try
                     {

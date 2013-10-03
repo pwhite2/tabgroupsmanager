@@ -62,8 +62,8 @@
                         d = _.getString('sCallbackOrLocation');
                     try
                     {
-                        f = true;
-                        var e = eval(d),
+                        var f = true,
+                            e = eval(d),
                     }
                     catch(e)
                     {

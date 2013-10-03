@@ -13,8 +13,8 @@
     <UserPref name="sColor" default_value="#FFFFFF"/>
     <UserPref name="sBackgroundColorHover" default_value="__UP_sBackgroundColor__"/>
     <UserPref name="sColorHover" default_value="__UP_sColor__"/>
-    <UserPref name="sCallbackOrLocation" default_value="./"/>
-    <UserPref name="sNoscriptLocation" default_value="./"/>
+    <UserPref name="sCallbackOrLocation" default_value="{'#'}"/>
+    <UserPref name="sNoscriptLocation" default_value=""/>
     <Content type="html">
         <![CDATA[
             <style type="text/css">
@@ -70,11 +70,12 @@
                     catch(e)
                     {
                         f = false;
-                        console.log('ButtonProviderException:  ' + e.message);
+                        console.exception('ButtonProviderException:  ' + e);
                     }
                     b.setAttribute('id','b');
                     b.appendChild(c);
                     a.appendChild(b);
+                    gadgets.window.adjustWidth();
                     gadgets.window.adjustHeight();
                     f && a.addEventListener('click',function()
                     {

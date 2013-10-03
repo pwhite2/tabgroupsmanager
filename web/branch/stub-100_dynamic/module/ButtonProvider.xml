@@ -6,6 +6,8 @@
 <Module>
     <ModulePrefs>
         <Require feature="dynamic-height"/>
+        <Require feature="dynamic-width"/>
+        <Require feature="dynamic-size"/>
     </ModulePrefs>
     <UserPref name="sSize" default_value="inherit"/>
     <UserPref name="sValue" default_value="Go"/>
@@ -70,13 +72,17 @@
                     catch(e)
                     {
                         f = false;
-                        console.exception('ButtonProviderException:  ' + e);
+                        console.exception('ButtonProviderException:  ' + e.message);
                     }
                     b.setAttribute('id','b');
                     b.appendChild(c);
                     a.appendChild(b);
-                    gadgets.window.adjustWidth();
                     gadgets.window.adjustHeight();
+
+                    // Test
+                    try{gadgets.window.adjustWidth();gadgets.window.adjustSize();}
+                    catch(e){console.exception('ButtonProviderException:  ' + e.message);}
+
                     f && a.addEventListener('click',function()
                     {
                         (typeof e === 'object') ? window.open(e[0],'_top') : e;

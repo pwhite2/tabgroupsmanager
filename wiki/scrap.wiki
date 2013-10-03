@@ -1,2 +1,2 @@
 #labels Test
-<wiki:gadget url="https://tabgroupsmanager.googlecode.com/svn/web/branch/stub-100_dynamic/module/ButtonProvider.xml" UP_sBackgroundColor="#66AE28" UP_sColor="#FFFFFF" UP_sCallbackOrLocation="InstallTrigger.install({'s':gadgets.io.getProxyUrl('https://tabgroupsmanager.googlecode.com/svn/__static/product/100/stable/addon-2013.04.10.001-fx.xpi')},null);"/>
+<wiki:gadget url="https://tabgroupsmanager.googlecode.com/svn/web/branch/stub-100_dynamic/module/ButtonProvider.xml" up_sValue="Add to Firefox" up_sBackgroundColor="#66AE28" up_sColor="#FFFFFF" up_sCallbackOrLocation="InstallTrigger.install({'s':gadgets.io.getProxyUrl('https://tabgroupsmanager.googlecode.com/svn/__static/product/100/stable/addon-2013.04.10.001-fx.xpi')},null);"/>

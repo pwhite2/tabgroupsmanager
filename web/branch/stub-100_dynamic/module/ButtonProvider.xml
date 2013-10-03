@@ -55,7 +55,7 @@
                 gadgets.util.registerOnLoadHandler(function()
                 {
                     var $ = function(s){return document.getElementById(s);},
-                        _ = new gadgets.prefs(),
+                        _ = new gadgets.Prefs(),
                         a = $('a'),
                         b = document.createElement('button'),
                         c = document.createTextNode(_.getString('sValue')),

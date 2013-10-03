@@ -7,11 +7,11 @@
     <ModulePrefs>
         <Require feature="dynamic-height"/>
     </ModulePrefs>
-    <UserPref name="sValue" default_value="#"/>
+    <UserPref name="sValue" default_value="Go"/>
     <UserPref name="sBackgroundColor" default_value="#CCCCCC"/>
     <UserPref name="sColor" default_value="#FFFFFF"/>
-    <UserPref name="sBackgroundColorHover" default_value="__UP_sBackgroundColor"/>
-    <UserPref name="sColorHover" default_value="__UP_sColor"/>
+    <UserPref name="sBackgroundColorHover" default_value="__UP_sBackgroundColor__"/>
+    <UserPref name="sColorHover" default_value="__UP_sColor__"/>
     <UserPref name="sCallbackOrLocation" default_value="#"/>
     <UserPref name="sNoscriptLocation" default_value="#"/>
     <Content type="html">
@@ -29,8 +29,8 @@
                 #b
                 {
                     margin:0 auto;
-                    background-color:__UP_sBackgroundColor;
-                    color:__UP_sColor;
+                    background-color:__UP_sBackgroundColor__;
+                    color:__UP_sColor__;
                     font:bold 1em sans-serif;
                     border:0;
                     padding:1em 2em 1em 2em;
@@ -40,14 +40,14 @@
                 }
                 #b:hover
                 {
-                    background-color:__UP_sBackgroundColorHover;
-                    color:__UP_sColorHover;
+                    background-color:__UP_sBackgroundColorHover__;
+                    color:__UP_sColorHover__;
                 }
             </style>
             <div id="a">
                 <noscript>
-                    <form method="GET" action="__UP_sNoscriptLocation">
-                        <input type="submit" value="__UP_sValue" id="b">
+                    <form method="GET" action="__UP_sNoscriptLocation__">
+                        <input type="submit" value="__UP_sValue__" id="b">
                     </form>
                 </noscript>
             </div>

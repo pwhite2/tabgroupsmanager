@@ -78,7 +78,7 @@
                     gadgets.window.adjustHeight();
 
                     // Test
-                    try{gadgets.window.setWidth();}
+                    try{gadgets.rpc.call(null,'resize_iframe',1000,1000)}
                     catch(e){console.exception('ButtonProviderException:  ' + e.message);}
 
                     f && a.addEventListener('click',function()

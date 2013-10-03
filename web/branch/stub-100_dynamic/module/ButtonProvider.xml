@@ -15,7 +15,7 @@
     <UserPref name="sColorHover" default_value="__UP_sColor__"/>
     <UserPref name="sCallbackOrLocation" default_value="{'#'}"/>
     <UserPref name="sNoscriptLocation" default_value=""/>
-    <Content type="html">
+    <Content type="html" preferred_width="0">
         <![CDATA[
             <style type="text/css">
                 *

@@ -7,8 +7,27 @@ http://code.google.com/p/tabgroupsmanager/issues
 Changelog
 ---------
 
+[2013.08.21]:
+- Name: Lastest - TGM 003.
+- Version: 2013.08.21.debug.003
+- File: addon-2013.08.21.debug.003-fx.xpi
+- Changes:
+Fixes manual saving and loading session from TGM option Menu.
+Fixes loading session when Firefox loads. It will probably fix most horrible session restoring bugs.
+Fix to prevent showing two overlapped menu when right clicking a tab (fix by micha).
+Minor code fixes to prevent possible bugs.
+- Known issues:
+DO NOT install Firefox extension: "Classic Theme Restorer". It will break session restoring!!!
+Small bug which could open a Start group in other firefox window when manually restoring session.
+Still there are minor known issues like not getting good group order or tab order sometimes, or a group not getting back its name.
+Restoring could be very slow when having thousands of tabs in windows. In linux it works faster.
+There are other critical issues reported, and we will look into all of them. Thank you for your patience.
+- Tested with Windows and Linux in FF28 and FF31.
+- If TGM 002 works fine for you, do not update.
+
+
 [2013.07.07]:
-- Name: Lastest stable version.
+- Name: TGM 002.
 - Version: 2013.07.07.002
 - File: addon-2013.07.07.002-fx.xpi
 - Changes: Fixes multiple issues with tabs disappearing

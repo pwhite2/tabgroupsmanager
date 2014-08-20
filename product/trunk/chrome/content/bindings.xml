@@ -26,7 +26,7 @@
 					if ( this.hasAttribute( "context" ) )
 					{
 						this.contextBak = this.getAttribute( "context" );
-						this.removeAttribute( "context" );
+						//this.removeAttribute( "context" ); //fix to prevent 2 popup menu overlapping when right clicking a tab, fix by micha. 
 					}
 					if ( this.contextBak )
 					{

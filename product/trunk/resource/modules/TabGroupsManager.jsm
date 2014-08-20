@@ -10,7 +10,7 @@ var TabGroupsManagerJsm=
     groupDataExt:"tgmg",
     groupDataType:"TabGroupsManager:GroupData",
     settingsExt:"tgms",
-    settingsType:"TabGroupsManager:Settings",
+    settingsType:"TabGroupsManager:Settings"
   },
   folderLocation:null,
   globalPreferences:null,
@@ -18,7 +18,7 @@ var TabGroupsManagerJsm=
   utils:null,
   saveData:null,
   privateBrowsing:null,
-  quitApplicationObserver:null,
+  quitApplicationObserver:null
 };
 TabGroupsManagerJsm.initialize=function(){
   try
@@ -481,7 +481,7 @@ TabGroupsManagerJsm.SaveData=function(){
     {
       type:TabGroupsManagerJsm.constValues.sessionDataType2,
       sleeping:new Array(),
-      closed:new Array(),
+      closed:new Array()
     };
     this.sessionStore=Cc["@mozilla.org/browser/sessionstore;1"].getService(Ci.nsISessionStore);
     this.dataFolder=TabGroupsManagerJsm.folderLocation.dataFolderInProfile.createFolder("save_data");
@@ -663,21 +663,27 @@ TabGroupsManagerJsm.SaveData.prototype.sleepButtonImageChange=function(){
     if(window&&window.document){
       var sleepButton=window.document.getElementById("TabGroupsManagerButtonSleep");
       if(sleepButton){
-        sleepButton.setAttribute("storecount",this.data.sleeping.length);
+		if (this.data.sleeping){
+			sleepButton.setAttribute("storecount",this.data.sleeping.length);
+		}
       }
     }
   }
 };
 TabGroupsManagerJsm.SaveData.prototype.getGroupById=function(id){
-  for(var i=0;i<this.data.sleeping.length;i++){
-    if(this.data.sleeping[i].id==id){
-      return this.data.sleeping[i];
-    }
+  if (this.data.sleeping){
+	  for(var i=0;i<this.data.sleeping.length;i++){
+		if(this.data.sleeping[i].id==id){
+		  return this.data.sleeping[i];
+		}
+	  }
   }
-  for(var i=0;i<this.data.closed.length;i++){
-    if(this.data.closed[i].id==id){
-      return this.data.closed[i];
-    }
+  if (this.data.closed){
+	  for(var i=0;i<this.data.closed.length;i++){
+		if(this.data.closed[i].id==id){
+		  return this.data.closed[i];
+		}
+	  }
   }
   return null;
 };
@@ -781,7 +787,7 @@ TabGroupsManagerJsm.SaveData.prototype.loadTgmDataFromFile=function(nsIFile,read
       type:null,
       sleeping:null,
       closed:null,
-      browserState:null,
+      browserState:null
     };
     let bufferSize=4096;
     let charset="UTF-8";
@@ -795,10 +801,13 @@ TabGroupsManagerJsm.SaveData.prototype.loadTgmDataFromFile=function(nsIFile,read
       converterStream.QueryInterface(Ci.nsIUnicharLineInputStream);
       let line={};
       let count=converterStream.readLine(line);
+	  tgmData.sleeping = []; //fix for sleeping groups couldnt be saved if there was no session with slept groups.
+	  tgmData.closed= [];    //fix for closed groups couldnt be saved if there was no session with closed groups.
       if(count>0&&line.value==TabGroupsManagerJsm.constValues.sessionDataType2){
         tgmData.type=line.value;
         count=converterStream.readLine(line);
         while(count>0&&line.value.match(/^(.[^:]+):([0-9]+)$/)){
+		  line={};
           let length=RegExp.$2-0;
           if(RegExp.$1=="Sleeping Groups"){
             tgmData.sleeping=new Array(length);
@@ -858,17 +867,70 @@ TabGroupsManagerJsm.SaveData.prototype.saveFileFromTgmData=function(nsIFile,perm
       converterStream.init(fileStream,charset,bufferSize,Ci.nsIConverterOutputStream.DEFAULT_REPLACEMENT_CHARACTER);
       converterStream.writeString(TabGroupsManagerJsm.constValues.sessionDataType2);
       converterStream.writeString("\n");
-      converterStream.writeString("Sleeping Groups:"+this.data.sleeping.length+"\n");
-      for(let i=0;i<this.data.sleeping.length;i++){
-        writeLineSplitToConverterStream(JSON.stringify(this.data.sleeping[i]));
-      }
-      converterStream.writeString("Closed Groups:"+this.data.closed.length+"\n");
-      for(let i=0;i<this.data.closed.length;i++){
-        writeLineSplitToConverterStream(JSON.stringify(this.data.closed[i]));
-      }
-      let browserState=this.sessionStore.getBrowserState();
-      converterStream.writeString("Browser State:1\n");
-      writeLineSplitToConverterStream(browserState);
+	  
+	  if (this.data.sleeping){
+		  converterStream.writeString("Sleeping Groups:"+this.data.sleeping.length+"\n");
+		  for(let i=0;i<this.data.sleeping.length;i++){
+			for(let j=0;j<this.data.sleeping[i]['tabs'].length;j++){
+				var sjsontab = JSON.parse(this.data.sleeping[i]['tabs'][j]);
+				if (null != sjsontab){
+					if (('storage' in sjsontab)){
+						delete sjsontab['storage'];
+						this.data.sleeping[i]['tabs'][j] = JSON.stringify(sjsontab);
+					}
+				}
+			}
+			writeLineSplitToConverterStream(JSON.stringify(this.data.sleeping[i]));
+		  }
+	  }
+	  
+	  if (this.data.closed){
+		  converterStream.writeString("Closed Groups:"+this.data.closed.length+"\n");
+		  for(let i=0;i<this.data.closed.length;i++){
+			for(let j=0;j<this.data.closed[i]['tabs'].length;j++){
+				var sjsontab = JSON.parse(this.data.closed[i]['tabs'][j]);
+				if (null != sjsontab){
+					if (('storage' in sjsontab)){
+						delete sjsontab['storage'];
+						this.data.closed[i]['tabs'][j] = JSON.stringify(sjsontab);
+					}
+				}
+			}
+			writeLineSplitToConverterStream(JSON.stringify(this.data.closed[i]));
+		  }
+	  }
+	  
+	  let browserState=this.sessionStore.getBrowserState();
+	  if (browserState){
+		  var jsonDataDecoded = JSON.parse(browserState);
+		  var ssessionwithoutstorage = "";
+		  for (let i=0;i<jsonDataDecoded['windows'].length;i++){
+		  
+			//if ('extData' in jsonDataDecoded['windows'][i]){
+			//	var jsonextDataDecoded = JSON.parse(jsonDataDecoded['windows'][i]['extData']);
+			//	var dtest = 0;
+			//}
+			
+			for (let j=0;j<jsonDataDecoded['windows'][i]['tabs'].length;j++) {
+				if (('storage' in jsonDataDecoded['windows'][i]['tabs'][j])) {
+					delete jsonDataDecoded['windows'][i]['tabs'][j]['storage'];
+				}
+			}
+			if ('_closedTabs' in jsonDataDecoded['windows'][i]){
+				for (let j=0;j<jsonDataDecoded['windows'][i]['_closedTabs'].length;j++) {
+					if ('state' in jsonDataDecoded['windows'][i]['_closedTabs'][j]){
+						if (('storage' in jsonDataDecoded['windows'][i]['_closedTabs'][j]['state'])){
+							delete jsonDataDecoded['windows'][i]['_closedTabs'][j]['state']['storage'];
+						}
+					}
+				}
+			}
+		  }
+		  browserState = JSON.stringify(jsonDataDecoded);
+		  converterStream.writeString("Browser State:1\n");
+		  writeLineSplitToConverterStream(browserState);
+	  }
+	  
       return true;
     }
     finally
@@ -1235,7 +1297,7 @@ TabGroupsManagerJsm.displayError=
     }else{
       throw e;
     }
-  },
+  }
 };
 TabGroupsManagerJsm.PrivateBrowsing=function(){
   try
@@ -1306,7 +1368,7 @@ TabGroupsManagerJsm.QuitApplicationObserver=function(){
   [
    "quit-application-requested",
    "quit-application-granted",
-   "quit-application",
+   "quit-application"
   ];
   var observerService=Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
   for(var i=0;i<this.observeList.length;i++){

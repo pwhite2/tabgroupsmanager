@@ -87,19 +87,17 @@ TabGroupsManager.initialize=function(event){
   }
 };
 TabGroupsManager.initializeAfterOnLoad=function(){
+  this.session.restoreGroupsAndSleepingGroupsAndClosedGroups();
   var tabmixSessionsManager=("TMP_TabGroupsManager" in window)&&TMP_TabGroupsManager.tabmixSessionsManager();
   if(TabGroupsManager.session.sessionRestoreManually ||!tabmixSessionsManager){
     this.session.restoreGroupsAndSleepingGroupsAndClosedGroups();
-    this.initialized=true;
   }
   if(this.initialized){
     return;
   }
-
+  this.initialized=true;
   try
   {
-    this.session.restoreGroupsAndSleepingGroupsAndClosedGroups(); //fix to prevent not restoring session sometimes
-    this.initialized=true;
     if(TabGroupsManagerJsm.globalPreferences.prefService.getBranch("extensions.tabmix.sessions.").getBoolPref("manager")){
       try
       {
@@ -111,7 +109,6 @@ TabGroupsManager.initializeAfterOnLoad=function(){
     }
   }
   catch(e){
-    this.initialized=false;
   }
   this.tabContextMenu.makeMenu();
   this.groupBarDispHide.firstStatusOfGroupBarDispHide();

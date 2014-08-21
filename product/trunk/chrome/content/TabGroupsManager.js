@@ -78,7 +78,7 @@ TabGroupsManager.initialize=function(event){
         group.close();
       }
     }
-    setTimeout(function(){TabGroupsManager.initializeAfterOnLoad();},100);
+    setTimeout(function(){TabGroupsManager.initializeAfterOnLoad();},12000); //fix to load session in linux and other systems, we need more time.
   }
   catch(e){
     if(this.preferences&&this.preferences.debug){

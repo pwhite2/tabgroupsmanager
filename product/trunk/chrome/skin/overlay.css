@@ -1,5 +1,5 @@
 
-tab.tabgroupsmanager-grouptab
+tab.tabgroupsmanager-grouptab:not(:-moz-lwtheme)
 {
 	-moz-binding: url("chrome://tabgroupsmanager/content/bindings.xml#tabgroupsmanager-grouptab-binding");
 	-moz-appearance: none;
@@ -13,13 +13,30 @@ tab.tabgroupsmanager-grouptab
 }
 
 tab.tabgroupsmanager-grouptab:hover,
-tab.tabgroupsmanager-grouptab[selected="true"]
+tab.tabgroupsmanager-grouptab[selected="true"]:not(:-moz-lwtheme)
 {
 	-moz-border-radius-topleft: 6px;
 	-moz-border-radius-topright: 6px;
 	-moz-border-top-colors: ThreeDShadow;
 	-moz-border-right-colors: ThreeDShadow;
 	-moz-border-left-colors: ThreeDShadow;
+}
+
+tab.tabgroupsmanager-grouptab:-moz-lwtheme
+{
+	-moz-binding: url("chrome://tabgroupsmanager/content/bindings.xml#tabgroupsmanager-grouptab-binding");
+	-moz-appearance: none;
+	margin-top: 0px;
+	border:0;
+	background-color: transparent;
+	background-image: linear-gradient(rgba(102, 102, 102, 0.6), rgba(76, 76, 76, 0.6) 80%);
+}
+
+tab.tabgroupsmanager-grouptab[selected="true"]:-moz-lwtheme
+{
+	border:0;
+	background-color: transparent;
+	background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.46) 50%);
 }
 
 /* グループバーの色 */

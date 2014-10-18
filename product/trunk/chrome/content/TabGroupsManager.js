@@ -1117,7 +1117,7 @@ TabGroupsManager.Session.prototype.moveTabToGroupBySessionStore=function(restori
     var groupId=this.getGroupId(restoringTab);
     if(isNaN(groupId)){
       groupId=(restoringTab.group)?restoringTab.group.id:TabGroupsManager.allGroups.selectedGroup.id;
-      this.sessionStore.setTabValue(restoringTab,"TabGroupsManagerGroupId",groupId);
+      this.sessionStore.setTabValue(restoringTab,"TabGroupsManagerGroupId",groupId.toString());
     }
     if(restoringTab.group&&restoringTab.group.id==groupId){
       return;
@@ -1165,7 +1165,7 @@ TabGroupsManager.Session.prototype.allTabsMoveToGroup=function(){
           let group=TabGroupsManager.allGroups.getGroupById(-1)|| TabGroupsManager.allGroups.selectedGroup;
           group.addTab(tab);
         }
-        this.sessionStore.setTabValue(tab,"TabGroupsManagerGroupId",tab.group.id);
+        this.sessionStore.setTabValue(tab,"TabGroupsManagerGroupId",tab.group.id.toString());
         this.sessionStore.setTabValue(tab,"TabGroupsManagerGroupName",tab.group.name);
       }
     }
@@ -2918,7 +2918,7 @@ TabGroupsManager.GroupClass.prototype.addTab=function(tab,fromSessionStore){
         }
     }
     if(TabGroupsManager.session.groupRestored>=2&&!fromSessionStore){
-      TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupId",this.id);
+      TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupId",this.id.toString());
       TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupName",this.name);
       if("TMP_TabGroupsManager" in window){
         SessionManager.updateTabProp(tab);
@@ -3502,7 +3502,7 @@ TabGroupsManager.GroupClass.prototype.initDefaultGroupAndModifyId=function(){
       var tab=this.tabArray[0]; /* fix: not [i] , since tabArray will get one less in each loop. */
       var groupId=TabGroupsManager.session.getGroupId(tab);
       if(isNaN(groupId)){
-        TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupId",this.id);
+        TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupId",this.id.toString());
         TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupName",this.name);
         if("TMP_TabGroupsManager" in window){
           SessionManager.updateTabProp(tab);
@@ -3560,7 +3560,7 @@ TabGroupsManager.GroupClass.prototype.reassignGroupIdFromMinus2=function(){
   if(this.id==-2){
     this.id=TabGroupsManagerJsm.applicationStatus.makeNewId();
     for(var i=0;i<this.tabArray.length;i++){
-      TabGroupsManager.session.sessionStore.setTabValue(this.tabArray[i],"TabGroupsManagerGroupId",this.id);
+      TabGroupsManager.session.sessionStore.setTabValue(this.tabArray[i],"TabGroupsManagerGroupId",this.id.toString());
       if("TMP_TabGroupsManager" in window){
         SessionManager.updateTabProp(this.tabArray[i]);
       }
@@ -4532,7 +4532,13 @@ TabGroupsManager.GroupBarDispHide.prototype.hideGroupBarByTabCount=function(){
 TabGroupsManager.GroupBarDispHide.prototype.saveGroupBarDispHideToSessionStore=function(){
   try
   {
-    TabGroupsManager.session.sessionStore.setWindowValue(window,"TabGroupsManagerGroupBarHide",this.dispGroupBar);
+    var dispGroupBar = this.dispGroupBar;
+    if (('undefined' !== typeof dispGroupBar) && (dispGroupBar) ) {
+        if ('string' !== typeof dispGroupBar) {
+            dispGroupBar = dispGroupBar.toString();
+        }
+        TabGroupsManager.session.sessionStore.setWindowValue(window,"TabGroupsManagerGroupBarHide",dispGroupBar);
+    }
   }
   catch(e){
   }
@@ -4591,7 +4597,7 @@ TabGroupsManager.GroupsStore.prototype.addGroup=function(groupData,closeGroup){
 TabGroupsManager.GroupsStore.prototype.sendTabToGroupsStore=function(tab,groupId){
   var groupData=this.peek(groupId);
   if(groupData){
-    TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupId",groupId);
+    TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupId",groupId.toString());
     TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupName",groupData.name);
     groupData.titleList+=tab.linkedBrowser.contentDocument.title+"\n";
     groupData.tabs.push(TabGroupsManager.session.getTabStateEx(tab));
@@ -5630,7 +5636,7 @@ TabGroupsManager.OverrideMethod.prototype.override_gBrowser_removeTab=function(a
 };
 TabGroupsManager.OverrideMethod.prototype.override_gBrowser_addTab=function(aURI,aReferrerURI,aCharset,aPostData,aOwner,aAllowThirdPartyFixup){
   if(aURI&&-1!=aURI.indexOf("tabgroupsmanagersearchplugin=")){
-    [aCharset,aPostData]=TabGroupsManager.overrideMethod.parseReferrerURI(arguments,aCharset,aPostData);
+    var [aCharset,aPostData]=TabGroupsManager.overrideMethod.parseReferrerURI(arguments,aCharset,aPostData);
     return TabGroupsManager.searchPlugin.mySearchByUri(aURI,aCharset,aPostData);
   }else if(TabGroupsManager.preferences.openNewGroupByShift&&TabGroupsManager.keyboardState.shiftKey){
     let newTab=TabGroupsManager.overrideMethod.backup_gBrowser_addTab.apply(this,arguments);
@@ -5641,7 +5647,7 @@ TabGroupsManager.OverrideMethod.prototype.override_gBrowser_addTab=function(aURI
 };
 TabGroupsManager.OverrideMethod.prototype.override_gBrowser_loadOneTab=function(aURI,aReferrerURI,aCharset,aPostData,aLoadInBackground,aAllowThirdPartyFixup){
   if(aURI&&-1!=aURI.indexOf("tabgroupsmanagersearchplugin=")){
-    [aCharset,aPostData]=TabGroupsManager.overrideMethod.parseReferrerURI(arguments,aCharset,aPostData);
+    var [aCharset,aPostData]=TabGroupsManager.overrideMethod.parseReferrerURI(arguments,aCharset,aPostData);
     return TabGroupsManager.searchPlugin.mySearchByUri(aURI,aCharset,aPostData);
   }else if(TabGroupsManager.preferences.openNewGroupByShift&&TabGroupsManager.keyboardState.shiftKey){
     let newTab=TabGroupsManager.overrideMethod.backup_gBrowser_addTab.call(this,aURI,aReferrerURI,aCharset,aPostData,undefined,aAllowThirdPartyFixup);

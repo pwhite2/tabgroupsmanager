@@ -7,10 +7,20 @@ http://code.google.com/p/tabgroupsmanager/issues
 Changelog
 ---------
 
+[2013.09.18]:
+- Name: Lastest - TGM 004.
+- Version: 2013.09.18.004
+- File: addon-2013.09.18.004-fx.xpi
+- Issue: https://code.google.com/p/tabgroupsmanager/issues/detail?id=65
+- Changes:
+Fixed critical bug, TGM not working because of tab functions changed with new Firefox v+33.
+https://bugzilla.mozilla.org/show_bug.cgi?id=996053
+https://blog.mozilla.org/addons/2014/10/01/compatibility-for-firefox-33
+
 [2013.08.21]:
-- Name: Lastest - TGM 003.
-- Version: 2013.08.21.debug.003
-- File: addon-2013.08.21.debug.003-fx.xpi
+- Name: TGM 003.
+- Version: 2013.08.21.003
+- File: addon-2013.08.21.003-fx.xpi
 - Changes:
 Fixes manual saving and loading session from TGM option Menu.
 Fixes loading session when Firefox loads. It will probably fix most horrible session restoring bugs.

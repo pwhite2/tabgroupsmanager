@@ -27,6 +27,7 @@ tab.tabgroupsmanager-grouptab:-moz-lwtheme
 	-moz-binding: url("chrome://tabgroupsmanager/content/bindings.xml#tabgroupsmanager-grouptab-binding");
 	-moz-appearance: none;
 	margin-top: 0px;
+	margin-left: 4px;
 	border:0;
 	background-color: transparent;
 	background-image: linear-gradient(rgba(102, 102, 102, 0.6), rgba(76, 76, 76, 0.6) 80%);

@@ -3977,7 +3977,8 @@ TabGroupsManager.AllGroups.prototype.loadAllGroupsData=function(){
         }
       }
     }
-    catch(e){
+    catch(e){ //show errors as window is not tracked during startup caused by small delay on initialisation > Fx33
+		TabGroupsManagerJsm.displayError.alertErrorIfDebug(e);
     }
     if(TabGroupsManager.session.sessionRestoring){
       if(TabGroupsManagerJsm.globalPreferences.lastSessionFinalized){

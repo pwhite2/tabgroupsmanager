@@ -78,7 +78,10 @@ TabGroupsManager.initialize=function(event){
         group.close();
       }
     }
-    setTimeout(function(){TabGroupsManager.initializeAfterOnLoad();},12000); //fix to load session in linux and other systems, we need more time.
+
+	//setTimeout(function(){TabGroupsManager.initializeAfterOnLoad();},10);
+	//Fx >25 SessionStore initialized later after some promises resolves, we need to use this promise to call initializeAfterOnLoad()
+	this.session.sessionStore.promiseInitialized.then(TabGroupsManager.initializeAfterOnLoad).then(null, Components.utils.reportError);
   }
   catch(e){
     if(this.preferences&&this.preferences.debug){

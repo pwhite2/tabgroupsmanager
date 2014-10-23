@@ -2921,7 +2921,7 @@ TabGroupsManager.GroupClass.prototype.addTab=function(tab,fromSessionStore){
       TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupId",this.id.toString());
       TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupName",this.name);
       if("TMP_TabGroupsManager" in window){
-        SessionManager.updateTabProp(tab);
+        TabmixSessionManager.updateTabProp(tab);
       }
     }
     if(this.suspended){
@@ -3505,7 +3505,7 @@ TabGroupsManager.GroupClass.prototype.initDefaultGroupAndModifyId=function(){
         TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupId",this.id.toString());
         TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupName",this.name);
         if("TMP_TabGroupsManager" in window){
-          SessionManager.updateTabProp(tab);
+          TabmixSessionManager.updateTabProp(tab);
         }
       }else{
         TabGroupsManager.session.moveTabToGroupBySessionStore(tab);
@@ -3562,7 +3562,7 @@ TabGroupsManager.GroupClass.prototype.reassignGroupIdFromMinus2=function(){
     for(var i=0;i<this.tabArray.length;i++){
       TabGroupsManager.session.sessionStore.setTabValue(this.tabArray[i],"TabGroupsManagerGroupId",this.id.toString());
       if("TMP_TabGroupsManager" in window){
-        SessionManager.updateTabProp(this.tabArray[i]);
+        TabmixSessionManager.updateTabProp(this.tabArray[i]);
       }
     }
   }
@@ -3943,7 +3943,7 @@ TabGroupsManager.AllGroups.prototype.saveAllGroupsDataImmediately=function(_this
   catch(e){
   }
   if(("TMP_TabGroupsManager" in window)&&("saveAllGroupsData" in window.SessionManager)){
-    SessionManager.saveAllGroupsData(jsonText);
+    TabmixSessionManager.saveAllGroupsData(jsonText);
   }
 };
 TabGroupsManager.AllGroups.prototype.beginUpdate=function(){

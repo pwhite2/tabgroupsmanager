@@ -1615,11 +1615,17 @@ TabGroupsManager.EventListener.prototype.onTabShow=function(event){
 };
 TabGroupsManager.EventListener.prototype.onTabHide=function(event){
   var tab=event.target;
-  if(tab.group.selected){
-    tab.removeAttribute("hidden");  //we need to remove hidden attribute to maintain compatibility with old versions of TGM.
-	//tab.collapsed=''; //not false!! -> http://xuldev.blogspot.com.es/2007/09/how-to-hide-tab-correctly-difference.html
-	tab.removeAttribute("collapsed"); // -> https://developer.mozilla.org/en-US/docs/Firefox_addons_developer_guide/Introduction_to_XUL%E2%80%94How_to_build_a_more_intuitive_UI
-  }
+  
+  //fix tab.group is not defined at startup since Fx25+ with new promise future
+  var activeGroupPromise = Promise.resolve(tab);
+  
+  activeGroupPromise.then(function(tab) {
+	  if(tab.group.selected){
+			tab.removeAttribute("hidden"); //we need to remove hidden attribute to maintain compatibility with old versions of TGM.
+			//tab.collapsed=''; //not false!! -> http://xuldev.blogspot.com.es/2007/09/how-to-hide-tab-correctly-difference.html
+			tab.removeAttribute("collapsed"); // -> https://developer.mozilla.org/en-US/docs/Firefox_addons_developer_guide/Introduction_to_XUL%E2%80%94How_to_build_a_more_intuitive_UI
+		}
+});
 };
 TabGroupsManager.EventListener.prototype.onTabMove=function(event){
   var tab=event.originalTarget;

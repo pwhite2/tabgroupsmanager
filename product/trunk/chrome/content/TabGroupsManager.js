@@ -78,15 +78,9 @@ TabGroupsManager.initialize=function(event){
         group.close();
       }
     }
-
-	//setTimeout(function(){TabGroupsManager.initializeAfterOnLoad();},10);
-	//Fx >25 SessionStore initialized later after some promises resolves, we need to use this promise to call initializeAfterOnLoad()
-	this.session.sessionStore.promiseInitialized.then(TabGroupsManager.initializeAfterOnLoad).then(null, Components.utils.reportError);
   }
   catch(e){
-    if(this.preferences&&this.preferences.debug){
-      alert(e.message+"\n"+e.fileName+"\n"+e.lineNumber+"\n"+e.stack);
-    }
+	TabGroupsManagerJsm.displayError.alertErrorIfDebug(e);
   }
 };
 TabGroupsManager.initializeAfterOnLoad=function(){

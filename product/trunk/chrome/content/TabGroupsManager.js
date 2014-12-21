@@ -131,9 +131,9 @@ TabGroupsManager.finalize=function(){
   this.keyboardState.destroyEventListener();
   this.session.destroyEventListener();
   this.eventListener.destroyEventListener();
-  this.groupDnDObserver.destroyEventListener()
-  this.groupBarDnDObserver.destroyEventListener()
-  this.windowDnDObserver.destroyEventListener()
+  this.groupDnDObserver.destroyEventListener();
+  this.groupBarDnDObserver.destroyEventListener();
+  this.windowDnDObserver.destroyEventListener();
   this.tabContextMenu.deleteMenu();
   this.preferences.destructor();
   delete this.allGroups;
@@ -636,7 +636,7 @@ TabGroupsManager.Preferences.prototype.observe=function(aSubject,aTopic,aData){
 TabGroupsManager.Preferences.prototype.setButtonType=function(id,value){
   let element=document.getElementById(id);
   if(element){
-    if(value&256){
+    if(value&&256){
       element.type="menu-button";
     }else if(value==99){
       element.type="menu";
@@ -649,14 +649,14 @@ TabGroupsManager.Preferences.prototype.firefoxVersionCompare=function(target){
   return this.versionComparator.compare(this.firefoxAppInfo.version,target);
 };
 TabGroupsManager.Preferences.prototype.addStyleSheet=function(text){
-  var sss=Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService)
+  var sss=Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService);
   var uri=TabGroupsManager.utils.createNewNsiUri("data:text/css,"+encodeURIComponent("@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul); "+text));
   if(!sss.sheetRegistered(uri,sss.USER_SHEET)){
     sss.loadAndRegisterSheet(uri,sss.USER_SHEET);
   }
 };
 TabGroupsManager.Preferences.prototype.removeStyleSheet=function(text){
-  var sss=Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService)
+  var sss=Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService);
   var uri=TabGroupsManager.utils.createNewNsiUri("data:text/css,"+encodeURIComponent("@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul); "+text));
   if(sss.sheetRegistered(uri,sss.USER_SHEET)){
     sss.unregisterSheet(uri,sss.USER_SHEET);
@@ -792,7 +792,7 @@ TabGroupsManager.KeyboardShortcut.prototype.onCommand=function(event){
     case 50:TabGroupsManager.command.DisplayHideGroupBar();break;
     case 60:TabGroupsManager.command.ActiveGroupMenu();break;
     case 61:TabGroupsManager.command.GroupBarMenu();break;
-  };
+  }
 };
 TabGroupsManager.KeyboardState=function(){
   try
@@ -1619,7 +1619,7 @@ TabGroupsManager.EventListener.prototype.onTabHide=function(event){
 			//tab.collapsed=''; //not false!! -> http://xuldev.blogspot.com.es/2007/09/how-to-hide-tab-correctly-difference.html
 			tab.removeAttribute("collapsed"); // -> https://developer.mozilla.org/en-US/docs/Firefox_addons_developer_guide/Introduction_to_XUL%E2%80%94How_to_build_a_more_intuitive_UI
 		}
-});
+  });
 };
 TabGroupsManager.EventListener.prototype.onTabMove=function(event){
   var tab=event.originalTarget;
@@ -2697,10 +2697,10 @@ TabGroupsManager.progressListenerForGroup.prototype.QueryInterface=function(aIID
   throw Components.results.NS_NOINTERFACE;
 };
 TabGroupsManager.progressListenerForGroup.prototype.onStateChange=function(aWebProgress,aRequest,aFlag,aStatus){
-  if(aFlag&this.startAndStop){
+  if(aFlag&&this.startAndStop){
     var ownerGroup=this.ownerGroup;
     setTimeout(function(){ownerGroup.displayGroupBusy();},0);
-    if(aFlag&Ci.nsIWebProgressListener.STATE_STOP){
+    if(aFlag&&Ci.nsIWebProgressListener.STATE_STOP){
       if(aWebProgress.document&&aWebProgress.document.location=="about:sessionrestore"){
         var button=aWebProgress.document.getElementById("errorTryAgain");
         button.setAttribute("oncommand","getBrowserWindow().TabGroupsManager.session.restoreSessionFromAboutSessionRestore(); "+button.getAttribute("oncommand"));
@@ -3553,7 +3553,7 @@ TabGroupsManager.GroupClass.prototype.setGroupDataWithoutTabs=function(groupData
     this.suspendedTabIndex=0;
     if(groupData.suspendArray){
       this.suspendArray=JSON.parse(groupData.suspendArray);
-      this.suspendTitleList=groupData.suspendTitleList
+      this.suspendTitleList=groupData.suspendTitleList;
       this.dispGroupLabel();
     }
     TabGroupsManager.allGroups.saveAllGroupsDataImmediately();
@@ -4109,7 +4109,7 @@ TabGroupsManager.AllGroups.prototype.bookmarkAllGroups=function(){
   if(folderName){
     this.bookmarkAllGroupsCore(folderName)
   }
-}
+};
 TabGroupsManager.AllGroups.prototype.bookmarkAllGroupsCore=function(folderName,parentFolder){
   var places=Cc["@mozilla.org/browser/nav-bookmarks-service;1"].getService(Ci.nsINavBookmarksService);
   if(!parentFolder){
@@ -4488,7 +4488,7 @@ TabGroupsManager.GroupBarDispHide.prototype.onMouseoutToolbox=function(){
 };
 TabGroupsManager.GroupBarDispHide.prototype.dispGroupBarByGroupCount=function(){
   if(TabGroupsManager.allGroups.childNodes.length!=1){
-    if(TabGroupsManager.preferences.hideGroupBarByTabGroupCount&10){
+    if(TabGroupsManager.preferences.hideGroupBarByTabGroupCount&&10){
       this.dispGroupBar=true;
     }
     this.dispGroupBarByTabCount();
@@ -4507,10 +4507,10 @@ TabGroupsManager.GroupBarDispHide.prototype.hideGroupBarByGroupCount=function(){
 };
 TabGroupsManager.GroupBarDispHide.prototype.dispGroupBarByTabCount=function(){
   if(TabGroupsManager.allGroups.childNodes.length!=1 || gBrowser.mTabContainer.childNodes.length!=1){
-    if(TabGroupsManager.preferences.hideGroupBarByTabGroupCount&5){
+    if(TabGroupsManager.preferences.hideGroupBarByTabGroupCount&&5){
       this.dispGroupBar=true;
     }
-    if(TabGroupsManager.preferences.hideGroupBarByTabGroupCount&16){
+    if(TabGroupsManager.preferences.hideGroupBarByTabGroupCount&&16){
       TabGroupsManager.xulElements.tabBar.removeAttribute("collapsed");
     }
   }
@@ -5531,7 +5531,7 @@ TabGroupsManager.OverrideMethod.prototype.override_handleTabDrop=function(event)
     return;
   }
   return TabGroupsManager.overrideMethod.bakup_handleTabDrop.apply(this,arguments);
-}
+};
 TabGroupsManager.OverrideMethod.prototype.override_TabView__window_UI_showTabView=function(zoomOut){
   TabGroupsManager.forPanorama.onTabViewShow();
   return TabGroupsManager.overrideMethod.backup_TabView__window_UI_showTabView.apply(this,arguments);

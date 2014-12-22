@@ -4,8 +4,23 @@ TabGroups Manager Changelog
 List of Issues:
 http://code.google.com/p/tabgroupsmanager/issues
 
+
 Changelog
 ---------
+
+[2014.12.21]:
+- Name: Lastest - TGM 005.
+- Version: 2014.12.21.005
+- File: addon-2014.12.21.005-fx.xpi
+- Issue: 
+- Changes:
+Fixed bug with 'hidden' attribute which caused incompatibility with TabMixPlus. Now multirow works! :) (Thanks micha and Onemen (TMP developer) for all your help). 
+We have reverted from 'collapsed' to 'hidden' doing it the right way: http://mxr.mozilla.org/mozilla-central/source/browser/base/content/tabbrowser.xml
+Fixed in Firefox >25 SessionStore initialize with promise initializeAfterOnLoad(), instead of the temporary fix patch. (fixed by micha. Thanks to Onemen (TMP developer) for support in this matter). 
+Fixed tab.group is not defined at startup since Fx25+, with new promise future. In FX25+ is mandatory (fixed by micha).
+Fixed SessionManager to TabmixSessionManager to get rid off depreciated message (fixed by micha).
+Added debug output to empty catch, so we get info for loadAllGroupsData() in debug mode (micha).
+Added spaces between transparency tab groups for personas themes to overlay.css (micha).
 
 [2014.09.18]:
 - Name: Lastest - TGM 004.

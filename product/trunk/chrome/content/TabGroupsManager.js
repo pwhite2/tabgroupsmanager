@@ -275,6 +275,30 @@ TabGroupsManager.utils.traceProperty=function(root){
   }
   return target;
 };
+TabGroupsManager.utils.hideTab=function(tab) {
+  if (('undefined' !== typeof tab) && (tab) ) {
+    tab.setAttribute("hidden","true");
+    gBrowser._visibleTabs = null; // invalidate cache
+    gBrowser.mTabContainer.adjustTabstrip();
+    gBrowser.mTabContainer._setPositionalAttributes();
+    let event = document.createEvent("Events");
+    event.initEvent("TabHide", true, false);
+    tab.dispatchEvent(event);
+  }
+};
+TabGroupsManager.utils.unHideTab=function(tab) {
+  if (('undefined' !== typeof tab) && (tab) ) {
+    tab.removeAttribute("hidden");
+    tab.removeAttribute("collapsed");
+    gBrowser._visibleTabs = null; // invalidate cache
+    gBrowser.mTabContainer.adjustTabstrip();
+    gBrowser.mTabContainer._setPositionalAttributes();
+    let event = document.createEvent("Events");
+    event.initEvent("TabShow", true, false);
+    tab.dispatchEvent(event);
+  }
+};
+
 TabGroupsManager.tabMoveByTGM=
 {
   tabMovingByTGM:false,
@@ -1604,7 +1628,9 @@ TabGroupsManager.EventListener.prototype.onTabShow=function(event){
   var tab=event.target;
   if(!tab.group.selected){
 	//tab.setAttribute("hidden","true");
-	tab.collapsed=true;
+	//tab.collapsed=true;
+    //tab.hidden=true; //doesnt work
+    TabGroupsManager.utils.hideTab(tab);
   }
 };
 TabGroupsManager.EventListener.prototype.onTabHide=function(event){
@@ -1615,9 +1641,10 @@ TabGroupsManager.EventListener.prototype.onTabHide=function(event){
   
   activeGroupPromise.then(function(tab) {
 	  if(tab.group.selected){
-			tab.removeAttribute("hidden"); //we need to remove hidden attribute to maintain compatibility with old versions of TGM.
+			//tab.removeAttribute("hidden"); //we need to remove hidden attribute to maintain compatibility with old versions of TGM.
 			//tab.collapsed=''; //not false!! -> http://xuldev.blogspot.com.es/2007/09/how-to-hide-tab-correctly-difference.html
-			tab.removeAttribute("collapsed"); // -> https://developer.mozilla.org/en-US/docs/Firefox_addons_developer_guide/Introduction_to_XUL%E2%80%94How_to_build_a_more_intuitive_UI
+			//tab.removeAttribute("collapsed"); // -> https://developer.mozilla.org/en-US/docs/Firefox_addons_developer_guide/Introduction_to_XUL%E2%80%94How_to_build_a_more_intuitive_UI
+            TabGroupsManager.utils.unHideTab(tab);
 		}
   });
 };
@@ -1652,11 +1679,14 @@ TabGroupsManager.EventListener.prototype.onGroupSelect=function(event){
     for(var tab=gBrowser.mTabContainer.firstChild;tab;tab=tab.nextSibling){
       if(tab.group&&!tab.group.selected){
         //tab.setAttribute("hidden","true"); // http://xuldev.blogspot.com.es/2007/09/how-to-hide-tab-correctly-difference.html
-        tab.collapsed=true;
+        //tab.collapsed=true;
+        //tab.hidden=true;
+        TabGroupsManager.utils.hideTab(tab);
       }else{
-        tab.removeAttribute("hidden");  //we need to remove hidden attribute to maintain compatibility with old versions of TGM.
+        //tab.removeAttribute("hidden");  //we need to remove hidden attribute to maintain compatibility with old versions of TGM.
         //tab.collapsed=''; //not false!! -> http://xuldev.blogspot.com.es/2007/09/how-to-hide-tab-correctly-difference.html
-        tab.removeAttribute("collapsed");
+        //tab.removeAttribute("collapsed");
+        TabGroupsManager.utils.unHideTab(tab);
       }
     }
     TabGroupsManager.allGroups.scrollInActiveGroup(true);
@@ -2047,7 +2077,9 @@ TabGroupsManager.SupportDnD.prototype.setSuspendPositionX=function(positionX){
   this.selectDisplayIconTimer(this.dropSuspend);
 };
 TabGroupsManager.SupportDnD.prototype.stopDisplayTimer=function(){
-  clearTimeout(this.displayIconTimer);
+  if (('undefined' !== typeof this.displayIconTimer) && (this.displayIconTimer)) {
+    clearTimeout(this.displayIconTimer);
+  }
   this.displayIconTimer=null;
 };
 TabGroupsManager.SupportDnD.prototype.selectDisplayIcon=function(displayIconList){
@@ -2070,8 +2102,10 @@ TabGroupsManager.SupportDnD.prototype.hideAllNow=function(){
 };
 TabGroupsManager.SupportDnD.prototype.hideAllNowCore=function(){
   this.stopDisplayTimer();
-  for(let i=0;i<this.icons.length;i++){
-    this.icons[i].hidden=true;
+  if (('undefined' !== typeof this.icons) && (this.icons) ) {
+    for (let i = 0; i < this.icons.length; i++) {
+      this.icons[i].hidden = true;
+    }
   }
 };
 TabGroupsManager.SupportDnD.prototype.hideAll=function(){
@@ -2906,7 +2940,7 @@ TabGroupsManager.GroupClass.prototype.dispHideGroupIcon=function(value){
 TabGroupsManager.GroupClass.prototype.addTab=function(tab,fromSessionStore){
   try
   {
-    tab.removeAttribute("hidden");  //we need to remove hidden attribute to maintain compatibility with old versions of TGM.
+    tab.removeAttribute("collapsed");  //we need to remove hidden attribute to maintain compatibility with old versions of TGM.
     if (tab.group) {
         if (tab.group == this) {
             return;
@@ -2940,7 +2974,7 @@ TabGroupsManager.GroupClass.prototype.addTab=function(tab,fromSessionStore){
 TabGroupsManager.GroupClass.prototype.addTabToTabArray=function(tab,fromSessionStore){
   try
   {
-    tab.removeAttribute("hidden");  //we need to remove hidden attribute to maintain compatibility with old versions of TGM.
+    //tab.removeAttribute("hidden");  //we need to remove hidden attribute to maintain compatibility with old versions of TGM.
     let[firstTab,lastTab]=this.getFirstLastTabInGroup();
     tab.group=this;
     this.tabArray.push(tab);
@@ -2960,24 +2994,29 @@ TabGroupsManager.GroupClass.prototype.addTabToTabArray=function(tab,fromSessionS
 	  if ((!this.selected == null) || (!this.selected == undefined))
 	  {
 	    //We should remove the hidden attribute, but instead we will do the right step setting the collapse attribute to ''.
-		tab.removeAttribute("hidden");  //we need to remove hidden attribute to maintain compatibility with old versions of TGM.
+		//tab.removeAttribute("hidden");  //we need to remove hidden attribute to maintain compatibility with old versions of TGM.
 		//tab.collapsed=''; //not false!! -> http://xuldev.blogspot.com.es/2007/09/how-to-hide-tab-correctly-difference.html
-		tab.removeAttribute("collapsed"); // -> https://developer.mozilla.org/en-US/docs/Firefox_addons_developer_guide/Introduction_to_XUL%E2%80%94How_to_build_a_more_intuitive_UI
+		//tab.removeAttribute("collapsed"); // -> https://developer.mozilla.org/en-US/docs/Firefox_addons_developer_guide/Introduction_to_XUL%E2%80%94How_to_build_a_more_intuitive_UI
+        TabGroupsManager.utils.unHideTab(tab);
 	  }
 	  else
 	  {
 		  if (this.selected == true)
 		  {
 			//set to false (we should set hidden to false, instead we will set collapse to '')
-			tab.removeAttribute("hidden");  //we need to remove hidden attribute to maintain compatibility with old versions of TGM.
+			//tab.removeAttribute("hidden");  //we need to remove hidden attribute to maintain compatibility with old versions of TGM.
 			//tab.collapsed=''; //not false!! -> http://xuldev.blogspot.com.es/2007/09/how-to-hide-tab-correctly-difference.html
-			tab.removeAttribute("collapsed"); // -> https://developer.mozilla.org/en-US/docs/Firefox_addons_developer_guide/Introduction_to_XUL%E2%80%94How_to_build_a_more_intuitive_UI
+			//tab.removeAttribute("collapsed"); // -> https://developer.mozilla.org/en-US/docs/Firefox_addons_developer_guide/Introduction_to_XUL%E2%80%94How_to_build_a_more_intuitive_UI
+            TabGroupsManager.utils.unHideTab(tab);
 		  }
 		  if (this.selected == false)
 		  {
 			//set to true (we should set hidden to true, instead we will set collapse to true)
-			tab.collapsed=true;
-		  } 
+			//tab.collapsed=true;
+            //tab.hidden=true;
+            //tab.setAttribute("hidden","true");
+            TabGroupsManager.utils.hideTab(tab);
+		  }
 	  }
     }
     tab.linkedBrowser.webProgress.addProgressListener(this.progressListener,Ci.nsIWebProgress.NOTIFY_STATE_NETWORK);
@@ -2989,7 +3028,8 @@ TabGroupsManager.GroupClass.prototype.addTabToTabArray=function(tab,fromSessionS
       }
     }
     if(this.selected&&("TMP_TabGroupsManager" in window)){
-      tab.collapsed=false;
+      tab.removeAttribute("collapsed"); //tab.collapsed=false;
+
       if(fromSessionStore){
         gBrowser.mTabContainer.ensureTabIsVisible(this.selectedTab._tPos);
       }
@@ -3945,8 +3985,14 @@ TabGroupsManager.AllGroups.prototype.saveAllGroupsDataImmediately=function(_this
   }
   catch(e){
   }
-  if(("TMP_TabGroupsManager" in window)&&("saveAllGroupsData" in window.SessionManager)){
-    TabmixSessionManager.saveAllGroupsData(jsonText);
+  if ( ('undefined' !== typeof window.TabmixSessionManager) &&
+      (window.TabmixSessionManager) &&
+      ('undefined' !== typeof TabmixSessionManager) &&
+      (TabmixSessionManager) )
+  {
+    if (("TMP_TabGroupsManager" in window) && ("saveAllGroupsData" in window.TabmixSessionManager)) {
+      TabmixSessionManager.saveAllGroupsData(jsonText);
+    }
   }
 };
 TabGroupsManager.AllGroups.prototype.beginUpdate=function(){

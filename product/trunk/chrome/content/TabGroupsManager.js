@@ -555,10 +555,8 @@ TabGroupsManager.Preferences.prototype.observe=function(aSubject,aTopic,aData){
     case"normalGroupStyle":
     {
       let tmp=this.prefBranch.getCharPref("normalGroupStyle");
-      if (this.normalGroupStyle) {
-          this.rewriteStyleSheet(".tabgroupsmanager-grouptab ", this.normalGroupStyle, tmp);
-          this.normalGroupStyle = tmp;
-      }
+      this.rewriteStyleSheet(".tabgroupsmanager-grouptab ", this.normalGroupStyle, tmp);
+      this.normalGroupStyle = tmp;
       break;
     }
     case"selectedGroupStyle":

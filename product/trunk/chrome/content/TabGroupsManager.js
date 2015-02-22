@@ -279,11 +279,7 @@ TabGroupsManager.utils.hideTab=function(tab) {
   if (('undefined' !== typeof tab) && (tab) ) {
     tab.setAttribute("hidden","true");
     gBrowser._visibleTabs = null; // invalidate cache
-    gBrowser.mTabContainer.adjustTabstrip();
-    gBrowser.mTabContainer._setPositionalAttributes();
-    let event = document.createEvent("Events");
-    event.initEvent("TabHide", true, false);
-    tab.dispatchEvent(event);
+	gBrowser.hideTab(tab);
   }
 };
 TabGroupsManager.utils.unHideTab=function(tab) {
@@ -291,14 +287,9 @@ TabGroupsManager.utils.unHideTab=function(tab) {
     tab.removeAttribute("hidden");
     tab.removeAttribute("collapsed");
     gBrowser._visibleTabs = null; // invalidate cache
-    gBrowser.mTabContainer.adjustTabstrip();
-    gBrowser.mTabContainer._setPositionalAttributes();
-    let event = document.createEvent("Events");
-    event.initEvent("TabShow", true, false);
-    tab.dispatchEvent(event);
+	gBrowser.showTab(tab);
   }
 };
-
 TabGroupsManager.tabMoveByTGM=
 {
   tabMovingByTGM:false,

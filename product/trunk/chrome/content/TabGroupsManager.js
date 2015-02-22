@@ -3232,11 +3232,11 @@ TabGroupsManager.GroupClass.prototype.removeTab=function(tab,fromTabCloseEvent,n
     }else{
       this.close();
     }
-  }else{
-    if(this.selectedTab==tab){
+  }else{ //only if the closed tab is selected & use fromTabCloseEvent -> for manually close a tab and prevent loading several tabs in one group at startup
+    if(this.selectedTab==tab&&fromTabCloseEvent){
       this._selectedTab=this.getNextTabWhenTabRemove(tab);
       if(this.selected&&this._selectedTab&&TabGroupsManager.preferences.focusTabWhenActiveTabClosed!=-1){
-        gBrowser.selectedTab=this.selectedTab;
+        gBrowser.selectedTab=this._selectedTab;
       }
     }
     if(this.selected){

@@ -3979,30 +3979,35 @@ TabGroupsManager.AllGroups.prototype.saveAllGroupsData=function(){
   this.saveAllGroupsDataTimer=setTimeout(this.saveAllGroupsDataImmediately,this.saveAllGroupsDataTimeout,this);
 };
 TabGroupsManager.AllGroups.prototype.saveAllGroupsDataImmediately=function(_this){
-  if(_this==null){
-    _this=this;
-  }
-  _this.saveAllGroupsDataTimerChancel();
-  var allGroupsData={};
-  allGroupsData.groups=new Array();
-  for(var i=0;i<_this.childNodes.length;i++){
-    allGroupsData.groups.push(_this.childNodes[i].group.getGroupDataWithoutTabs());
-  }
-  let jsonText=JSON.stringify(allGroupsData);
-  try
-  {
-    TabGroupsManager.session.sessionStore.setWindowValue(window,"TabGroupsManagerAllGroupsData",jsonText);
-  }
-  catch(e){
-  }
-  if ( ('undefined' !== typeof window.TabmixSessionManager) &&
-      (window.TabmixSessionManager) &&
-      ('undefined' !== typeof TabmixSessionManager) &&
-      (TabmixSessionManager) )
-  {
-    if (("TMP_TabGroupsManager" in window) && ("saveAllGroupsData" in window.TabmixSessionManager)) {
-      TabmixSessionManager.saveAllGroupsData(jsonText);
-    }
+  /*SSTabRestoring fires on every tab restoring -> so let us save data only if groups are in status restored         */
+  /*in other case we will fetch data from the groups but the restore is still in progress and datas are not complete */ 
+  /*so we lost our extData due the async stuff in sessionstore with fx > 29                                          */
+  if(TabGroupsManager.session.groupRestored == 2) {
+	  if(_this==null){
+		_this=this;
+	  }
+	  _this.saveAllGroupsDataTimerChancel();
+	  var allGroupsData={};
+	  allGroupsData.groups=new Array();
+	  for(var i=0;i<_this.childNodes.length;i++){
+		allGroupsData.groups.push(_this.childNodes[i].group.getGroupDataWithoutTabs());
+	  }
+	  let jsonText=JSON.stringify(allGroupsData);
+	  try
+	  {
+		TabGroupsManager.session.sessionStore.setWindowValue(window,"TabGroupsManagerAllGroupsData",jsonText);
+	  }
+	  catch(e){
+	  }
+	  if ( ('undefined' !== typeof window.TabmixSessionManager) &&
+		  (window.TabmixSessionManager) &&
+		  ('undefined' !== typeof TabmixSessionManager) &&
+		  (TabmixSessionManager) )
+	  {
+		if (("TMP_TabGroupsManager" in window) && ("saveAllGroupsData" in window.TabmixSessionManager)) {
+		  TabmixSessionManager.saveAllGroupsData(jsonText);
+		}
+	  }
   }
 };
 TabGroupsManager.AllGroups.prototype.beginUpdate=function(){

@@ -1626,16 +1626,30 @@ TabGroupsManager.EventListener.prototype.onTabShow=function(event){
 TabGroupsManager.EventListener.prototype.onTabHide=function(event){
   var tab=event.target;
 
-  if(TabGroupsManager.preferences.firefoxVersionCompare("28") == 1 ) {
-	//browser is greater as 28, fix tab.group is not defined at startup since Fx25+
-	var activeGroupPromise = Promise.resolve(tab);
+  //check if tab.group is not defined at startup since Fx25+
+  if(TabGroupsManager.preferences.firefoxVersionCompare("28") == 1 && typeof tab.group == "undefined") { 
+	let count = 0;
+	function checkTabGroup() {
+		count++;
+		var activeGroupPromise = new Promise( 
+			function(resolve, reject) {       
+				setTimeout(function() {
+					if(typeof tab.group == "undefined" && count < 10) {
+						checkTabGroup();
+					} else resolve(tab);
+				}, 50);
+			});
 
-	activeGroupPromise.then(function(tab) {
-		if(tab.group.selected){
-			//tab.removeAttribute("hidden");
-			TabGroupsManager.utils.unHideTab(tab);
-		}
-	});
+		activeGroupPromise.then(function(tab) {
+			if(tab.group.selected){
+				//tab.removeAttribute("hidden");
+				TabGroupsManager.utils.unHideTab(tab);
+			}
+		}, Components.utils.reportError);
+	}
+		
+	checkTabGroup();
+	
   } else {
 		if(tab.group.selected){
 			//tab.removeAttribute("hidden");

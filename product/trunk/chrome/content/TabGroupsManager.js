@@ -11,7 +11,34 @@ catch(e){
 var TabGroupsManager=
 {
   initialized:false,
-  apiEnabled:false
+  apiEnabled:false,
+  contextTargetHref: null,
+  
+  //setup E10s message processing
+  MESSAGES: [ 'sendToTGMChrome' ],
+
+  receiveMessage: function(msg) {
+	if (msg.name != 'sendToTGMChrome') return;
+	
+	switch (msg.data.msgType) {
+		case "linkTarget": // set our target in chrome code
+			TabGroupsManager.contextTargetHref = msg.data.href;
+			break;
+	}
+  }
+};
+//setup E10s message manager and framescript
+TabGroupsManager.addFrameScript=function(){
+  //use group mm browsers
+  let mm = window.getGroupMessageManager("browsers");
+  		
+  //enable delayed load for new tabs
+  mm.loadFrameScript("chrome://tabgroupsmanager/content/TabGroupsManager-content.js", true);
+
+  //setup chrome message listener		
+  for (let msg of this.MESSAGES) {
+	mm.addMessageListener(msg, this.receiveMessage);
+  }
 };
 TabGroupsManager.onLoad=function(event){
   window.removeEventListener("load",arguments.callee,false);
@@ -27,6 +54,7 @@ TabGroupsManager.onUnload=function(event){
 TabGroupsManager.initialize=function(event){
   try
   {
+    this.addFrameScript();
     this.lastId=1;
     this.strings=document.getElementById("TabGroupsManagerStrings");
     Components.utils.import("resource://tabgroupsmanager/modules/TabGroupsManager.jsm");
@@ -1797,11 +1825,11 @@ TabGroupsManager.EventListener.prototype.contentAreaContextMenuShowHideItems=fun
   document.getElementById("TabGroupsManagerLinkOpenInNewGroupSeparator").hidden=!gContextMenu.onLink;
 };
 TabGroupsManager.EventListener.prototype.linkOpenInNewGroup=function(){
-  var newTab=TabGroupsManager.overrideMethod.gBrowserAddTab(document.popupNode.href);
+  var newTab=TabGroupsManager.overrideMethod.gBrowserAddTab(TabGroupsManager.contextTargetHref);
   TabGroupsManager.allGroups.openNewGroup(newTab);
 };
 TabGroupsManager.EventListener.prototype.linkOpenInSelectedGroup=function(){
-  var newTab=TabGroupsManager.overrideMethod.gBrowserAddTab(document.popupNode.href);
+  var newTab=TabGroupsManager.overrideMethod.gBrowserAddTab(TabGroupsManager.contextTargetHref);
   var group=TabGroupsManager.allGroups.openNewGroup(newTab);
   TabGroupsManager.allGroups.selectedGroup=group;
 };

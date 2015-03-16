@@ -3093,7 +3093,7 @@ TabGroupsManager.GroupClass.prototype.addChildTabOfTST=function(parentTab){
 TabGroupsManager.GroupClass.prototype.addTabToSuspendArray=function(tab){
   tab.group=this;
   this.suspendArray.push(TabGroupsManager.session.getTabStateEx(tab));
-  this.suspendTitleList+="\n  "+tab.linkedBrowser.contentDocument.title;
+  this.suspendTitleList+="\n  "+tab.linkedBrowser.contentTitle;
   this.dispGroupLabel();
   if(this.suspendedTabIndex<0){
     this.suspendedTabIndex=0;
@@ -3335,7 +3335,7 @@ TabGroupsManager.GroupClass.prototype.autoRenameNameIcon=function(tab){
   if(tab){
     TabGroupsManager.allGroups.beginUpdate();
     this.image=tab.image;
-    var tabTitle=tab.linkedBrowser.contentDocument.title;
+    var tabTitle=tab.linkedBrowser.contentTitle;
     if(tabTitle!=""){
       this.autoRename(tabTitle);
     }else{
@@ -3347,7 +3347,7 @@ TabGroupsManager.GroupClass.prototype.autoRenameNameIcon=function(tab){
 };
 TabGroupsManager.GroupClass.prototype.autoRenameNameOnly=function(){
   if(this.selectedTab){
-    var tabTitle=this.selectedTab.linkedBrowser.contentDocument.title;
+    var tabTitle=this.selectedTab.linkedBrowser.contentTitle;
     if(tabTitle!=""){
       this.autoRename(tabTitle);
       this.disableAutoRenameByTimer();
@@ -3425,7 +3425,7 @@ TabGroupsManager.GroupClass.prototype.suspendGroup=function(notConfirm){
       this.suspendTitleList="";
       this.suspendArray=new Array();
       for(var i=0;i<this.tabArray.length;i++){
-        this.suspendTitleList+="\n  "+this.tabArray[i].linkedBrowser.contentDocument.title;
+        this.suspendTitleList+="\n  "+this.tabArray[i].linkedBrowser.contentTitle;
         this.suspendArray.push(TabGroupsManager.session.getTabStateEx(this.tabArray[i]));
       }
       this.suspendedTabIndex=this.tabArray.indexOf(this.selectedTab);
@@ -3729,7 +3729,7 @@ TabGroupsManager.GroupClass.prototype.bookmarkThisGroupCore=function(folderName,
       try
       {
         var uri=this.tabArray[i].linkedBrowser.currentURI;
-        var title=this.tabArray[i].linkedBrowser.contentDocument.title;
+        var title=this.tabArray[i].linkedBrowser.contentTitle;
         places.insertBookmark(newFolderId,uri,places.DEFAULT_INDEX,title);
       }
       catch(e){
@@ -4692,7 +4692,7 @@ TabGroupsManager.GroupsStore.prototype.sendTabToGroupsStore=function(tab,groupId
   if(groupData){
     TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupId",groupId.toString());
     TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupName",groupData.name);
-    groupData.titleList+=tab.linkedBrowser.contentDocument.title+"\n";
+    groupData.titleList+=tab.linkedBrowser.contentTitle+"\n";
     groupData.tabs.push(TabGroupsManager.session.getTabStateEx(tab));
     tab.group.removeTabWithoutClosedTabsList(tab);
   }

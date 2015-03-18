@@ -3265,8 +3265,8 @@ TabGroupsManager.GroupClass.prototype.removeTab=function(tab,fromTabCloseEvent,n
     }else{
       this.close();
     }
-  }else{ //only if the closed tab is selected & use fromTabCloseEvent -> for manually close a tab and prevent loading several tabs in one group at startup
-    if(this.selectedTab==tab&&fromTabCloseEvent){
+  }else{ //for startup allow select tab only if group is in status restored to prevent 2 loaded tabs in group
+    if(this.selectedTab==tab&&TabGroupsManager.session.groupRestored==2){
       this._selectedTab=this.getNextTabWhenTabRemove(tab);
       if(this.selected&&this._selectedTab&&TabGroupsManager.preferences.focusTabWhenActiveTabClosed!=-1){
         gBrowser.selectedTab=this._selectedTab;

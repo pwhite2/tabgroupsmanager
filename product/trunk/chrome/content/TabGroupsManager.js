@@ -1352,34 +1352,46 @@ TabGroupsManager.Session.prototype.setClosedTabJson=function(jsonData){
   }
 };
 TabGroupsManager.Session.prototype.getTabStateEx=function(tab){
-  if(tab.linkedBrowser&&tab.linkedBrowser.currentURI.spec=="about:config"&&!tab.linkedBrowser.contentDocument.getElementById("textbox")){
-    this.tmpOverrideGetElementByIdForAboutConfig(tab);
-    try
-    {
-      return this.sessionStore.getTabState(tab);
-    }
-    finally
-    {
-      delete tab.linkedBrowser.contentDocument.getElementById;
-    }
+  //when do we get no textbox in about:config? -> override this for E10s
+  if (!tab.linkedBrowser.ownerDocument.defaultView.gMultiProcessBrowser){
+	if(tab.linkedBrowser&&tab.linkedBrowser.currentURI.spec=="about:config"&&!tab.linkedBrowser.contentDocument.getElementById("textbox")){
+		this.tmpOverrideGetElementByIdForAboutConfig(tab);
+		try
+		{
+		  return this.sessionStore.getTabState(tab);
+		}
+		finally
+		{
+		  delete tab.linkedBrowser.contentDocument.getElementById;
+		}
+	}
   }
   return this.sessionStore.getTabState(tab);
 };
 TabGroupsManager.Session.prototype.duplicateTabEx=function(aWindow,tab){
-  if(tab.linkedBrowser&&tab.linkedBrowser.currentURI.spec=="about:config"&&!tab.linkedBrowser.contentDocument.getElementById("textbox")){
-    this.tmpOverrideGetElementByIdForAboutConfig(tab);
-    try
-    {
-      return this.sessionStore.duplicateTab(aWindow,tab);
-    }
-    finally
-    {
-      delete tab.linkedBrowser.contentDocument.getElementById;
-    }
+  //when do we get no textbox in about:config? -> override this for E10s
+  if (!tab.linkedBrowser.ownerDocument.defaultView.gMultiProcessBrowser){
+	if(tab.linkedBrowser&&tab.linkedBrowser.currentURI.spec=="about:config"&&!tab.linkedBrowser.contentDocument.getElementById("textbox")){
+		this.tmpOverrideGetElementByIdForAboutConfig(tab);
+		try
+		{
+		  return this.sessionStore.duplicateTab(aWindow,tab);
+		}
+		finally
+		{
+		  delete tab.linkedBrowser.contentDocument.getElementById;
+		}
+	}
   }
   return this.sessionStore.duplicateTab(aWindow,tab);
 };
 TabGroupsManager.Session.prototype.tmpOverrideGetElementByIdForAboutConfig=function(tab){
+  //http://zpao.com/posts/session-restore-changes-in-firefox-15/ > '#' removed > fx 15
+  //Bug 947212 - Broadcast form data and move it out of tabData.entries[] > fx 29
+  //let state = JSON.parse(this.sessionStore.getTabState(tab));
+  //let textbox = state.formdata.id["textbox"];
+
+  //no reason to fix this, there is always a textbox element for about:config - not sure when this will be called
   let ssData=tab.linkedBrowser.__SS_data;
   let textbox=ssData.entries[ssData.index-1].formdata["#textbox"];
   tab.linkedBrowser.contentDocument.getElementById=function(){return{value:textbox}};

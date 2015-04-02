@@ -28,9 +28,12 @@ var TabGroupsManager=
   }
 };
 //setup E10s message manager and framescript
-TabGroupsManager.addFrameScript=function(){
-  //use group mm browsers
-  let mm = window.getGroupMessageManager("browsers");
+TabGroupsManager.addFrameScript=function(){  
+  let mm = null;
+	
+  //use group mm browsers only for Fx > 32
+  if (window.getGroupMessageManager) mm = window.getGroupMessageManager("browsers");
+  else mm = window.messageManager;
   		
   //enable delayed load for new tabs
   mm.loadFrameScript("chrome://tabgroupsmanager/content/TabGroupsManager-content.js", true);

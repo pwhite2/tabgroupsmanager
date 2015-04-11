@@ -1421,7 +1421,16 @@ TabGroupsManagerJsm.QuitApplicationObserver.prototype.quitApplication=function()
 };
 const Cc=Components.classes;
 const Ci=Components.interfaces;
-const Application=Cc["@mozilla.org/fuel/application;1"].getService(Ci.fuelIApplication);
+
+var Application = null;
+
+try {
+	Components.utils.import("resource://gre/modules/Services.jsm");
+	Application=Services.wm.getMostRecentWindow("navigator:browser");
+} catch (ex) { //use Fuel API for Fx 3.6
+	Application=Cc["@mozilla.org/fuel/application;1"].getService(Ci.fuelIApplication); 
+}
+
 const nsIWindowMediator=Cc["@mozilla.org/appshell/window-mediator;1"].getService(Ci.nsIWindowMediator);
 function alert(text){
   TabGroupsManagerJsm.displayError.alert(text);

@@ -367,7 +367,7 @@ TabGroupsManagerJsm.ApplicationStatus.prototype.modifyGroupId=function(groupData
 TabGroupsManagerJsm.SearchPlugins=function(){
   try
   {
-    /*modified*///this.searchPluginHidden();
+    this.searchPluginHidden();
   }
   catch(e){
     alertErrorIfDebug(e);
@@ -376,29 +376,38 @@ TabGroupsManagerJsm.SearchPlugins=function(){
 TabGroupsManagerJsm.SearchPlugins.prototype.getSearchPlugins=function(visible){
   var searchService=Cc["@mozilla.org/browser/search-service;1"].getService(Ci.nsIBrowserSearchService);
   var count={};
-  return visible?searchService.getVisibleEngines(count):searchService.getEngines(count);
+  var tmp=this;
+  if (visible == true) {
+	//we have only a problem on fx startup due async changes in Bug 760036 
+	searchService.init(function() {
+		var localeNow=tmp.selectLocale();
+		var engines = searchService.getVisibleEngines(count);
+		for(var i=0;i<engines.length;i++){
+			if(engines[i].description&&engines[i].description.match(/\(TabGroupsManagerSearchPlugin\:default\,(.+?)\)/)){
+				var localeOfPlugin=RegExp.$1.split(",");
+				if(!tmp.checkSearchPluginLocale(localeOfPlugin,localeNow)){
+					engines[i].hidden=true;
+				}
+			}
+		}
+	});
+  } else {
+	//on simple pref change later we can return result immediately
+	return searchService.getEngines(count);
+  }
 };
 TabGroupsManagerJsm.SearchPlugins.prototype.searchPluginHidden=function(){
-  /*modified*//*var localeNow=this.selectLocale();
-  var engines=this.getSearchPlugins(true);
-  for(var i=0;i<engines.length;i++){
-    if(engines[i].description&&engines[i].description.match(/\(TabGroupsManagerSearchPlugin\:default\,(.+?)\)/)){
-      var localeOfPlugin=RegExp.$1.split(",");
-      if(!this.checkSearchPluginLocale(localeOfPlugin,localeNow)){
-        engines[i].hidden=true;
-      }
-    }
-  }*/
+  this.getSearchPlugins(true);
 };
 TabGroupsManagerJsm.SearchPlugins.prototype.searchPluginSettingChange=function(display){
-  /*modified*//*var localeNow=this.selectLocale();
+  var localeNow=this.selectLocale();
   var engines=this.getSearchPlugins(false);
   for(var i=0;i<engines.length;i++){
     if(engines[i].description&&engines[i].description.match(/\(TabGroupsManagerSearchPlugin\:default\,(.+?)\)/)){
       var localeOfPlugin=RegExp.$1.split(",");
       engines[i].hidden=this.checkSearchPluginLocale(localeOfPlugin,localeNow)?!display:true;
     }
-  }*/
+  }
 };
 TabGroupsManagerJsm.SearchPlugins.prototype.registRemoveInQuitApplication=function(){
   try

@@ -115,7 +115,6 @@ TabGroupsManager.initialize=function(event){
   }
 };
 TabGroupsManager.initializeAfterOnLoad=function(){
-  this.session.restoreGroupsAndSleepingGroupsAndClosedGroups();
   var tabmixSessionsManager=("TMP_TabGroupsManager" in window)&&TMP_TabGroupsManager.tabmixSessionsManager();
   if(TabGroupsManager.session.sessionRestoreManually ||!tabmixSessionsManager){
     this.session.restoreGroupsAndSleepingGroupsAndClosedGroups();

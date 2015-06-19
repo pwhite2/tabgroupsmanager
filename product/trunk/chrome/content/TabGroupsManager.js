@@ -3556,9 +3556,8 @@ TabGroupsManager.GroupClass.prototype.removeAllTabsWithoutClosedTabsList=functio
 TabGroupsManager.GroupClass.prototype.initDefaultGroupAndModifyId=function(){
   if(this.id==-1){
     this.id=TabGroupsManagerJsm.applicationStatus.makeNewId();
-    var initialTabsInDefaultGroup = this.tabArray.length;
-    for(var i=0; i<initialTabsInDefaultGroup; i++){
-      var tab=this.tabArray[0]; /* fix: not [i] , since tabArray will get one less in each loop. */
+    for(var i=0;i<this.tabArray.length;i++){
+      var tab=this.tabArray[i];
       var groupId=TabGroupsManager.session.getGroupId(tab);
       if(isNaN(groupId)){
         TabGroupsManager.session.sessionStore.setTabValue(tab,"TabGroupsManagerGroupId",this.id.toString());
@@ -4006,14 +4005,8 @@ TabGroupsManager.AllGroups.prototype.saveAllGroupsDataImmediately=function(_this
 	  catch(e){
 		TabGroupsManagerJsm.displayError.alertErrorIfDebug(e);
 	  }
-	  if ( ('undefined' !== typeof window.TabmixSessionManager) &&
-		  (window.TabmixSessionManager) &&
-		  ('undefined' !== typeof TabmixSessionManager) &&
-		  (TabmixSessionManager) )
-	  {
-		if (("TMP_TabGroupsManager" in window) && ("saveAllGroupsData" in window.TabmixSessionManager)) {
-		  TabmixSessionManager.saveAllGroupsData(jsonText);
-		}
+	  if(("TMP_TabGroupsManager" in window)&&("saveAllGroupsData" in window.TabmixSessionManager)){
+		TabmixSessionManager.saveAllGroupsData(jsonText);
 	  }
   }
 };
@@ -4604,13 +4597,7 @@ TabGroupsManager.GroupBarDispHide.prototype.hideGroupBarByTabCount=function(){
 TabGroupsManager.GroupBarDispHide.prototype.saveGroupBarDispHideToSessionStore=function(){
   try
   {
-    var dispGroupBar = this.dispGroupBar;
-    if (('undefined' !== typeof dispGroupBar) && (dispGroupBar) ) {
-        if ('string' !== typeof dispGroupBar) {
-            dispGroupBar = dispGroupBar.toString();
-        }
-        TabGroupsManager.session.sessionStore.setWindowValue(window,"TabGroupsManagerGroupBarHide",dispGroupBar);
-    }
+    TabGroupsManager.session.sessionStore.setWindowValue(window,"TabGroupsManagerGroupBarHide",this.dispGroupBar);
   }
   catch(e){
   }

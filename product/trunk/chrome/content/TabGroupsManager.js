@@ -200,12 +200,16 @@ TabGroupsManager.utils=
 {
   nsIIOService:Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService)
 };
+//add result and rename tmp to result because tmp will be 0 if nothing is found
+//id is content and arguments are content, tabbrowser, arrowscrollbox
+//it seems that from getAnonymousElementByAttribute() nothing will be found here
 TabGroupsManager.utils.getElementByIdAndAnonids=function(id){
-  /*modified*//*var tmp=document.getElementById(id);
+  var result;
+  var tmp=document.getElementById(id);
   for(var i=1;i<arguments.length;i++){
-    tmp=document.getAnonymousElementByAttribute(tmp,"anonid",arguments[i]);
+    result=document.getAnonymousElementByAttribute(tmp,"anonid",arguments[i]);
   }
-  return tmp;*/
+  return result;
 };
 TabGroupsManager.utils.getElementByElementAndAnonids=function(element){
   var tmp=element;

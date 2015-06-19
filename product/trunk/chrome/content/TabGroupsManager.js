@@ -28,7 +28,7 @@ var TabGroupsManager=
   }
 };
 //setup E10s message manager and framescript
-TabGroupsManager.addFrameScript=function(){  
+TabGroupsManager.addFrameScript=function(){
   let mm = null;
 	
   //use group mm browsers only for Fx > 32
@@ -57,7 +57,7 @@ TabGroupsManager.onUnload=function(event){
 TabGroupsManager.initialize=function(event){
   try
   {
-    this.addFrameScript();
+	this.addFrameScript();
     this.lastId=1;
     this.strings=document.getElementById("TabGroupsManagerStrings");
     Components.utils.import("resource://tabgroupsmanager/modules/TabGroupsManager.jsm");
@@ -680,7 +680,7 @@ TabGroupsManager.Preferences.prototype.observe=function(aSubject,aTopic,aData){
 TabGroupsManager.Preferences.prototype.setButtonType=function(id,value){
   let element=document.getElementById(id);
   if(element){
-    if(value&&256){
+    if(value&256){
       element.type="menu-button";
     }else if(value==99){
       element.type="menu";
@@ -2784,10 +2784,10 @@ TabGroupsManager.progressListenerForGroup.prototype.QueryInterface=function(aIID
   throw Components.results.NS_NOINTERFACE;
 };
 TabGroupsManager.progressListenerForGroup.prototype.onStateChange=function(aWebProgress,aRequest,aFlag,aStatus){
-  if(aFlag&&this.startAndStop){
+  if(aFlag&this.startAndStop){
     var ownerGroup=this.ownerGroup;
     setTimeout(function(){ownerGroup.displayGroupBusy();},0);
-    if(aFlag&&Ci.nsIWebProgressListener.STATE_STOP){
+    if(aFlag&Ci.nsIWebProgressListener.STATE_STOP){
       if(aWebProgress.document&&aWebProgress.document.location=="about:sessionrestore"){
         var button=aWebProgress.document.getElementById("errorTryAgain");
         button.setAttribute("oncommand","getBrowserWindow().TabGroupsManager.session.restoreSessionFromAboutSessionRestore(); "+button.getAttribute("oncommand"));
@@ -4592,7 +4592,7 @@ TabGroupsManager.GroupBarDispHide.prototype.onMouseoutToolbox=function(){
 };
 TabGroupsManager.GroupBarDispHide.prototype.dispGroupBarByGroupCount=function(){
   if(TabGroupsManager.allGroups.childNodes.length!=1){
-    if(TabGroupsManager.preferences.hideGroupBarByTabGroupCount&&10){
+    if(TabGroupsManager.preferences.hideGroupBarByTabGroupCount&10){
       this.dispGroupBar=true;
     }
     this.dispGroupBarByTabCount();
@@ -4611,10 +4611,10 @@ TabGroupsManager.GroupBarDispHide.prototype.hideGroupBarByGroupCount=function(){
 };
 TabGroupsManager.GroupBarDispHide.prototype.dispGroupBarByTabCount=function(){
   if(TabGroupsManager.allGroups.childNodes.length!=1 || gBrowser.mTabContainer.childNodes.length!=1){
-    if(TabGroupsManager.preferences.hideGroupBarByTabGroupCount&&5){
+    if(TabGroupsManager.preferences.hideGroupBarByTabGroupCount&5){
       this.dispGroupBar=true;
     }
-    if(TabGroupsManager.preferences.hideGroupBarByTabGroupCount&&16){
+    if(TabGroupsManager.preferences.hideGroupBarByTabGroupCount&16){
       TabGroupsManager.xulElements.tabBar.removeAttribute("collapsed");
     }
   }

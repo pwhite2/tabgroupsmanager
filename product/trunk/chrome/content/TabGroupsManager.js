@@ -1668,34 +1668,31 @@ TabGroupsManager.EventListener.prototype.onTabShow=function(event){
 
 TabGroupsManager.EventListener.prototype.onTabHide=function(event){
   var tab=event.target;
+  let count = 0;
+  
+  function checkTabGroup() {
+	count++;
+	var activeGroupPromise = new Promise( 
+		function(resolve, reject) {       
+			setTimeout(function() {
+				if(typeof tab.group == "undefined" && count < 10) {
+					checkTabGroup();
+				} else resolve(tab);
+			}, 50);
+		});
+
+	activeGroupPromise.then(function(tab) {
+		if(tab.group.selected){
+			TabGroupsManager.utils.unHideTab(tab);
+		}
+	}, Components.utils.reportError);
+  }
 
   //check if tab.group is not defined at startup since Fx25+
-  if(TabGroupsManager.preferences.firefoxVersionCompare("28") == 1 && typeof tab.group == "undefined") { 
-	let count = 0;
-	function checkTabGroup() {
-		count++;
-		var activeGroupPromise = new Promise( 
-			function(resolve, reject) {       
-				setTimeout(function() {
-					if(typeof tab.group == "undefined" && count < 10) {
-						checkTabGroup();
-					} else resolve(tab);
-				}, 50);
-			});
-
-		activeGroupPromise.then(function(tab) {
-			if(tab.group.selected){
-				//tab.removeAttribute("hidden");
-				TabGroupsManager.utils.unHideTab(tab);
-			}
-		}, Components.utils.reportError);
-	}
-		
+  if(TabGroupsManager.preferences.firefoxVersionCompare("28") == 1 && typeof tab.group == "undefined") { 		
 	checkTabGroup();
-	
   } else {
 		if(tab.group.selected){
-			//tab.removeAttribute("hidden");
 			TabGroupsManager.utils.unHideTab(tab);
 		}
 	}

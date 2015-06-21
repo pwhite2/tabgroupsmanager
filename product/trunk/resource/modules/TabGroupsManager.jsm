@@ -853,7 +853,7 @@ TabGroupsManagerJsm.SaveData.prototype.saveFileFromTgmData=function(nsIFile,perm
     if(nsIFile instanceof TabGroupsManagerJsm.NsIFileWrapper){
       nsIFile=nsIFile.nsIFile;
     }
-    permission=permission || 0600;
+    permission=permission || parseInt("0600", 8);
     let bufferSize=4096;
     let charset="UTF-8";
     let flag=0x02 | 0x08 | 0x20;
@@ -1009,7 +1009,7 @@ TabGroupsManagerJsm.NsIFileWrapper.prototype.appendWithClone=function(){
 };
 TabGroupsManagerJsm.NsIFileWrapper.prototype.createFolder=function(folderName,permission){
   if(permission==null){
-    permission=0700;
+    permission=parseInt("0700", 8);
   }
   var newFolder=this;
   if(folderName){
@@ -1023,7 +1023,7 @@ TabGroupsManagerJsm.NsIFileWrapper.prototype.createFolder=function(folderName,pe
 };
 TabGroupsManagerJsm.NsIFileWrapper.prototype.forceCreateFolder=function(permission){
   if(permission==null){
-    permission=0700;
+    permission=parseInt("0700", 8);
   }
   var newFolder=this.appendWithClone();
   for(var i=1;i<arguments.length;i++){
@@ -1100,7 +1100,7 @@ TabGroupsManagerJsm.NsIFileWrapper.prototype.readFileAsText=function(filename){
 };
 TabGroupsManagerJsm.NsIFileWrapper.prototype.writeFileAsText=function(text,filename,permission){
   if(permission==null){
-    permission=0600;
+    permission=parseInt("0600", 8);
   }
   let file=this.nsIFile;
   if(filename){
@@ -1274,6 +1274,7 @@ TabGroupsManagerJsm.PrivateBrowsing=function(){
 		this._initialized=true;
 	}
   }
+  catch(e){}
 };
 TabGroupsManagerJsm.PrivateBrowsing.prototype.observe=function(aSubject,aTopic,aData){
   switch(aTopic){

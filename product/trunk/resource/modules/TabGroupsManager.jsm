@@ -872,7 +872,8 @@ TabGroupsManagerJsm.SaveData.prototype.saveFileFromTgmData=function(nsIFile,perm
     try
     {
       fileStream.init(nsIFile,flag,permission,0);
-      converterStream.init(fileStream,charset,bufferSize,Ci.nsIConverterOutputStream.DEFAULT_REPLACEMENT_CHARACTER);
+	  // we use nsIConverterInputStream -> on nsIConverterOutputStream is also no DEFAULT_REPLACEMENT_CHARACTER defined
+      converterStream.init(fileStream,charset,bufferSize,Ci.nsIConverterInputStream.DEFAULT_REPLACEMENT_CHARACTER);
       converterStream.writeString(TabGroupsManagerJsm.constValues.sessionDataType2);
       converterStream.writeString("\n");
       converterStream.writeString("Sleeping Groups:"+this.data.sleeping.length+"\n");

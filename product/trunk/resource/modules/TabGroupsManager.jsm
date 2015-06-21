@@ -848,23 +848,27 @@ TabGroupsManagerJsm.SaveData.prototype.loadTgmDataFromFile=function(nsIFile,read
   return null;
 };
 TabGroupsManagerJsm.SaveData.prototype.saveFileFromTgmData=function(nsIFile,permission){
+  let converterStream=Cc["@mozilla.org/intl/converter-output-stream;1"].createInstance(Ci.nsIConverterOutputStream);
+  let bufferSize=4096;
+	
+  function writeLineSplitToConverterStream(text){
+    for(let i=0;i<text.length;i+=bufferSize){
+		converterStream.writeString(text.substr(i,bufferSize));
+	}
+	converterStream.writeString("\n");
+  };
+	
   try
   {
     if(nsIFile instanceof TabGroupsManagerJsm.NsIFileWrapper){
       nsIFile=nsIFile.nsIFile;
     }
     permission=permission || parseInt("0600", 8);
-    let bufferSize=4096;
+   
     let charset="UTF-8";
     let flag=0x02 | 0x08 | 0x20;
     let fileStream=Cc["@mozilla.org/network/file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
-    let converterStream=Cc["@mozilla.org/intl/converter-output-stream;1"].createInstance(Ci.nsIConverterOutputStream);
-    function writeLineSplitToConverterStream(text){
-      for(let i=0;i<text.length;i+=bufferSize){
-        converterStream.writeString(text.substr(i,bufferSize));
-      }
-      converterStream.writeString("\n");
-    };
+    
     try
     {
       fileStream.init(nsIFile,flag,permission,0);

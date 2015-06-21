@@ -1,4 +1,8 @@
 var EXPORTED_SYMBOLS=["TabGroupsManagerJsm"];
+
+Components.utils.import("resource://gre/modules/devtools/Console.jsm");
+//var {PrivateBrowsingUtils} = Components.utils.import("resource://gre/modules/PrivateBrowsingUtils.jsm");
+
 var TabGroupsManagerJsm=
 {
   constValues:
@@ -1255,14 +1259,20 @@ TabGroupsManagerJsm.PrivateBrowsing=function(){
     this.__defineGetter__("entering",this.getEntering);
     this.__defineGetter__("exiting",this.getExiting);
     this.__defineGetter__("enteringOrExiting",this.getEnteringOrExiting);
-    this.nsIPrivateBrowsingService=Cc["@mozilla.org/privatebrowsing;1"].getService(Ci.nsIPrivateBrowsingService);
-    this._inPrivateBrowsing=this.nsIPrivateBrowsingService.privateBrowsingEnabled;
-    this.observerService=Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
-    this.observerService.addObserver(this,"private-browsing",false);
-    this.observerService.addObserver(this,"quit-application",false);
-    this._initialized=true;
-  }
-  catch(e){
+	
+	this._info=Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo).version
+	this._version=this._info.substr(0,this._info.indexOf('.'));
+	
+    //Mozilla removed old private browsing interface functionality for FX 20 and dummy interface with Bug 845063 for Fx 22
+	//https://developer.mozilla.org/en-US/docs/Updating_addons_broken_by_private_browsing_changes
+	if(this._version <  20){
+		this.nsIPrivateBrowsingService=Cc["@mozilla.org/privatebrowsing;1"].getService(Ci.nsIPrivateBrowsingService);
+		this._inPrivateBrowsing=this.nsIPrivateBrowsingService.privateBrowsingEnabled;
+		this.observerService=Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService);
+		this.observerService.addObserver(this,"private-browsing",false);
+		this.observerService.addObserver(this,"quit-application",false);
+		this._initialized=true;
+	}
   }
 };
 TabGroupsManagerJsm.PrivateBrowsing.prototype.observe=function(aSubject,aTopic,aData){

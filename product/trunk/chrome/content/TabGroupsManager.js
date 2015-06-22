@@ -1062,7 +1062,7 @@ TabGroupsManager.Places.prototype.allOpenInNewGroup=function(bookmarkFolder){
   if(!bookmarkFolder ||!PlacesUtils.nodeIsFolder(bookmarkFolder)){
     return null;
   }
-  var bookmarkFolder=PlacesUtils.getFolderContents(bookmarkFolder.itemId).root;
+  bookmarkFolder=PlacesUtils.getFolderContents(bookmarkFolder.itemId).root;
   var count=0;
   for(var i=0;i<bookmarkFolder.childCount;i++){
     if(PlacesUtils.nodeIsBookmark(bookmarkFolder.getChild(i))){
@@ -3919,7 +3919,7 @@ TabGroupsManager.AllGroups.prototype.openNewGroupActive=function(tab,id,name,ima
   return group;
 };
 TabGroupsManager.AllGroups.prototype.openNewGroupRename=function(tab,id,name,image){
-  var name=window.prompt(TabGroupsManager.strings.getString("RenameDialogMessage"),"");
+  name=window.prompt(TabGroupsManager.strings.getString("RenameDialogMessage"),"");
   if(name!==null){
     var group=this.openNewGroup(tab,id,name,image);
     TabGroupsManagerJsm.globalPreferences.addGroupNameHistory(name);
@@ -5692,7 +5692,7 @@ TabGroupsManager.OverrideMethod.prototype.override_gBrowser_removeTab=function(a
 };
 TabGroupsManager.OverrideMethod.prototype.override_gBrowser_addTab=function(aURI,aReferrerURI,aCharset,aPostData,aOwner,aAllowThirdPartyFixup){
   if(aURI&&-1!=aURI.indexOf("tabgroupsmanagersearchplugin=")){
-    var [aCharset,aPostData]=TabGroupsManager.overrideMethod.parseReferrerURI(arguments,aCharset,aPostData);
+    [aCharset,aPostData]=TabGroupsManager.overrideMethod.parseReferrerURI(arguments,aCharset,aPostData);
     return TabGroupsManager.searchPlugin.mySearchByUri(aURI,aCharset,aPostData);
   }else if(TabGroupsManager.preferences.openNewGroupByShift&&TabGroupsManager.keyboardState.shiftKey){
     let newTab=TabGroupsManager.overrideMethod.backup_gBrowser_addTab.apply(this,arguments);
@@ -5703,7 +5703,7 @@ TabGroupsManager.OverrideMethod.prototype.override_gBrowser_addTab=function(aURI
 };
 TabGroupsManager.OverrideMethod.prototype.override_gBrowser_loadOneTab=function(aURI,aReferrerURI,aCharset,aPostData,aLoadInBackground,aAllowThirdPartyFixup){
   if(aURI&&-1!=aURI.indexOf("tabgroupsmanagersearchplugin=")){
-    var [aCharset,aPostData]=TabGroupsManager.overrideMethod.parseReferrerURI(arguments,aCharset,aPostData);
+    [aCharset,aPostData]=TabGroupsManager.overrideMethod.parseReferrerURI(arguments,aCharset,aPostData);
     return TabGroupsManager.searchPlugin.mySearchByUri(aURI,aCharset,aPostData);
   }else if(TabGroupsManager.preferences.openNewGroupByShift&&TabGroupsManager.keyboardState.shiftKey){
     let newTab=TabGroupsManager.overrideMethod.backup_gBrowser_addTab.call(this,aURI,aReferrerURI,aCharset,aPostData,undefined,aAllowThirdPartyFixup);

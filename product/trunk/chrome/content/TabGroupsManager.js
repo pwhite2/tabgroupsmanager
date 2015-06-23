@@ -2984,7 +2984,7 @@ TabGroupsManager.GroupClass.prototype.dispHideGroupIcon=function(value){
 TabGroupsManager.GroupClass.prototype.addTab=function(tab,fromSessionStore){
   try
   {
-    if(tab.group==this){
+    if(typeof tab.group != "undefined" && tab.group==this){
       return;
     }
     if(tab.tabGroupsManagerTabTree){

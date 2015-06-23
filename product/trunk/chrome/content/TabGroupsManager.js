@@ -580,6 +580,7 @@ TabGroupsManager.Preferences.prototype.observe=function(aSubject,aTopic,aData){
     case"normalGroupStyle":
     {
       let tmp=this.prefBranch.getCharPref("normalGroupStyle");
+      if(!this.normalGroupStyle) this.normalGroupStyle = null;
       this.rewriteStyleSheet(".tabgroupsmanager-grouptab ", this.normalGroupStyle, tmp);
       this.normalGroupStyle = tmp;
       break;
@@ -587,6 +588,7 @@ TabGroupsManager.Preferences.prototype.observe=function(aSubject,aTopic,aData){
     case"selectedGroupStyle":
     {
       let tmp=this.prefBranch.getCharPref("selectedGroupStyle");
+      if(!this.selectedGroupStyle) this.selectedGroupStyle = null;
       this.rewriteStyleSheet(".tabgroupsmanager-grouptab[selected='true'] ",this.selectedGroupStyle,tmp);
       this.selectedGroupStyle=tmp;
       break;
@@ -594,6 +596,7 @@ TabGroupsManager.Preferences.prototype.observe=function(aSubject,aTopic,aData){
     case"unreadGroupStyle":
     {
       let tmp=this.prefBranch.getCharPref("unreadGroupStyle");
+      if(!this.unreadGroupStyle) this.unreadGroupStyle = null;
       this.rewriteStyleSheet(".tabgroupsmanager-grouptab[unread] ",this.unreadGroupStyle,tmp);
       this.unreadGroupStyle=tmp;
       break;
@@ -601,6 +604,7 @@ TabGroupsManager.Preferences.prototype.observe=function(aSubject,aTopic,aData){
     case"suspendedGroupStyle":
     {
       let tmp=this.prefBranch.getCharPref("suspendedGroupStyle");
+      if(!this.suspendedGroupStyle) this.suspendedGroupStyle = null;
       this.rewriteStyleSheet(".tabgroupsmanager-grouptab[suspended] ",this.suspendedGroupStyle,tmp);
       this.suspendedGroupStyle=tmp;
       break;

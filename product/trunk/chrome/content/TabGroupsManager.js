@@ -109,15 +109,26 @@ TabGroupsManager.initialize=function(event){
         group.close();
       }
     }
+    //we need this only on blank page on homepage startup - this will be called again later on session restore in mode 3
+    if (TabGroupsManager.preferences.startupMode < 3) setTimeout(function(){TabGroupsManager.initializeAfterOnLoad();},10);
   }
   catch(e){
 	TabGroupsManagerJsm.displayError.alertErrorIfDebug(e);
   }
 };
 TabGroupsManager.initializeAfterOnLoad=function(){
+  //prepare promiseInitialized request
+  var _this = this;
+  var ss = Components.utils.import('resource:///modules/sessionstore/SessionStore.jsm');
+  var version = TabGroupsManager.preferences.firefoxVersion();
+
   var tabmixSessionsManager=("TMP_TabGroupsManager" in window)&&TMP_TabGroupsManager.tabmixSessionsManager();
   if(TabGroupsManager.session.sessionRestoreManually ||!tabmixSessionsManager){
-    this.session.restoreGroupsAndSleepingGroupsAndClosedGroups();
+	if(version > "28") {
+		ss.SessionStore.promiseInitialized.then(function() {
+			_this.session.restoreGroupsAndSleepingGroupsAndClosedGroups();
+		});
+	} else this.session.restoreGroupsAndSleepingGroupsAndClosedGroups();
   }
   if(this.initialized){
     return;
@@ -135,10 +146,13 @@ TabGroupsManager.initializeAfterOnLoad=function(){
       }
     }
   }
-  catch(e){
-  }
+  catch(e){} 
   this.tabContextMenu.makeMenu();
-  this.groupBarDispHide.firstStatusOfGroupBarDispHide();
+  if(version > "28") {
+	  ss.SessionStore.promiseInitialized.then(function() {
+		_this.groupBarDispHide.firstStatusOfGroupBarDispHide();
+	  });
+  } else this.groupBarDispHide.firstStatusOfGroupBarDispHide();
   setTimeout(function(){TabGroupsManager.onLoadDelay1000();},1000);
 };
 TabGroupsManager.onLoadDelay1000=function(){
@@ -475,6 +489,7 @@ TabGroupsManager.Preferences=function(){
     if(this.tabTreeOpenTabByJavaScript){
       this.prefRoot.setBoolPref("browser.tabs.insertRelatedAfterCurrent",false);
     }
+    this.startupMode=this.prefRoot.getIntPref("browser.startup.page");
     this.debug=this.prefBranch.getBoolPref("debug");
   }
   catch(e){
@@ -698,6 +713,9 @@ TabGroupsManager.Preferences.prototype.setButtonType=function(id,value){
 };
 TabGroupsManager.Preferences.prototype.firefoxVersionCompare=function(target){
   return this.versionComparator.compare(this.firefoxAppInfo.version,target);
+};
+TabGroupsManager.Preferences.prototype.firefoxVersion=function(){
+  return this.firefoxAppInfo.version.substr(0, this.firefoxAppInfo.version.indexOf('.'));
 };
 TabGroupsManager.Preferences.prototype.addStyleSheet=function(text){
   var sss=Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService);
